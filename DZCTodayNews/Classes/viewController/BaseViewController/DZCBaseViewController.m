@@ -8,15 +8,15 @@
 
 #import "DZCBaseViewController.h"
 #import "DZCMainViewController.h"
-@interface DZCBaseViewController ()
+#import "DZCMainCollectionVIew.h"
+@interface DZCBaseViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic,strong)NSArray *barItems;
 @end
 
 @implementation DZCBaseViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     
     [self CreatTabBarItem];
 }
@@ -38,16 +38,60 @@
             UIImage *hlimage = [UIImage imageNamed:dictKeyname[@"HLpic"]];
             NSString *title = dictKeyname[@"title"];
             vc.tabBarItem = [vc.tabBarItem initWithTitle:title image:image selectedImage:hlimage];
-            
+            [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.redColor,
+                                                    NSFontAttributeName:[UIFont systemFontOfSize:(16)]} forState:UIControlStateSelected];
             [controllers addObject:vc];
             
         };
+        
         self.viewControllers = controllers;
-
+  
+        [self.viewControllers.firstObject.view addSubview:[self SetupupCollectionview]];
     };
 
 }
+//添加collectionview到基类视图
+-(DZCMainCollectionVIew  *)SetupupCollectionview{
+    UICollectionViewFlowLayout *viewlayout = [[UICollectionViewFlowLayout alloc]init];
 
+    DZCMainCollectionVIew *collectionview=[[DZCMainCollectionVIew alloc]initWithFrame:SCREENBOUNDS collectionViewLayout:viewlayout];
+    
+    collectionview.backgroundColor = UIColor.blueColor;
+    collectionview.bounces=NO;
+    collectionview.pagingEnabled = YES;
+    collectionview.showsHorizontalScrollIndicator=YES;
+    [collectionview registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellid"];
+    
+    collectionview.delegate = self;
+    collectionview.dataSource = self;
+    collectionview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentScrollableAxes;
+    return collectionview;
+    
+}
+
+
+
+
+///FIXME等待网络模型跟进修改数据源方法
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
+    if (cell==nil) {
+        cell = [[UICollectionViewCell alloc]init];
+    }
+
+    return cell;
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+{
+
+    
+ 
+}
 
 
 
