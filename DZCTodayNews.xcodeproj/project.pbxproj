@@ -23,6 +23,7 @@
 		22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193F2E2191629500FC150A /* DZCXiGuaVC.m */; };
 		225136872193D4B600ED382D /* DZCMainNewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225136862193D4B600ED382D /* DZCMainNewsTableView.m */; };
 		225136892193DECB00ED382D /* NewsTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225136882193DECB00ED382D /* NewsTableview.xib */; };
+		228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 228656F92195115B001F8E60 /* DZCRereshControl.m */; };
 		22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
 		FEF09B2647EDE0F57D7D84D3 /* Pods_DZCTodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */; };
@@ -59,6 +60,8 @@
 		225136852193D4B600ED382D /* DZCMainNewsTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainNewsTableView.h; sourceTree = "<group>"; };
 		225136862193D4B600ED382D /* DZCMainNewsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainNewsTableView.m; sourceTree = "<group>"; };
 		225136882193DECB00ED382D /* NewsTableview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableview.xib; sourceTree = "<group>"; };
+		228656F82195115B001F8E60 /* DZCRereshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRereshControl.h; sourceTree = "<group>"; };
+		228656F92195115B001F8E60 /* DZCRereshControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRereshControl.m; sourceTree = "<group>"; };
 		22A018B2219320D500BE73D5 /* DZCMainCollectionVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainCollectionVIew.h; sourceTree = "<group>"; };
 		22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainCollectionVIew.m; sourceTree = "<group>"; };
 		22BE19FD21926B310041E47D /* TabBarItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TabBarItem.plist; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		22193F0721912AE300FC150A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				228656F72195111B001F8E60 /* RefreshControl */,
 				22A018B1219320C200BE73D5 /* MainCollectionView */,
 				22A018B021931E4600BE73D5 /* HomeView */,
 				22A018AF21931E3500BE73D5 /* XiGuaVideo */,
@@ -204,6 +208,15 @@
 				225136862193D4B600ED382D /* DZCMainNewsTableView.m */,
 			);
 			path = MainNewsTableView;
+			sourceTree = "<group>";
+		};
+		228656F72195111B001F8E60 /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				228656F82195115B001F8E60 /* DZCRereshControl.h */,
+				228656F92195115B001F8E60 /* DZCRereshControl.m */,
+			);
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		22A018AB21931DA500BE73D5 /* Extesion */ = {
@@ -437,6 +450,7 @@
 				22193EFD219119F500FC150A /* main.m in Sources */,
 				22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */,
 				22193EEF219119F300FC150A /* AppDelegate.m in Sources */,
+				228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */,
 				22193F262191620E00FC150A /* DZCPulishVC.m in Sources */,
 				225136872193D4B600ED382D /* DZCMainNewsTableView.m in Sources */,
 				22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */,

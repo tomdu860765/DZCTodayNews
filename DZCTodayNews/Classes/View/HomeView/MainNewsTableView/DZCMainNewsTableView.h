@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DZCMainNewsTableView : UITableView
 
 +(UITableView *)SetupNewsTableview:(DZCHomeViewVC* )controller tableviewrect:(CGRect)rect;
+
 @end
 
 NS_ASSUME_NONNULL_END

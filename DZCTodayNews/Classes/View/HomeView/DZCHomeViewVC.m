@@ -10,10 +10,11 @@
 #import "DZCMainCollectionVIew.h"
 #import "DZCMainNewsTableView.h"
 #import "Masonry.h"
-
+#import "DZCRereshControl.h"
 @interface DZCHomeViewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *naviScrollview;
 @property(nonatomic,strong)UITableView *newsTableview;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @end
 
 @implementation DZCHomeViewVC
@@ -37,13 +38,22 @@
     
     return _newsTableview;
 }
+//FIXME模拟数据源方法
+-(NSMutableArray*)dataArray{
+    if (!_dataArray) {
+        _dataArray=NSMutableArray.array;
+    }
+
+    return _dataArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+   
     [self addMainScrollview];
     [self SetupupnaviScrollview];
-    
+    [self refreshloaddata];
+
 }
 
 ///FIXME滚动视图的滚动范围受数据源方法影响需要修改,并修改添加按钮
@@ -73,7 +83,16 @@
     sv.bounces=false;
     sv.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentScrollableAxes;
     [sv addSubview:self.newsTableview];
-  
+    DZCRereshControl *rereshControl=DZCRereshControl.new;
+    [rereshControl addRefreshControlheader:self.newsTableview vcblock:^{
+        [self refreshloaddata];
+        NSLog(@"上拉刷新");
+    }];
+    [rereshControl addfooterRefresh:self.newsTableview vcblock:^{
+        [self refreshloaddata];
+        NSLog(@"下拉刷新");
+    }];
+    
     [self.view addSubview:sv];
     [self.newsTableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.naviScrollview.mas_bottom).offset(0);
@@ -86,17 +105,34 @@
 //FIXME,等带数据源改造tableview加载方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 20;
+    return self.dataArray.count;
 }
 
 //FIXME等待数据源改造
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"newscell"];
+    cell.textLabel.text=self.dataArray[indexPath.row];
+   
     if (cell==nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"newscell"];
     }
+   
     return cell;
 }
+//FIXME刷新方法待用,注意数据是插入最前面
+-(void)refreshloaddata{
+    
+    for (int i=0; i<15; i++) {
+        NSString *string=[NSString localizedStringWithFormat:@"%d",i];
+        [self.dataArray insertObject:string atIndex:0];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [self.newsTableview reloadData];
+    });
+
+    NSLog(@"载入数据");
+}
+
 
 
 @end
