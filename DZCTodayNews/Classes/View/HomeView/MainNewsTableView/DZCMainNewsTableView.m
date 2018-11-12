@@ -23,9 +23,7 @@
     tableview.delegate=(id)controller;
     tableview.dataSource=(id)controller;
     tableview.showsVerticalScrollIndicator=NO;
-    tableview.autoresizingMask=UIViewAutoresizingFlexibleHeight;
-    
-    
+  
     
     return tableview;
 }

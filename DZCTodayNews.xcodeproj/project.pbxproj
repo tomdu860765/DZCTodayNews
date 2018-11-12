@@ -23,6 +23,10 @@
 		22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193F2E2191629500FC150A /* DZCXiGuaVC.m */; };
 		225136872193D4B600ED382D /* DZCMainNewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225136862193D4B600ED382D /* DZCMainNewsTableView.m */; };
 		225136892193DECB00ED382D /* NewsTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225136882193DECB00ED382D /* NewsTableview.xib */; };
+		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
+		22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */; };
+		227A1D67219888A6009808A0 /* DZCTitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A1D66219888A6009808A0 /* DZCTitleScrollView.m */; };
+		227A1D6D21988ACC009808A0 /* DZCMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */; };
 		228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 228656F92195115B001F8E60 /* DZCRereshControl.m */; };
 		22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
@@ -60,6 +64,14 @@
 		225136852193D4B600ED382D /* DZCMainNewsTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainNewsTableView.h; sourceTree = "<group>"; };
 		225136862193D4B600ED382D /* DZCMainNewsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainNewsTableView.m; sourceTree = "<group>"; };
 		225136882193DECB00ED382D /* NewsTableview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableview.xib; sourceTree = "<group>"; };
+		22779B6421971CB600E2186F /* DZCTitleScrollViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollViewModel.h; sourceTree = "<group>"; };
+		22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollViewModel.m; sourceTree = "<group>"; };
+		22779B672197200F00E2186F /* DZCNewsNetWorkTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCNewsNetWorkTools.h; sourceTree = "<group>"; };
+		22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCNewsNetWorkTools.m; sourceTree = "<group>"; };
+		227A1D65219888A6009808A0 /* DZCTitleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollView.h; sourceTree = "<group>"; };
+		227A1D66219888A6009808A0 /* DZCTitleScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollView.m; sourceTree = "<group>"; };
+		227A1D6B21988ACC009808A0 /* DZCMainScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZCMainScrollView.h; path = DZCTodayNews/Classes/View/ScrollView/MainScrollview/DZCMainScrollView.h; sourceTree = SOURCE_ROOT; };
+		227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZCMainScrollView.m; path = DZCTodayNews/Classes/View/ScrollView/MainScrollview/DZCMainScrollView.m; sourceTree = SOURCE_ROOT; };
 		228656F82195115B001F8E60 /* DZCRereshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRereshControl.h; sourceTree = "<group>"; };
 		228656F92195115B001F8E60 /* DZCRereshControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRereshControl.m; sourceTree = "<group>"; };
 		22A018B2219320D500BE73D5 /* DZCMainCollectionVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainCollectionVIew.h; sourceTree = "<group>"; };
@@ -135,6 +147,7 @@
 		22193F0721912AE300FC150A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				227A1D642198888A009808A0 /* ScrollView */,
 				228656F72195111B001F8E60 /* RefreshControl */,
 				22A018B1219320C200BE73D5 /* MainCollectionView */,
 				22A018B021931E4600BE73D5 /* HomeView */,
@@ -210,6 +223,33 @@
 			path = MainNewsTableView;
 			sourceTree = "<group>";
 		};
+		2266D9CC2199060B0082ED03 /* MainScrollview */ = {
+			isa = PBXGroup;
+			children = (
+				227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */,
+				227A1D6B21988ACC009808A0 /* DZCMainScrollView.h */,
+			);
+			path = MainScrollview;
+			sourceTree = "<group>";
+		};
+		227A1D642198888A009808A0 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				2266D9CC2199060B0082ED03 /* MainScrollview */,
+				227A1D6921988A9F009808A0 /* TItleScrollview */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		227A1D6921988A9F009808A0 /* TItleScrollview */ = {
+			isa = PBXGroup;
+			children = (
+				227A1D65219888A6009808A0 /* DZCTitleScrollView.h */,
+				227A1D66219888A6009808A0 /* DZCTitleScrollView.m */,
+			);
+			path = TItleScrollview;
+			sourceTree = "<group>";
+		};
 		228656F72195111B001F8E60 /* RefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +269,8 @@
 		22A018AC21931DAD00BE73D5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				22779B672197200F00E2186F /* DZCNewsNetWorkTools.h */,
+				22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -236,6 +278,8 @@
 		22A018AD21931DB800BE73D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				22779B6421971CB600E2186F /* DZCTitleScrollViewModel.h */,
+				22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,17 +484,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227A1D6D21988ACC009808A0 /* DZCMainScrollView.m in Sources */,
 				22193F23219161D500FC150A /* DZCHuoShanVC.m in Sources */,
 				22193EF2219119F300FC150A /* ViewController.m in Sources */,
 				22193F1A2191375C00FC150A /* DZCMainViewController.m in Sources */,
 				22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */,
 				22193F152191369D00FC150A /* DZCNaviViewController.m in Sources */,
 				22193F2C2191628200FC150A /* DZCHomeViewVC.m in Sources */,
+				22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */,
 				22193F122191365500FC150A /* DZCBaseViewController.m in Sources */,
 				22193EFD219119F500FC150A /* main.m in Sources */,
+				22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */,
 				22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */,
 				22193EEF219119F300FC150A /* AppDelegate.m in Sources */,
 				228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */,
+				227A1D67219888A6009808A0 /* DZCTitleScrollView.m in Sources */,
 				22193F262191620E00FC150A /* DZCPulishVC.m in Sources */,
 				225136872193D4B600ED382D /* DZCMainNewsTableView.m in Sources */,
 				22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */,
