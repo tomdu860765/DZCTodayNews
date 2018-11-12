@@ -21,6 +21,8 @@
 		22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193F282191626C00FC150A /* DZCHeadNewsVC.m */; };
 		22193F2C2191628200FC150A /* DZCHomeViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193F2B2191628200FC150A /* DZCHomeViewVC.m */; };
 		22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193F2E2191629500FC150A /* DZCXiGuaVC.m */; };
+		2225A0B3219933830030CE5E /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2225A0B2219933830030CE5E /* NewsTableViewCell.xib */; };
+		2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2225A0B521993AC60030CE5E /* DZCNetsTools.m */; };
 		225136872193D4B600ED382D /* DZCMainNewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225136862193D4B600ED382D /* DZCMainNewsTableView.m */; };
 		225136892193DECB00ED382D /* NewsTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225136882193DECB00ED382D /* NewsTableview.xib */; };
 		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
@@ -61,6 +63,9 @@
 		22193F2B2191628200FC150A /* DZCHomeViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZCHomeViewVC.m; path = DZCTodayNews/Classes/View/HomeView/DZCHomeViewVC.m; sourceTree = SOURCE_ROOT; };
 		22193F2D2191629500FC150A /* DZCXiGuaVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DZCXiGuaVC.h; path = DZCTodayNews/Classes/View/XiGuaVideo/DZCXiGuaVC.h; sourceTree = SOURCE_ROOT; };
 		22193F2E2191629500FC150A /* DZCXiGuaVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZCXiGuaVC.m; path = DZCTodayNews/Classes/View/XiGuaVideo/DZCXiGuaVC.m; sourceTree = SOURCE_ROOT; };
+		2225A0B2219933830030CE5E /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		2225A0B421993AC60030CE5E /* DZCNetsTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCNetsTools.h; sourceTree = "<group>"; };
+		2225A0B521993AC60030CE5E /* DZCNetsTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCNetsTools.m; sourceTree = "<group>"; };
 		225136852193D4B600ED382D /* DZCMainNewsTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainNewsTableView.h; sourceTree = "<group>"; };
 		225136862193D4B600ED382D /* DZCMainNewsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainNewsTableView.m; sourceTree = "<group>"; };
 		225136882193DECB00ED382D /* NewsTableview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableview.xib; sourceTree = "<group>"; };
@@ -214,6 +219,14 @@
 			path = HuoShanVideo;
 			sourceTree = "<group>";
 		};
+		2225A0B1219933700030CE5E /* NewsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2225A0B2219933830030CE5E /* NewsTableViewCell.xib */,
+			);
+			path = NewsTableViewCell;
+			sourceTree = "<group>";
+		};
 		225136842193D47B00ED382D /* MainNewsTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,8 +239,8 @@
 		2266D9CC2199060B0082ED03 /* MainScrollview */ = {
 			isa = PBXGroup;
 			children = (
-				227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */,
 				227A1D6B21988ACC009808A0 /* DZCMainScrollView.h */,
+				227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */,
 			);
 			path = MainScrollview;
 			sourceTree = "<group>";
@@ -271,6 +284,8 @@
 			children = (
 				22779B672197200F00E2186F /* DZCNewsNetWorkTools.h */,
 				22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */,
+				2225A0B421993AC60030CE5E /* DZCNetsTools.h */,
+				2225A0B521993AC60030CE5E /* DZCNetsTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -324,6 +339,7 @@
 		22A018B52193227D00BE73D5 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				2225A0B1219933700030CE5E /* NewsTableViewCell */,
 				225136882193DECB00ED382D /* NewsTableview.xib */,
 			);
 			path = StoryBoard;
@@ -410,6 +426,7 @@
 				22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */,
 				225136892193DECB00ED382D /* NewsTableview.xib in Resources */,
 				22193EF7219119F500FC150A /* Assets.xcassets in Resources */,
+				2225A0B3219933830030CE5E /* NewsTableViewCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +511,7 @@
 				22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */,
 				22193F122191365500FC150A /* DZCBaseViewController.m in Sources */,
 				22193EFD219119F500FC150A /* main.m in Sources */,
+				2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */,
 				22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */,
 				22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */,
 				22193EEF219119F300FC150A /* AppDelegate.m in Sources */,

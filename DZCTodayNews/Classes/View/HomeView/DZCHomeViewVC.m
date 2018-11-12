@@ -14,6 +14,7 @@
 #import "DZCNewsNetWorkTools.h"
 #import "DZCTitleScrollView.h"
 #import "DZCMainScrollView.h"
+#import "DZCNetsTools.h"
 @interface DZCHomeViewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *naviScrollview;
 @property(nonatomic,strong)UITableView *newsTableview;
@@ -40,7 +41,8 @@ static NSString *cellid=@"cellid";
 -(UITableView *)newsTableview{
     
     if (!_newsTableview) {
-        _newsTableview=[DZCMainNewsTableView SetupNewsTableview:self tableviewrect:SCREENBOUNDS];
+        _newsTableview=[DZCMainNewsTableView SetupNewsTableview:self
+                                                  tableviewrect:SCREENBOUNDS];
     }
     
     
@@ -50,7 +52,8 @@ static NSString *cellid=@"cellid";
 -(UIScrollView *)mainScrollview{
     if (!_mainScrollview) {
         _mainScrollview=[DZCMainScrollView addMainScrollview:self
-                                                addTableview:self.newsTableview withScrollview:self.naviScrollview];
+                                                addTableview:self.newsTableview
+                                              withScrollview:self.naviScrollview];
     }
     return _mainScrollview;
 }
@@ -74,17 +77,17 @@ static NSString *cellid=@"cellid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [DZCNewsNetWorkTools titleScrollViewNetwork:@"article/category/get_subscribed/v9/?"
-                                   successblcok:^(NSArray * arraymodel)
-    {
+
+    [DZCNetsTools titlescrollView:^(NSArray * arraymodel) {
         self.svdataArray=arraymodel;
         NSLog(@"网络请求成功");
-    } failureblock:^{
+    } failure:^{
         NSLog(@"网络请求失败");
     }];
+    
     [self.view addSubview:self.mainScrollview];
     [self.view addSubview:self.naviScrollview];
-   [self makeConstraintsWithView];
+    [self makeConstraintsWithView];
     [self addrefreshWithview];
     [self refreshloaddata];
 
@@ -173,7 +176,7 @@ static NSString *cellid=@"cellid";
         }
 
         [titleBtn setFrame:CGRectMake(margin*(idx+1)+btnWidth*idx,0,btnWidth, 34)];
-       [titleBtn addTarget:self action:@selector(changeChanle:) forControlEvents:UIControlEventTouchUpInside];
+        [titleBtn addTarget:self action:@selector(changeChanle:) forControlEvents:UIControlEventTouchUpInside];
         [self.naviScrollview addSubview:titleBtn];
         
     }];

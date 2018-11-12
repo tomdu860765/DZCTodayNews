@@ -17,7 +17,7 @@
     sv.contentSize=CGSizeMake(SCREENWIDTH*5, 0);
     sv.backgroundColor = UIColor.greenColor;
     sv.pagingEnabled=YES;
-    sv.bounces=false;
+    sv.bounces=NO;
     sv.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentScrollableAxes;
    [sv addSubview:tableView];
    
