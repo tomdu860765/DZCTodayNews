@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCNetsTools : DZCNewsNetWorkTools
 +(void)titlescrollView:(void(^)(NSArray *))isuccessBlock failure:(void(^)(void))isfailureBlock;
++(void)MainNewsNetwork:(void(^)(NSArray*,NSError*))ComplitionBlock;
 @end
 
 NS_ASSUME_NONNULL_END

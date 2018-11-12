@@ -11,19 +11,19 @@
 #import "DZCMainNewsTableView.h"
 #import "Masonry.h"
 #import "DZCRereshControl.h"
-#import "DZCNewsNetWorkTools.h"
 #import "DZCTitleScrollView.h"
 #import "DZCMainScrollView.h"
 #import "DZCNetsTools.h"
+#import "DZCMainNewsModel.h"
 @interface DZCHomeViewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *naviScrollview;
 @property(nonatomic,strong)UITableView *newsTableview;
-@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSArray *dataArray;
 @property(nonatomic,copy)NSArray *svdataArray;
 @property(nonatomic,strong)UIScrollView *mainScrollview;
 @property(nonatomic,strong)UIButton *btnmark;
 @end
-//FIXME cell便是符
+//FIXME cell标识符
 static NSString *cellid=@"cellid";
 @implementation DZCHomeViewVC
 ///延迟加载滚动栏
@@ -43,6 +43,8 @@ static NSString *cellid=@"cellid";
     if (!_newsTableview) {
         _newsTableview=[DZCMainNewsTableView SetupNewsTableview:self
                                                   tableviewrect:SCREENBOUNDS];
+        _newsTableview.delegate=self;
+        _newsTableview.dataSource=self;
     }
     
     
@@ -58,14 +60,16 @@ static NSString *cellid=@"cellid";
     return _mainScrollview;
 }
 
-//FIXME模拟数据源方法
--(NSMutableArray*)dataArray{
-    if (!_dataArray) {
-        _dataArray=NSMutableArray.array;
-    }
+//网络数据源获取方法
 
-    return _dataArray;
+-(void)setDataArray:(NSArray *)dataArray{
+    _dataArray=dataArray;
+   
+         [self.newsTableview reloadData];
+   
+
 }
+
 //载入网络模型添加滚动按钮
 -(void)setSvdataArray:(NSArray *)svdataArray{
     
@@ -78,23 +82,35 @@ static NSString *cellid=@"cellid";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [DZCNetsTools titlescrollView:^(NSArray * arraymodel) {
-        self.svdataArray=arraymodel;
-        NSLog(@"网络请求成功");
-    } failure:^{
-        NSLog(@"网络请求失败");
-    }];
+    [self networkForMainview];
     
     [self.view addSubview:self.mainScrollview];
     [self.view addSubview:self.naviScrollview];
     [self makeConstraintsWithView];
     [self addrefreshWithview];
-    [self refreshloaddata];
+   
 
 }
-
-
-
+//主视图的网络工具方法
+-(void)networkForMainview{
+    //滚动视图模型
+    [DZCNetsTools titlescrollView:^(NSArray * arraymodel) {
+        self.svdataArray=arraymodel;
+        NSLog(@"%lu",(unsigned long)self.dataArray.count);
+    } failure:^{
+        NSLog(@"网络请求失败");
+    }];
+    //主新闻模型
+    [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
+        if (newsmodel) {
+            self.dataArray=newsmodel;
+            
+        }else{
+            NSLog(@"%@",error);
+        }
+    }];
+    
+}
 
 //FIXME,等带数据源改造tableview加载方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -105,8 +121,9 @@ static NSString *cellid=@"cellid";
 //FIXME等待数据源改造
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
-    cell.textLabel.text=self.dataArray[indexPath.row];
-   
+    DZCMainNewsModel *model=self.dataArray[indexPath.row];
+    cell.textLabel.text=model.title;
+    
     if (cell==nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
     }
@@ -132,13 +149,30 @@ static NSString *cellid=@"cellid";
 //FIXME刷新方法待用,注意数据是插入最前面
 -(void)refreshloaddata{
     
-    for (int i=0; i<15; i++) {
-        NSString *string=[NSString localizedStringWithFormat:@"%d",i];
-        [self.dataArray insertObject:string atIndex:0];
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-         [self.newsTableview reloadData];
-    });
+//    for (int i=0; i<15; i++) {
+//        NSString *string=[NSString localizedStringWithFormat:@"%d",i];
+//        [self.dataArray insertObject:string atIndex:0];
+    
+//    }
+    [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
+        if (newsmodel) {
+            
+            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                DZCMainNewsModel *model=obj;
+                NSLog(@"%@",model.title);
+
+            }];
+            NSLog(@"%@",self.dataArray);
+            [self.dataArray copy];
+           
+        }else{
+            NSLog(@"%@",error);
+        }
+    }];
+    
+    
+    
+[self.newsTableview reloadData];
 
 }
 -(void)makeConstraintsWithView{

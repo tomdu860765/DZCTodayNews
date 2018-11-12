@@ -20,8 +20,7 @@
 
     UITableView *tableview =[[UITableView alloc]initWithFrame:rect style:UITableViewStylePlain];
     
-    tableview.delegate=(id)controller;
-    tableview.dataSource=(id)controller;
+   
     tableview.showsVerticalScrollIndicator=NO;
   
     

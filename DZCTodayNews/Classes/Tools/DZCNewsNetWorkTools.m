@@ -28,7 +28,7 @@
     return defualtManager;
 }
 
-//网络h滚动栏请求方法
+//网络滚动栏请求方法
 +(void)titleScrollViewNetwork:(NSString *)Urlstring successblcok:(void(^)(NSArray *))issuccess failureblock:(void(^)(void))isfailure{
     [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:Urlstring parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
        
@@ -61,7 +61,7 @@
            
             [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:Urlstring parameters:parames progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 Complitionbolck(responseObject,nil);
-                NSLog(@"网络请求成功");
+                
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
 
@@ -74,7 +74,7 @@
         case POST_METHOD:{
             [[DZCNewsNetWorkTools NewsNetWorkDefualt]POST:Urlstring parameters:parames progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             Complitionbolck(responseObject,nil);
-            NSLog(@"网络请求成功");
+            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
             
