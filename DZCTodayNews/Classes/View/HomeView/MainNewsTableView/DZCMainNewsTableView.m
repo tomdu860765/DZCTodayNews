@@ -20,9 +20,13 @@
 
     UITableView *tableview =[[UITableView alloc]initWithFrame:rect style:UITableViewStylePlain];
     
-   
+    UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
+    [tableview registerNib:uib forCellReuseIdentifier:@"topnewsid"];
+    UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
+    [tableview registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
+    
     tableview.showsVerticalScrollIndicator=NO;
-  
+    tableview.estimatedRowHeight=100;
     
     return tableview;
 }

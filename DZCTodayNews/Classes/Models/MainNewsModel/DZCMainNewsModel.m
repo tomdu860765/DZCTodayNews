@@ -13,6 +13,15 @@
     
     return [DZCMainNewsModel yy_modelDescription];
 }
+
+
+
 @end
 
+@implementation middle_image
 
+-(NSString*)description{
+    return [middle_image yy_modelDescription];
+}
+
+@end

@@ -15,8 +15,9 @@ typedef enum NetWorksMethod{
     
 }NetWorksMethod;
 @interface DZCNewsNetWorkTools : AFHTTPSessionManager
+//单例方法
 +(instancetype)NewsNetWorkDefualt;
-+(void)titleScrollViewNetwork:(NSString *)Urlstring successblcok:(void(^)(NSArray *))issuccess failureblock:(void(^)(void))isfailure;
+//网络访问方法
 +(void)NetWorkManagerMethod:(NSString *)Urlstring selectWithmenthod:(NetWorksMethod)Methods withparame:(id )parames Complition:(void(^)(id result, NSError *error))Complitionbolck;
 @end
 

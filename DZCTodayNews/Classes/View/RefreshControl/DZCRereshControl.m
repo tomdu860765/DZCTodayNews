@@ -16,7 +16,7 @@
 
     MJRefreshGifHeader *header=[MJRefreshGifHeader headerWithRefreshingBlock:^{
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
             viewblock();
             [tableview.mj_header endRefreshing];
@@ -57,7 +57,7 @@
 -(void)addfooterRefresh:(UITableView *)tableview vcblock:(void(^)(void))viewblock{
     
     MJRefreshAutoGifFooter *footer=[MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             viewblock();
             [tableview.mj_footer endRefreshing];
             

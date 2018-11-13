@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220AC6552199BE2600047137 /* DZCTopNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 220AC6542199BE2600047137 /* DZCTopNewsCell.m */; };
 		22193EEF219119F300FC150A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193EEE219119F300FC150A /* AppDelegate.m */; };
 		22193EF2219119F300FC150A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193EF1219119F300FC150A /* ViewController.m */; };
 		22193EF5219119F300FC150A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22193EF3219119F300FC150A /* Main.storyboard */; };
@@ -31,12 +32,18 @@
 		227A1D67219888A6009808A0 /* DZCTitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A1D66219888A6009808A0 /* DZCTitleScrollView.m */; };
 		227A1D6D21988ACC009808A0 /* DZCMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */; };
 		228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 228656F92195115B001F8E60 /* DZCRereshControl.m */; };
+		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
+		229B21C6219ABBCA00620EB3 /* SinglePicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229B21C5219ABBCA00620EB3 /* SinglePicCell.xib */; };
+		229B21C9219ABC0600620EB3 /* DZCSinglePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C8219ABC0600620EB3 /* DZCSinglePicCell.m */; };
 		22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
+		22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */; };
 		FEF09B2647EDE0F57D7D84D3 /* Pods_DZCTodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220AC6532199BE2600047137 /* DZCTopNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTopNewsCell.h; sourceTree = "<group>"; };
+		220AC6542199BE2600047137 /* DZCTopNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCTopNewsCell.m; sourceTree = "<group>"; };
 		22193EEA219119F300FC150A /* DZCTodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZCTodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22193EED219119F300FC150A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22193EEE219119F300FC150A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,9 +89,16 @@
 		227A1D6C21988ACC009808A0 /* DZCMainScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DZCMainScrollView.m; path = DZCTodayNews/Classes/View/ScrollView/MainScrollview/DZCMainScrollView.m; sourceTree = SOURCE_ROOT; };
 		228656F82195115B001F8E60 /* DZCRereshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRereshControl.h; sourceTree = "<group>"; };
 		228656F92195115B001F8E60 /* DZCRereshControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRereshControl.m; sourceTree = "<group>"; };
+		229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_TimeToString.h"; sourceTree = "<group>"; };
+		229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_TimeToString.m"; sourceTree = "<group>"; };
+		229B21C5219ABBCA00620EB3 /* SinglePicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SinglePicCell.xib; sourceTree = "<group>"; };
+		229B21C7219ABC0600620EB3 /* DZCSinglePicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCSinglePicCell.h; sourceTree = "<group>"; };
+		229B21C8219ABC0600620EB3 /* DZCSinglePicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCSinglePicCell.m; sourceTree = "<group>"; };
 		22A018B2219320D500BE73D5 /* DZCMainCollectionVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainCollectionVIew.h; sourceTree = "<group>"; };
 		22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainCollectionVIew.m; sourceTree = "<group>"; };
 		22BE19FD21926B310041E47D /* TabBarItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TabBarItem.plist; sourceTree = "<group>"; };
+		22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularUrl.h"; sourceTree = "<group>"; };
+		22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularUrl.m"; sourceTree = "<group>"; };
 		34CF92B85BC519476252A34C /* Pods-DZCTodayNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZCTodayNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews.release.xcconfig"; sourceTree = "<group>"; };
 		C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DZCTodayNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB4C0A4B6BCFD6EB41168CC /* Pods-DZCTodayNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZCTodayNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,7 +239,8 @@
 		2225A0B1219933700030CE5E /* NewsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				2225A0B2219933830030CE5E /* NewsTableViewCell.xib */,
+				229B21C4219ABBB100620EB3 /* SinglePicCell */,
+				229B21C3219ABB8100620EB3 /* TopNewsCell */,
 			);
 			path = NewsTableViewCell;
 			sourceTree = "<group>";
@@ -293,9 +308,33 @@
 			path = RefreshControl;
 			sourceTree = "<group>";
 		};
+		229B21C3219ABB8100620EB3 /* TopNewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				220AC6532199BE2600047137 /* DZCTopNewsCell.h */,
+				220AC6542199BE2600047137 /* DZCTopNewsCell.m */,
+				2225A0B2219933830030CE5E /* NewsTableViewCell.xib */,
+			);
+			path = TopNewsCell;
+			sourceTree = "<group>";
+		};
+		229B21C4219ABBB100620EB3 /* SinglePicCell */ = {
+			isa = PBXGroup;
+			children = (
+				229B21C5219ABBCA00620EB3 /* SinglePicCell.xib */,
+				229B21C7219ABC0600620EB3 /* DZCSinglePicCell.h */,
+				229B21C8219ABC0600620EB3 /* DZCSinglePicCell.m */,
+			);
+			path = SinglePicCell;
+			sourceTree = "<group>";
+		};
 		22A018AB21931DA500BE73D5 /* Extesion */ = {
 			isa = PBXGroup;
 			children = (
+				229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */,
+				229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */,
+				22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */,
+				22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */,
 			);
 			path = Extesion;
 			sourceTree = "<group>";
@@ -446,6 +485,7 @@
 				22193EFA219119F500FC150A /* LaunchScreen.storyboard in Resources */,
 				22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */,
 				225136892193DECB00ED382D /* NewsTableview.xib in Resources */,
+				229B21C6219ABBCA00620EB3 /* SinglePicCell.xib in Resources */,
 				22193EF7219119F500FC150A /* Assets.xcassets in Resources */,
 				2225A0B3219933830030CE5E /* NewsTableViewCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
@@ -522,17 +562,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */,
 				227A1D6D21988ACC009808A0 /* DZCMainScrollView.m in Sources */,
 				22193F23219161D500FC150A /* DZCHuoShanVC.m in Sources */,
 				22193EF2219119F300FC150A /* ViewController.m in Sources */,
 				22193F1A2191375C00FC150A /* DZCMainViewController.m in Sources */,
+				229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */,
 				22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */,
 				22193F152191369D00FC150A /* DZCNaviViewController.m in Sources */,
 				22193F2C2191628200FC150A /* DZCHomeViewVC.m in Sources */,
 				22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */,
 				22193F122191365500FC150A /* DZCBaseViewController.m in Sources */,
+				229B21C9219ABC0600620EB3 /* DZCSinglePicCell.m in Sources */,
 				2225A0BB21995F620030CE5E /* DZCMainNewsModel.m in Sources */,
 				22193EFD219119F500FC150A /* main.m in Sources */,
+				220AC6552199BE2600047137 /* DZCTopNewsCell.m in Sources */,
 				2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */,
 				22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */,
 				22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */,

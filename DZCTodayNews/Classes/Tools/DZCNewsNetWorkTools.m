@@ -17,7 +17,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //添加了请求10秒超时,和基本url
-        NSURL *baseUrl=[NSURL URLWithString:@"http://ic.snssdk.com/"];
+        NSURL *baseUrl=[NSURL URLWithString:@"http://is.snssdk.com/"];
         
         NSURLSessionConfiguration *configuation=[NSURLSessionConfiguration defaultSessionConfiguration];
         configuation.timeoutIntervalForRequest=10;
@@ -28,30 +28,7 @@
     return defualtManager;
 }
 
-//网络滚动栏请求方法
-+(void)titleScrollViewNetwork:(NSString *)Urlstring successblcok:(void(^)(NSArray *))issuccess failureblock:(void(^)(void))isfailure{
-    [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:Urlstring parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       
-        if (issuccess) {
-            NSMutableArray *marry=NSMutableArray.array;
-            dataModel *model=[dataModel yy_modelWithDictionary:responseObject[@"data"] ];
-            [model.data enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [marry addObject:[obj valueForKey:@"name"]];
-            }];
-            issuccess(marry.copy);
-            }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (isfailure) {
-            
-        
-        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
-        
-        
-            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);}
-    }];
-    
 
-}
 //二次封装的get,post网络方法
 +(void)NetWorkManagerMethod:(NSString *)Urlstring selectWithmenthod:(NetWorksMethod)Methods withparame:(id)parames Complition:(void(^)(id result, NSError *error))Complitionbolck{
    
@@ -61,7 +38,7 @@
            
             [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:Urlstring parameters:parames progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 Complitionbolck(responseObject,nil);
-                
+              
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
 

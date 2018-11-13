@@ -14,7 +14,7 @@
 //主视图滚动视图
 +(UIScrollView*)addMainScrollview:(DZCMainViewController *)viewcontroller addTableview:(UITableView *)tableView withScrollview:(UIScrollView *)navisview{
     UIScrollView *sv=[[UIScrollView alloc]initWithFrame:SCREENBOUNDS];
-    sv.contentSize=CGSizeMake(SCREENWIDTH*5, 0);
+    
     sv.backgroundColor = UIColor.greenColor;
     sv.pagingEnabled=YES;
     sv.bounces=NO;

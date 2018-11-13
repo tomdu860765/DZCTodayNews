@@ -15,16 +15,19 @@
 #import "DZCMainScrollView.h"
 #import "DZCNetsTools.h"
 #import "DZCMainNewsModel.h"
+#import "DZCTopNewsCell.h"
+#import "DZCSinglePicCell.h"
 @interface DZCHomeViewVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UIScrollView *naviScrollview;
 @property(nonatomic,strong)UITableView *newsTableview;
-@property(nonatomic,strong)NSArray *dataArray;
-@property(nonatomic,copy)NSArray *svdataArray;
+@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,copy)NSArray *svdataArray,*svcategoryArray;
 @property(nonatomic,strong)UIScrollView *mainScrollview;
 @property(nonatomic,strong)UIButton *btnmark;
+
 @end
-//FIXME cell标识符
-static NSString *cellid=@"cellid";
+
+
 @implementation DZCHomeViewVC
 ///延迟加载滚动栏
 -(UIScrollView *)naviScrollview{
@@ -62,11 +65,11 @@ static NSString *cellid=@"cellid";
 
 //网络数据源获取方法
 
--(void)setDataArray:(NSArray *)dataArray{
+-(void)setDataArray:(NSMutableArray *)dataArray{
     _dataArray=dataArray;
-   
-         [self.newsTableview reloadData];
-   
+    
+    [self.newsTableview reloadData];
+    
 
 }
 
@@ -78,6 +81,15 @@ static NSString *cellid=@"cellid";
     [self scrollViewbtn:self.svdataArray];
     
 }
+//主滚动视图网络模型载入,网络加载运行了两次
+-(void)setSvcategoryArray:(NSArray *)svcategoryArray{
+    _svcategoryArray=svcategoryArray;
+    
+    self.mainScrollview.contentSize=CGSizeMake(svcategoryArray.count*SCREENWIDTH/2, 0);
+   
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,30 +101,36 @@ static NSString *cellid=@"cellid";
     [self makeConstraintsWithView];
     [self addrefreshWithview];
    
-
+    
+   
 }
 //主视图的网络工具方法
 -(void)networkForMainview{
     //滚动视图模型
-    [DZCNetsTools titlescrollView:^(NSArray * arraymodel) {
+    [DZCNetsTools titlescrollView:^(NSArray * arraymodel, NSArray * categoryArray) {
         self.svdataArray=arraymodel;
-        NSLog(@"%lu",(unsigned long)self.dataArray.count);
+        self.svcategoryArray=categoryArray;
     } failure:^{
         NSLog(@"网络请求失败");
     }];
+   
+    
     //主新闻模型
     [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
         if (newsmodel) {
-            self.dataArray=newsmodel;
-            
+
+            self.dataArray=[NSMutableArray arrayWithArray:newsmodel];
+             [self.newsTableview reloadData];
+
         }else{
             NSLog(@"%@",error);
         }
     }];
+
     
 }
 
-//FIXME,等带数据源改造tableview加载方法
+//等带数据源改造tableview加载方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.dataArray.count;
@@ -120,15 +138,24 @@ static NSString *cellid=@"cellid";
 
 //FIXME等待数据源改造
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
-    DZCMainNewsModel *model=self.dataArray[indexPath.row];
-    cell.textLabel.text=model.title;
-    
-    if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
-    }
+   static NSString *cellid=@"topnewsid";
+
    
+    DZCMainNewsModel *model=self.dataArray[indexPath.row];
+    if (model.middle_image.url) {
+        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
+        cell.model=model;
+        
+        return cell;
+    }
+    
+    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
+    
+    cell.model=self.dataArray[indexPath.row];
+    
     return cell;
+   
+
 }
 //添加刷新控件方法
 -(void)addrefreshWithview{
@@ -139,42 +166,42 @@ static NSString *cellid=@"cellid";
         NSLog(@"上拉刷新");
     }];
     [rereshControl addfooterRefresh:self.newsTableview vcblock:^{
-        [self refreshloaddata];
+        [self pullrefreshloaddata];
         NSLog(@"下拉刷新");
     }];
     
 }
 
 
-//FIXME刷新方法待用,注意数据是插入最前面
+//向下刷新方法,注意数据是插入最前面
 -(void)refreshloaddata{
-    
-//    for (int i=0; i<15; i++) {
-//        NSString *string=[NSString localizedStringWithFormat:@"%d",i];
-//        [self.dataArray insertObject:string atIndex:0];
-    
-//    }
+
     [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
         if (newsmodel) {
-            
             [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                DZCMainNewsModel *model=obj;
-                NSLog(@"%@",model.title);
-
+                [self.dataArray insertObject:obj atIndex:0];
             }];
-            NSLog(@"%@",self.dataArray);
-            [self.dataArray copy];
-           
+            [self.newsTableview reloadData];
         }else{
             NSLog(@"%@",error);
         }
     }];
-    
-    
-    
-[self.newsTableview reloadData];
 
 }
+//向上拉刷新数据
+-(void)pullrefreshloaddata{
+    [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
+        if (newsmodel) {
+            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self.dataArray addObject:obj];
+            }];
+            [self.newsTableview reloadData];
+        }else{
+            NSLog(@"%@",error);
+        }
+    }];
+}
+//FIXME需要修改非x机型的约束
 -(void)makeConstraintsWithView{
     
     [self.naviScrollview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -215,10 +242,9 @@ static NSString *cellid=@"cellid";
         
     }];
     self.naviScrollview.contentSize = CGSizeMake(marry.count*btnWidth+(marry.count+1)*margin, 0);
-    
 
 }
-//导航栏更换频道方法
+//FIXME导航栏更换频道方法
 -(void)changeChanle:(UIButton *)sender{
     NSLog(@"更换频道");
     sender.selected=YES;
