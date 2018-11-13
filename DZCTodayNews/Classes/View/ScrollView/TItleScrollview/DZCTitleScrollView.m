@@ -21,7 +21,7 @@
     scrollview.backgroundColor=UIColor.whiteColor;
     scrollview.userInteractionEnabled=YES;
     scrollview.bounces=NO;
-    scrollview.showsVerticalScrollIndicator=NO;
+    scrollview.showsHorizontalScrollIndicator=NO;
     return scrollview;
     
 }

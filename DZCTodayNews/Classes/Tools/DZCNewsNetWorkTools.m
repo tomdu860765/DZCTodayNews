@@ -29,7 +29,7 @@
 }
 
 
-//二次封装的get,post网络方法
+//二次封装的get,post网络方法,blcok回调关系会产生二次请求
 +(void)NetWorkManagerMethod:(NSString *)Urlstring selectWithmenthod:(NetWorksMethod)Methods withparame:(id)parames Complition:(void(^)(id result, NSError *error))Complitionbolck{
    
     
@@ -37,27 +37,33 @@
         case GET_METHOD:{
            
             [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:Urlstring parameters:parames progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                Complitionbolck(responseObject,nil);
-              
+                if (responseObject) {
+                    Complitionbolck(responseObject,nil);
+                }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                if (error) {
+                    NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+                    Complitionbolck(nil,error);
+                    NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+                }
 
-
-                NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
-                Complitionbolck(nil,error);
-                NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
-                
             }
              ];}
         case POST_METHOD:{
             [[DZCNewsNetWorkTools NewsNetWorkDefualt]POST:Urlstring parameters:parames progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            Complitionbolck(responseObject,nil);
+                if (responseObject) {
+                    Complitionbolck(responseObject,nil);
+                }
+            
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
-            
-            Complitionbolck(nil,error);
-            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
-            
+            if (error) {
+                NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+                
+                Complitionbolck(nil,error);
+                NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+            }
+    
         }];}
             
           

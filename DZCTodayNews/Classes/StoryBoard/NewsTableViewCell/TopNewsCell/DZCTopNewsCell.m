@@ -43,7 +43,12 @@
    
 }
 -(void)loadModelwithnews{
-    
+    if(self.model.label){
+        [self.topnewslabel setHidden:NO];
+    }
+    if ([self.model.title isEqual:@""]) {
+        self.model.title=@"广告信息";
+    }
     self.titlelabel.text=self.model.title;
     
     self.topnewslabel.text=self.model.label;

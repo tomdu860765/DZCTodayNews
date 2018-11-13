@@ -32,13 +32,13 @@
 ///延迟加载滚动栏
 -(UIScrollView *)naviScrollview{
     if (_naviScrollview==nil) {
-
+        
         _naviScrollview=[DZCTitleScrollView.new SetupupnaviScrollview:self];
-
+        
     }
     
     return _naviScrollview;
-
+    
 }
 //延迟加载新闻tableview
 -(UITableView *)newsTableview{
@@ -70,7 +70,7 @@
     
     [self.newsTableview reloadData];
     
-
+    
 }
 
 //载入网络模型添加滚动按钮
@@ -84,49 +84,47 @@
 //主滚动视图网络模型载入,网络加载运行了两次
 -(void)setSvcategoryArray:(NSArray *)svcategoryArray{
     _svcategoryArray=svcategoryArray;
+    [svcategoryArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       // NSLog(@"%@",obj);
+    }];
     
-    self.mainScrollview.contentSize=CGSizeMake(svcategoryArray.count*SCREENWIDTH/2, 0);
-   
     
+
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self networkForMainview];
+    
+    
     
     [self.view addSubview:self.mainScrollview];
     [self.view addSubview:self.naviScrollview];
     [self makeConstraintsWithView];
     [self addrefreshWithview];
-   
+    [self networkForMainview];
     
-   
 }
 //主视图的网络工具方法
 -(void)networkForMainview{
     //滚动视图模型
-    [DZCNetsTools titlescrollView:^(NSArray * arraymodel, NSArray * categoryArray) {
+    [DZCNetsTools ScrollviewSttitle:^(NSArray * arraymodel, NSArray * categoryArray) {
         self.svdataArray=arraymodel;
         self.svcategoryArray=categoryArray;
-    } failure:^{
-        NSLog(@"网络请求失败");
+         self.mainScrollview.contentSize=CGSizeMake(categoryArray.count*SCREENWIDTH, 0);
     }];
-   
+    
     
     //主新闻模型
-    [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
-        if (newsmodel) {
-
-            self.dataArray=[NSMutableArray arrayWithArray:newsmodel];
-             [self.newsTableview reloadData];
-
-        }else{
-            NSLog(@"%@",error);
+    [DZCNetsTools NetworkMainNews:^(NSArray * array) {
+        if (array) {
+        self.dataArray=[NSMutableArray arrayWithArray:array];
         }
+  
     }];
-
+    
+    
+    
     
 }
 
@@ -138,9 +136,9 @@
 
 //FIXME等待数据源改造
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   static NSString *cellid=@"topnewsid";
-
-   
+    static NSString *cellid=@"topnewsid";
+    
+    
     DZCMainNewsModel *model=self.dataArray[indexPath.row];
     if (model.middle_image.url) {
         DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
@@ -154,8 +152,8 @@
     cell.model=self.dataArray[indexPath.row];
     
     return cell;
-   
-
+    
+    
 }
 //添加刷新控件方法
 -(void)addrefreshWithview{
@@ -175,30 +173,28 @@
 
 //向下刷新方法,注意数据是插入最前面
 -(void)refreshloaddata{
-
-    [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
+    
+    [DZCNetsTools NetworkMainNews:^(NSArray * newsmodel) {
         if (newsmodel) {
             [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self.dataArray insertObject:obj atIndex:0];
+                
             }];
             [self.newsTableview reloadData];
-        }else{
-            NSLog(@"%@",error);
         }
     }];
-
+    
 }
 //向上拉刷新数据
 -(void)pullrefreshloaddata{
-    [DZCNetsTools MainNewsNetwork:^(NSArray * newsmodel, NSError * error) {
+    [DZCNetsTools NetworkMainNews:^(NSArray * newsmodel)  {
         if (newsmodel) {
             [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self.dataArray addObject:obj];
             }];
             [self.newsTableview reloadData];
-        }else{
-            NSLog(@"%@",error);
         }
+     
     }];
 }
 //FIXME需要修改非x机型的约束
@@ -224,9 +220,9 @@
     CGFloat margin=15;
     CGFloat btnWidth=40;
     [marry.copy enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
+        
         UIButton *titleBtn=UIButton.new;
-       
+        
         [titleBtn setTitle:obj forState:UIControlStateNormal];
         [titleBtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         [titleBtn setTitleColor:UIColor.redColor forState:UIControlStateSelected];
@@ -235,14 +231,14 @@
             titleBtn.selected=YES;
             self.btnmark=titleBtn;
         }
-
+        
         [titleBtn setFrame:CGRectMake(margin*(idx+1)+btnWidth*idx,0,btnWidth, 34)];
         [titleBtn addTarget:self action:@selector(changeChanle:) forControlEvents:UIControlEventTouchUpInside];
         [self.naviScrollview addSubview:titleBtn];
         
     }];
     self.naviScrollview.contentSize = CGSizeMake(marry.count*btnWidth+(marry.count+1)*margin, 0);
-
+    
 }
 //FIXME导航栏更换频道方法
 -(void)changeChanle:(UIButton *)sender{

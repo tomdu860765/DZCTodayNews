@@ -30,7 +30,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXW-8B-zOq">
                         <rect key="frame" x="9" y="73" width="50" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="v1f-Cm-JZi"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="v1f-Cm-JZi"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +50,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="f3F-3v-IHa" firstAttribute="leading" secondItem="vXW-8B-zOq" secondAttribute="trailing" constant="25" id="4gQ-yW-Sol"/>
+                    <constraint firstItem="vXW-8B-zOq" firstAttribute="trailing" secondItem="f3F-3v-IHa" secondAttribute="leading" constant="-25" id="4gQ-yW-Sol"/>
                     <constraint firstItem="vXW-8B-zOq" firstAttribute="top" secondItem="dMz-tH-W0f" secondAttribute="bottom" constant="11" id="Bwn-82-KA1"/>
                     <constraint firstItem="CYr-7P-0Us" firstAttribute="top" secondItem="dMz-tH-W0f" secondAttribute="top" id="Dxd-Ta-ThT"/>
                     <constraint firstItem="f3F-3v-IHa" firstAttribute="top" secondItem="vXW-8B-zOq" secondAttribute="top" id="IyV-p3-dtI"/>
