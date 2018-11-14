@@ -15,7 +15,7 @@
 +(UIScrollView*)addMainScrollview:(DZCMainViewController *)viewcontroller addTableview:(UITableView *)tableView withScrollview:(UIScrollView *)navisview{
     UIScrollView *sv=[[UIScrollView alloc]initWithFrame:SCREENBOUNDS];
     
-    sv.backgroundColor = UIColor.greenColor;
+    sv.backgroundColor = UIColor.whiteColor;
     sv.pagingEnabled=YES;
     sv.bounces=NO;
     sv.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentScrollableAxes;

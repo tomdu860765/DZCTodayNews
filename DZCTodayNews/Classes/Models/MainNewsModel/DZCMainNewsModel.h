@@ -12,6 +12,8 @@ media_name 媒体来源
 comment_count 评论数
  title 新闻标题
  middle_image 图片链接
+ has_video 是否有视频
+
  */
 
 #import <Foundation/Foundation.h>
@@ -25,7 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DZCMainNewsModel : NSObject
 
 @property(nonatomic,copy)NSString *media_name, *title, *display_url, *label;
+
 @property(nonatomic,strong)NSNumber *comment_count;
+
 @property(nonatomic,assign)NSInteger publish_time;
 
 @property(nonatomic,strong)middle_image *middle_image;

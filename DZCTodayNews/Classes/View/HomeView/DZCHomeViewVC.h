@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCHomeViewVC : DZCMainViewController
-
+@property(nonatomic,strong)UIScrollView *mainScrollview ;
+@property(nonatomic,strong)UIScrollView  *naviScrollview;
 @end
 
 NS_ASSUME_NONNULL_END

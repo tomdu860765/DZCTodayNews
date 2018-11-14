@@ -18,11 +18,11 @@
 #import "DZCTopNewsCell.h"
 #import "DZCSinglePicCell.h"
 @interface DZCHomeViewVC ()<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)UIScrollView *naviScrollview;
+
 @property(nonatomic,strong)UITableView *newsTableview;
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,copy)NSArray *svdataArray,*svcategoryArray;
-@property(nonatomic,strong)UIScrollView *mainScrollview;
+
 @property(nonatomic,strong)UIButton *btnmark;
 
 @end
@@ -41,18 +41,18 @@
     
 }
 //延迟加载新闻tableview
--(UITableView *)newsTableview{
-    
-    if (!_newsTableview) {
-        _newsTableview=[DZCMainNewsTableView SetupNewsTableview:self
-                                                  tableviewrect:SCREENBOUNDS];
-        _newsTableview.delegate=self;
-        _newsTableview.dataSource=self;
-    }
-    
-    
-    return _newsTableview;
-}
+//-(UITableView *)newsTableview{
+//
+//    if (!_newsTableview) {
+//        _newsTableview=[DZCMainNewsTableView SetupNewsTableview:self
+//                                                  tableviewrect:SCREENBOUNDS];
+//        _newsTableview.delegate=self;
+//        _newsTableview.dataSource=self;
+//    }
+//
+//
+//    return _newsTableview;
+//}
 //延迟加载主滚动视图
 -(UIScrollView *)mainScrollview{
     if (!_mainScrollview) {
@@ -81,15 +81,11 @@
     [self scrollViewbtn:self.svdataArray];
     
 }
-//主滚动视图网络模型载入,网络加载运行了两次
+//主滚动视图网络模型载入
 -(void)setSvcategoryArray:(NSArray *)svcategoryArray{
     _svcategoryArray=svcategoryArray;
-    [svcategoryArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       // NSLog(@"%@",obj);
-    }];
-    
-    
-
+   
+    NSLog(@"加载模型");
 }
 
 
@@ -111,7 +107,10 @@
     [DZCNetsTools ScrollviewSttitle:^(NSArray * arraymodel, NSArray * categoryArray) {
         self.svdataArray=arraymodel;
         self.svcategoryArray=categoryArray;
-         self.mainScrollview.contentSize=CGSizeMake(categoryArray.count*SCREENWIDTH, 0);
+        
+        self.mainScrollview.contentSize=CGSizeMake(categoryArray.count*SCREENWIDTH, 0);
+        [DZCMainNewsTableView addcategoryNewstableview:categoryArray controller:self];
+        
     }];
     
     
@@ -122,10 +121,7 @@
         }
   
     }];
-    
-    
-    
-    
+ 
 }
 
 //等带数据源改造tableview加载方法
@@ -206,11 +202,7 @@
         make.height.mas_equalTo(44);
         make.left.equalTo(self.view.mas_left).offset(0);
     }];
-    [self.newsTableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.naviScrollview.mas_bottom).offset(0);
-        make.width.mas_equalTo(SCREENWIDTH);
-        make.height.mas_equalTo(SCREENHEIGHT);
-    }];
+
     
 }
 //添加滚动视图按钮,移除首个元素“关注”
@@ -242,11 +234,16 @@
 }
 //FIXME导航栏更换频道方法
 -(void)changeChanle:(UIButton *)sender{
+    if (sender==self.btnmark) {
+        return;
+    }
     NSLog(@"更换频道");
     sender.selected=YES;
     self.btnmark.selected=NO;
     self.btnmark=sender;
     
 }
+
+
 
 @end
