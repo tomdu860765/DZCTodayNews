@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>ViewController</key>
-		<string>DZCHomeViewVC</string>
+		<string>DZCMainnewsViewController</string>
 		<key>Image</key>
 		<string>home_tabbar_32x32_</string>
 		<key>HLpic</key>

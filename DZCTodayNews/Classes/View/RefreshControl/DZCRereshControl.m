@@ -25,6 +25,7 @@
 
     }];
     
+    
     [header setTitle:@"正在载入数据" forState:MJRefreshStateRefreshing];
     [header setTitle:@"数据载入完成" forState:MJRefreshStateIdle];
      [header setTitle:@"放手就刷新" forState:MJRefreshStatePulling];
@@ -63,6 +64,7 @@
             
         });
     }];
+    
     NSMutableArray *sendloadarray=NSMutableArray.array;
     for (int i=0; i<8; i++) {
         NSString *imagestr=[NSString localizedStringWithFormat:@"sendloading_18x18_%d",i];
