@@ -12,7 +12,7 @@
 #import "DZCTopNewsCell.h"
 #import "DZCSinglePicCell.h"
 #import "DZCNetsTools.h"
-
+#import "DZCMainnewsViewController.h"
 @interface DZCNewshotTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
@@ -29,9 +29,29 @@
     [self networkForMainview];
     [self registerClass];
     [self addrefreshWithview:self.MainVCarray];
-
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(responseNewsnetwork:)
+                                                name:@"ScrollViewOffset" object:nil];
 }
-
+//接受通知并进行网络请求
+-(void)responseNewsnetwork:(NSNotification *) noti{
+    //对比控制器名称是否一致,一致则请求网络更新
+    
+    DZCMainnewsViewController *viewcontorller=(DZCMainnewsViewController*)noti.object;
+    NSString *stringVC=NSStringFromClass([self class]);
+    NSString *stringChildVC=NSStringFromClass([viewcontorller.childViewControllers[viewcontorller.btnmark.tag] class]);
+    
+    
+    if ([stringVC isEqualToString:stringChildVC]) {
+        
+        
+        [self refreshloaddata:self.MainVCarray];
+        
+        [self.tableView setContentOffset:CGPointMake(0, 0)];
+        
+    }
+    
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -136,5 +156,10 @@
     
     
 }
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 
 @end

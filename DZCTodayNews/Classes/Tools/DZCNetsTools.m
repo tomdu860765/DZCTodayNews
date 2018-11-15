@@ -160,10 +160,16 @@
     
     
     NSString *string=@"api/news/feed/v64/?";
-    NSDictionary *stringdict=@{@0:@"all", @1:@"news_hot",@2:@"news_local",@3:@"video",@4:@"photos",@5:@"news_entertainment",@6:@"@news_tech",@7:@"news_car",@8:@"news_finance",@9:@"news_military",
-                               @10:@"news_sports",@11:@"news_world",@12:@"news_health",@13:@"jinritemai",@14:@" news_house",@15:@"traditional_culture"};
+    NSDictionary *stringdict=@{@0:@"all", @1:@"news_hot",@2:@"news_local",@3:@"video",@4:@"photos",@5:@"news_entertainment",
+                               @6:@"news_tech",@7:@"news_car",@8:@"news_finance",@9:@"news_military",
+                               @10:@"news_sports",@11:@"news_world",
+                               @12:@"news_health",@13:@"jinritemai",
+                               @14:@"news_house",@15:@"traditional_culture"};
     
     NSDictionary * dict=@{@"category":stringdict[keyworks]};
+   
+    
+    
     
     [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:string parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
@@ -172,9 +178,11 @@
             [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 DZCMainNewsModel *model=[DZCMainNewsModel yy_modelWithJSON:obj[@"content"] ];
                
-                if([model.title isEqualToString:@""]){
-                    return ;
+                if([[model.title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length]==0) {
+                    
+                    return;
                 }
+                
                 if (model) {
                     
                     [marry addObject:model];
@@ -194,6 +202,7 @@
      ];
     
 }
+
 
 
 @end

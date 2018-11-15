@@ -14,7 +14,7 @@
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
 @interface DZCBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
-
+@property(nonatomic,assign)BOOL markYcount;
 @end
 
 @implementation DZCBaseTableViewController
@@ -76,14 +76,32 @@
 //滚动视图控制器监控
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     //如果有上下拉动不执行该通知.
-    if (scrollView.contentOffset.y) {
-        return;
-    }
+    // 用bool 拉伸y滚动的真假,最后结束返回假
+   
+    if (scrollView.contentOffset.x&&self.markYcount==false) {
+
     int page= scrollView.contentOffset.x/SCREENWIDTH ;
+     
+        
     self.page=page;
+     [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
+     self.markYcount=false;
+    }else if
+        (scrollView.contentOffset.x==0&&self.markYcount==false&&scrollView.contentOffset.y==0)
+    {
+        self.page=0;
+       
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
+        self.markYcount=false;
+    }
+
+}
+//通过有y滚动记录下
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-   [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
- 
+    if (scrollView.contentOffset.y){
+        self.markYcount=true;
+    }
 }
 
 //添加刷新控件方法

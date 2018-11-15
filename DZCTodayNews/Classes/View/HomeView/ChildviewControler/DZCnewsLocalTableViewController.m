@@ -7,87 +7,162 @@
 //
 
 #import "DZCnewsLocalTableViewController.h"
-
+#import "DZCRereshControl.h"
+#import "DZCMainNewsModel.h"
+#import "DZCTopNewsCell.h"
+#import "DZCSinglePicCell.h"
+#import "DZCNetsTools.h"
+#import "DZCMainnewsViewController.h"
 @interface DZCnewsLocalTableViewController ()
-
+@property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
 
 @implementation DZCnewsLocalTableViewController
+-(void)setMainVCarray:(NSMutableArray *)MainVCarray{
+    _MainVCarray=MainVCarray;
+    
+    [self.tableView reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self networkForMainview];
+    [self registerClass];
+    [self addrefreshWithview:self.MainVCarray];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(responseNewsnetwork:)
+                                                name:@"ScrollViewOffset" object:nil];
+}
+//接受通知并进行网络请求
+-(void)responseNewsnetwork:(NSNotification *) noti{
+    //对比控制器名称是否一致,一致则请求网络更新
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    DZCMainnewsViewController *viewcontorller=(DZCMainnewsViewController*)noti.object;
+    NSString *stringVC=NSStringFromClass([self class]);
+    NSString *stringChildVC=NSStringFromClass([viewcontorller.childViewControllers[viewcontorller.btnmark.tag] class]);
     
-    // Configure the cell...
+    
+    if ([stringVC isEqualToString:stringChildVC]) {
+        
+        
+        [self refreshloaddata:self.MainVCarray];
+        
+        [self.tableView setContentOffset:CGPointMake(0, 0)];
+        
+    }
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.MainVCarray.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellid=@"topnewsid";
+    
+    
+    DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
+   
+    if (model.middle_image.url) {
+        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
+        cell.model=model;
+        
+        return cell;
+    }
+    
+    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
+    
+    cell.model=self.MainVCarray[indexPath.row];
     
     return cell;
+    
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)registerClass{
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
+    
+    UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
+    
+    [self.tableView registerNib:uib forCellReuseIdentifier:@"topnewsid"];
+    
+    UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
+    
+    [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//按照分类加载新闻
+-(void)networkForMainview{
+    
+    
+    [DZCNetsTools NetworHotNews:^(NSArray * array) {
+        if (array) {
+            
+            
+            self.modelArray=[NSMutableArray arrayWithArray:array];
+            self.MainVCarray=self.modelArray;
+            [self.tableView reloadData];
+        }
+    } WithKeyworks:@(2)];
+    
+    
+    
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+//添加刷新控件方法
+-(void)addrefreshWithview:(NSMutableArray *)marray{
+    
+    DZCRereshControl *rereshControl=DZCRereshControl.new;
+    
+    [rereshControl addRefreshControlheader:self.tableView vcblock:^{
+        [self refreshloaddata:marray];
+        
+        NSLog(@"上拉刷新");
+    }];
+    
+    [rereshControl addfooterRefresh:self.tableView vcblock:^{
+        [self pullrefreshloaddata:marray];
+        NSLog(@"上拉刷新");
+    }];
+    
+    
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+
+//向下刷新方法,注意数据是插入最前面
+-(void)refreshloaddata:(NSMutableArray*)marray{
+    
+    
+    [DZCNetsTools NetworHotNews:^(NSArray * newsmodel) {
+        if (newsmodel) {
+            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self.MainVCarray insertObject:obj atIndex:0];
+                
+            }];
+            
+            [self.tableView reloadData];}
+    } WithKeyworks:@(2)];
+    
+    
+    
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//向上拉刷新数据
+-(void)pullrefreshloaddata:(NSMutableArray*)marray{
+    
+    [DZCNetsTools NetworHotNews:^(NSArray * newsmodel) {
+        if (newsmodel) {
+            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self.MainVCarray addObject:obj];
+            }];
+            [self.tableView reloadData];}
+    } WithKeyworks:@(2)];
+    
+    
 }
-*/
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 @end

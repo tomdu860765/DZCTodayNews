@@ -50,6 +50,9 @@
     //网络方法获取导航模型
     [DZCNetsTools ScrollviewSttitle:^(NSArray * arraymodel, NSArray * categoryArray) {
         //分类按钮和文字按钮
+        
+        
+        
         self.titlemodelArray=arraymodel;
     }];
     //添加子视图
@@ -150,7 +153,9 @@
 }
 //频道转换方法
 -(void)clickButtonWithOffset:(UIButton *)button{
-    
+    if (button==self.btnmark) {
+        return;
+    }
     [self changeChanle:button];
     [self moveScrollview];
     [self titleScrollViewFormiddelPosition:button ];
@@ -173,8 +178,9 @@
     
     //视图移动
     [self.mainScrollview setContentOffset:CGPointMake(375*self.btnmark.tag, 0) animated:YES];
-    //网络请求,发送网络请求通知
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"ScrollViewOffset" object:nil];
+    //网络请求主滚动视图,发送网络请求通知
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"ScrollViewOffset" object:self];
+    //要传一个可以标示的mark 避免重复的视图刷新
     
 }
 //注销消息中心

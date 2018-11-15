@@ -14,9 +14,9 @@
 	<string>DZCMilitaryTableViewController</string>
 	<string>DZCSportsTableViewController</string>
 	<string>DZCWorldTableViewController</string>
+	<string>DZChealthTableViewController</string>
 	<string>DZCTemaiTableViewController</string>
 	<string>DZCHouseTableViewController</string>
 	<string>DZCCultureTableViewController</string>
-	<string>DZChealthTableViewController</string>
 </array>
 </plist>

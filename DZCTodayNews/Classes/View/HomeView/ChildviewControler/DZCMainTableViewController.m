@@ -38,16 +38,28 @@
     [self networkForMainview];
     [self registerClass];
     [self addrefreshWithview:self.MainVCarray];
+    //接受主滚动视图通知刷新网络
     [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(sound:)
-                                                name:@"ScrollViewOffset" object:self];
+                                            selector:@selector(responseNewsnetwork:)
+                                                name:@"ScrollViewOffset" object:nil];
 }
 //接受通知并进行网络请求
--(void)sound:(NSNotification *) noti{
-    DZCMainnewsViewController *vc= noti.object;
-    NSLog(@"接受通知%@",@(vc.btnmark.tag));
+-(void)responseNewsnetwork:(NSNotification *) noti{
+ //对比控制器名称是否一致,一致则请求网络更新
+
+    DZCMainnewsViewController *viewcontorller=(DZCMainnewsViewController*)noti.object;
+    NSString *stringVC=NSStringFromClass([self class]);
+    NSString *stringChildVC=NSStringFromClass([viewcontorller.childViewControllers[viewcontorller.btnmark.tag] class]);
+   
+   
+    if ([stringVC isEqualToString:stringChildVC]) {
+        
+    
     [self refreshloaddata:self.MainVCarray];
-    [self.tableView setContentOffset:CGPointMake(0, 0)];
+    
+   [self.tableView setContentOffset:CGPointMake(0, 0)];
+        
+    }
     
 }
 #pragma mark - Table view data source
@@ -99,7 +111,7 @@
     [DZCNetsTools NetworkMainNews:^(NSArray * array) {
         if (array) {
             
-        
+         
         self.modelArray=[NSMutableArray arrayWithArray:array];
             self.MainVCarray=self.modelArray;
             
