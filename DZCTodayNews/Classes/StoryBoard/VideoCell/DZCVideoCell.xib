@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="229" id="7sB-BY-Lkb" customClass="DZCVideoCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="videocell" rowHeight="229" id="7sB-BY-Lkb" customClass="DZCVideoCell">
             <rect key="frame" x="0.0" y="0.0" width="376" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7sB-BY-Lkb" id="nI1-YY-SZr">
@@ -91,27 +91,69 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNG-m7-tGF">
                         <rect key="frame" x="166" y="63" width="44" height="44"/>
                         <state key="normal" image="video_play_icon_44x44_"/>
+                        <connections>
+                            <action selector="playactionbtn:" destination="7sB-BY-Lkb" eventType="touchUpInside" id="WOt-RC-xKQ"/>
+                        </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpz-Z7-PXD">
+                        <rect key="frame" x="16" y="11" width="339" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="339" id="Ot7-kd-AyS"/>
+                            <constraint firstAttribute="height" constant="33" id="hwF-E0-NRX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxa-9P-UUu">
+                        <rect key="frame" x="16" y="52" width="55" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="Jnq-PO-ptG"/>
+                            <constraint firstAttribute="height" constant="35" id="RoJ-be-yzW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zc-4E-D0e">
+                        <rect key="frame" x="295" y="129" width="60" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="YAV-2w-tCW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="EWQ-wR-cRY" firstAttribute="top" secondItem="tOi-HH-6kK" secondAttribute="bottom" id="4Uh-Ia-E4J"/>
                     <constraint firstAttribute="trailing" secondItem="EWQ-wR-cRY" secondAttribute="trailing" id="A0x-UV-fGR"/>
+                    <constraint firstItem="cpz-Z7-PXD" firstAttribute="top" secondItem="nI1-YY-SZr" secondAttribute="topMargin" id="BCc-Cj-LMl"/>
                     <constraint firstItem="dNG-m7-tGF" firstAttribute="centerY" secondItem="tOi-HH-6kK" secondAttribute="centerY" constant="3.5" id="D7D-11-AOm"/>
+                    <constraint firstItem="cpz-Z7-PXD" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leadingMargin" id="Jpu-Ub-EMw"/>
                     <constraint firstAttribute="trailing" secondItem="tOi-HH-6kK" secondAttribute="trailing" id="Kck-Am-tKg"/>
                     <constraint firstItem="EWQ-wR-cRY" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leading" id="Lhv-xG-eC0"/>
                     <constraint firstItem="tOi-HH-6kK" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leading" id="MNZ-GX-Ohs"/>
                     <constraint firstItem="dNG-m7-tGF" firstAttribute="centerX" secondItem="tOi-HH-6kK" secondAttribute="centerX" id="ObQ-Kb-zgn"/>
                     <constraint firstItem="EWQ-wR-cRY" firstAttribute="top" secondItem="nI1-YY-SZr" secondAttribute="top" constant="163" id="X1a-qC-nha"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3zc-4E-D0e" secondAttribute="trailing" constant="5" id="ecc-f2-gs7"/>
+                    <constraint firstItem="Qxa-9P-UUu" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leadingMargin" id="jku-9q-Qo4"/>
                     <constraint firstItem="tOi-HH-6kK" firstAttribute="top" secondItem="nI1-YY-SZr" secondAttribute="top" id="mFd-PU-b4W"/>
+                    <constraint firstItem="Qxa-9P-UUu" firstAttribute="top" secondItem="cpz-Z7-PXD" secondAttribute="bottom" constant="8" id="oNH-Al-xkx"/>
+                    <constraint firstItem="EWQ-wR-cRY" firstAttribute="top" secondItem="3zc-4E-D0e" secondAttribute="bottom" constant="13" id="rGa-DE-pCc"/>
                     <constraint firstAttribute="bottom" secondItem="EWQ-wR-cRY" secondAttribute="bottom" id="yOK-Vo-Jnx"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imageview" destination="tOi-HH-6kK" id="P4d-IY-FPC"/>
                 <outlet property="likebtn" destination="y8l-DT-iFq" id="eTy-D5-wd9"/>
+                <outlet property="namelabel" destination="Erc-Hg-xQb" id="8qt-yP-KMs"/>
+                <outlet property="playcountlabel" destination="Qxa-9P-UUu" id="R61-tH-vuI"/>
                 <outlet property="pyqbtn" destination="ccY-zS-Jmx" id="Wam-Yb-2nB"/>
                 <outlet property="replybtn" destination="UaO-FW-u84" id="GA6-u9-IQZ"/>
                 <outlet property="sharebtn" destination="8sY-Lf-OK3" id="sY5-fn-C9Z"/>
-                <outlet property="sharelabel" destination="Erc-Hg-xQb" id="hTD-sk-Pjj"/>
+                <outlet property="videoduration" destination="3zc-4E-D0e" id="Mbo-pf-ad4"/>
+                <outlet property="videotitle" destination="cpz-Z7-PXD" id="He1-CG-1Az"/>
                 <outlet property="wechatbtn" destination="ktM-CX-wfO" id="qgH-1D-Qws"/>
             </connections>
             <point key="canvasLocation" x="-8" y="31.484257871064472"/>

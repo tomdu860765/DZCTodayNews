@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DZCTodayNews/Classes/View/HomeView/DZCMainnewsViewController.m"
-            timestampString = "564065259.765427"
+            timestampString = "564077936.274244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-moveScrollview"
             landmarkType = "7">
          </BreakpointContent>

@@ -68,8 +68,10 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(titleviewnoNotification:)
                                                 name:@"offsetForMainscrollview" object:nil];
-    
-}
+    [DZCNetsTools NetworVideo:@"v020045a0000bfn7og481ukvm4eb4teg" finishBlock:^(NSString * string) {
+        NSLog(@"%@",string);
+        
+    }];}
 //添加主滚动视图
 -(void)setmainscrollview{
     

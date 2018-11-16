@@ -18,20 +18,8 @@
  video_duration 视频时间
  video_detail_info 视频详细内容
  video_id 视频请求id
- 使用id的网络请求方法获取最后的播放地址{
- let r = arc4random() // 随机数
+ read_count 阅读数量
  
- let url: NSString = "/video/urls/v/1/toutiao/mp4/\(video_id)?r=\(r)" as NSString
- let data: NSData = url.data(using: String.Encoding.utf8.rawValue)! as NSData
- // 使用 crc32 校验
- var crc32: UInt64 = UInt64(data.getCRC32())
- // crc32 可能为负数，要保证其为正数
- if crc32 < 0 { crc32 += 0x100000000 }
- // 拼接 url
- let realURL = "http://i.snssdk.com/video/urls/v/1/toutiao/mp4/\(video_id)?r=\(r)&s=\(crc32)"
- //使用上面链接获取json 然后 base64解析成最终链接就可以用播放器使用
- 视频id v02004d00000bfmm6gd9688km4nle2ag
- }
  */
 
 #import <Foundation/Foundation.h>
@@ -55,14 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,copy)NSString * video_id;
 
+@property(nonatomic,copy)NSString *video_watch_count;
+
 @end
 
 
 @interface DZCMainNewsModel : NSObject
 
-@property(nonatomic,copy)NSString *media_name, *title, *display_url, *label,*has_video;
+@property(nonatomic,copy)NSString *media_name, *title, *display_url, *label,*has_video,*read_count,*video_duration ;
 
-@property(nonatomic,strong)NSNumber *comment_count;
+@property(nonatomic,strong)NSNumber *comment_count ;
 
 @property(nonatomic,assign)NSInteger publish_time;
 

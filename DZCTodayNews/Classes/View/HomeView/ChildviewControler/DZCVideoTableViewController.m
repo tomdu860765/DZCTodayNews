@@ -13,6 +13,7 @@
 #import "DZCSinglePicCell.h"
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
+#import "DZCVideoCell.h"
 @interface DZCVideoTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
@@ -63,20 +64,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellid=@"topnewsid";
     
+   
     
     DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
-    if (model.middle_image.url) {
-        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
-        cell.model=model;
-        
-        return cell;
-    }
-    
-    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
-    
-    cell.model=self.MainVCarray[indexPath.row];
-    
+//    if ([model.has_video isEqualToString:@"true"]) {
+//        
+//    }
+    DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell"];
+    cell.model=model;
     return cell;
+//    if (model.middle_image.url) {
+//        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
+//        cell.model=model;
+//
+//        return cell;
+//    }
+//
+//    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
+//
+//    cell.model=self.MainVCarray[indexPath.row];
+//
+//    return cell;
     
 }
 -(void)registerClass{
@@ -91,6 +99,9 @@
     
     [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
     
+    UINib *videocelluib=[UINib nibWithNibName:@"DZCVideoCell" bundle:nil];
+    
+    [self.tableView registerNib:videocelluib forCellReuseIdentifier:@"videocell"];
 }
 //按照分类加载新闻
 -(void)networkForMainview{

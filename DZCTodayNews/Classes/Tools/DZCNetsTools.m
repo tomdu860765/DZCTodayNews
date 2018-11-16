@@ -256,11 +256,9 @@
                 NSDictionary *dict=[NSDictionary dictionaryWithDictionary:[model.video_list valueForKey:@"video_1"]];
                 [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                     if ([key isEqualToString:@"main_url"]) {
-                        //变异base64
+                        //编译base64
                         NSData *data = [[NSData alloc]initWithBase64EncodedString:obj options:NSDataBase64DecodingIgnoreUnknownCharacters];
                         NSString *realurl64=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                        NSLog(@"%@",realurl64);
-                        
                         callback(realurl64);
                         *stop=YES;
                         return ;
