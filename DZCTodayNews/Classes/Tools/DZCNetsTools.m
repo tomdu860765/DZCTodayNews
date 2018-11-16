@@ -10,9 +10,17 @@
 #import "DZCTitleScrollViewModel.h"
 #import "YYModel.h"
 #import "DZCMainNewsModel.h"
-
+#import "NSData+CRC32.h"
+#import "DZCVideoModel.h"
+#import "MJExtension.h"
 @implementation DZCNetsTools
-//滚动标题视图模型网络请求
+///滚动标题视图模型网络请求
+///
+///*参数一 返回name数组
+///*参数二 返回category数组
+///*参数三 监听目标
+///*参数四 回调错误
+///*参数五
 +(void)titlescrollView:(void(^)(NSArray *,NSArray *))isuccessBlock failure:(void(^)(void))isfailureBlock{
     NSString *string=@"article/category/get_subscribed/v9/?";
     NSMutableArray *marry=NSMutableArray.array;
@@ -33,7 +41,10 @@
     }];
     
 }
-//推荐新闻数据网络请求,该方法调用了两次网络请求,暂时弃用.
+///推荐新闻数据网络请求,该方法调用了两次网络请求,暂时弃用.
+///
+///*参数一 返回主页新闻数组
+///*参数二 返回错误代码
 +(void)MainNewsNetwork:(void(^)(NSArray*,NSError*))ComplitionBlock{
     
     NSString *string=@"api/news/feed/v64/?";
@@ -62,7 +73,9 @@
     }];
     
 }
-//网络请求主新闻页面方法
+///主新闻界面请求方法
+///
+///*参数一 返回主页新闻数组
 +(void)NetworkMainNews:(void(^)(NSArray*))callback{
     NSString *string=@"api/news/feed/v64/?";
     
@@ -94,7 +107,10 @@
         
     }
      ];}
-//标题滚动视图网络请求
+///主新闻界面滚动视图请求方法
+///
+///*参数一 返回name数组
+///*参数二 返回category数组
 +(void)ScrollviewSttitle:(void(^)(NSArray*,NSArray*))finishblock{
     NSString *string=@"article/category/get_subscribed/v9/?";
     
@@ -155,7 +171,9 @@
      ];
     
 }
-//分类新闻网络请求,附加分类字典
+///主新闻界面请求方法
+///
+///*参数一 返回分类新闻详细信息数组
 +(void)NetworHotNews:(void(^)(NSArray*))callback WithKeyworks:(id)keyworks{
     
     
@@ -202,6 +220,67 @@
      ];
     
 }
+///video获取网络请求方法
+///
+/// 拼接字符串请务必一致否则会没有返回数据
+///*参数一 返回为视频真实链接字符串
+
++(void)NetworVideo:(NSString*)Videoidstring finishBlock:(void(^)(NSString*))callback{
+
+    int r=arc4random();
+    NSString *video_id=Videoidstring;
+    NSString *string=@"/video/urls/v/1/toutiao/mp4/";
+    NSString *str=[@"?r=" stringByAppendingFormat:@"%@",@(r)];
+    
+    NSString *urlstr=[string stringByAppendingString:video_id];
+    NSString *realstr=[urlstr stringByAppendingString:str];
+    //把链接处理为二进制
+    NSData *data = [realstr dataUsingEncoding:NSUTF8StringEncoding];
+   //处理crc32验证
+    UInt64  crc32=  data.getCRC32;
+    if (crc32 <0) {
+        crc32 += 0x100000000;
+    }
+   
+    NSString *crc32str=[@"&s=" stringByAppendingFormat:@"%@",@(crc32)];
+    
+    NSString *requeststring=[realstr stringByAppendingString:crc32str];
+    
+    
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:requeststring parameters:@[] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+           
+            if ([NSJSONSerialization isValidJSONObject:responseObject]) {
+               
+                DZCVideolistModel *model=[DZCVideolistModel yy_modelWithJSON:responseObject[@"data"]];
+                NSDictionary *dict=[NSDictionary dictionaryWithDictionary:[model.video_list valueForKey:@"video_1"]];
+                [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                    if ([key isEqualToString:@"main_url"]) {
+                        //变异base64
+                        NSData *data = [[NSData alloc]initWithBase64EncodedString:obj options:NSDataBase64DecodingIgnoreUnknownCharacters];
+                        NSString *realurl64=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                        NSLog(@"%@",realurl64);
+                        
+                        callback(realurl64);
+                        *stop=YES;
+                        return ;
+                    }
+                }];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+            
+            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+        }
+        
+    }
+     ];
+    
+}
+
+
 
 
 

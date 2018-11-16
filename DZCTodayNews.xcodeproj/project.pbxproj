@@ -56,8 +56,10 @@
 		22A35D62219E66C80024F350 /* DZCHotNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A35D5C219E66C80024F350 /* DZCHotNewsTableViewCell.xib */; };
 		22A35D66219E67860024F350 /* DZCVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D65219E67860024F350 /* DZCVideoCell.m */; };
 		22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A35D67219E67920024F350 /* DZCVideoCell.xib */; };
+		22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D8C219E845C0024F350 /* NSData+CRC32.m */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
 		22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */; };
+		22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D531BC219ECE5D00910315 /* DZCVideoModel.m */; };
 		22D82F97219CF2DC00AE394C /* DZCTitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D82F96219CF2DC00AE394C /* DZCTitleScrollView.m */; };
 		FEF09B2647EDE0F57D7D84D3 /* Pods_DZCTodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */; };
 /* End PBXBuildFile section */
@@ -154,9 +156,13 @@
 		22A35D64219E67860024F350 /* DZCVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCVideoCell.h; sourceTree = "<group>"; };
 		22A35D65219E67860024F350 /* DZCVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCVideoCell.m; sourceTree = "<group>"; };
 		22A35D67219E67920024F350 /* DZCVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCVideoCell.xib; sourceTree = "<group>"; };
+		22A35D8B219E84550024F350 /* NSData+CRC32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
+		22A35D8C219E845C0024F350 /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		22BE19FD21926B310041E47D /* TabBarItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TabBarItem.plist; sourceTree = "<group>"; };
 		22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularUrl.h"; sourceTree = "<group>"; };
 		22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularUrl.m"; sourceTree = "<group>"; };
+		22D531BB219ECE5D00910315 /* DZCVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCVideoModel.h; sourceTree = "<group>"; };
+		22D531BC219ECE5D00910315 /* DZCVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCVideoModel.m; sourceTree = "<group>"; };
 		22D82F95219CF2DC00AE394C /* DZCTitleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollView.h; sourceTree = "<group>"; };
 		22D82F96219CF2DC00AE394C /* DZCTitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollView.m; sourceTree = "<group>"; };
 		34CF92B85BC519476252A34C /* Pods-DZCTodayNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZCTodayNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -377,6 +383,8 @@
 		22A018AB21931DA500BE73D5 /* Extesion */ = {
 			isa = PBXGroup;
 			children = (
+				22A35D8B219E84550024F350 /* NSData+CRC32.h */,
+				22A35D8C219E845C0024F350 /* NSData+CRC32.m */,
 				229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */,
 				229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */,
 				22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */,
@@ -399,6 +407,7 @@
 		22A018AD21931DB800BE73D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				22D531BA219ECE3900910315 /* VideoModel */,
 				2225A0B721995F260030CE5E /* ScrollviewModel */,
 				2225A0B821995F4D0030CE5E /* MainNewsModel */,
 			);
@@ -497,6 +506,15 @@
 				22A35D67219E67920024F350 /* DZCVideoCell.xib */,
 			);
 			path = VideoCell;
+			sourceTree = "<group>";
+		};
+		22D531BA219ECE3900910315 /* VideoModel */ = {
+			isa = PBXGroup;
+			children = (
+				22D531BB219ECE5D00910315 /* DZCVideoModel.h */,
+				22D531BC219ECE5D00910315 /* DZCVideoModel.m */,
+			);
+			path = VideoModel;
 			sourceTree = "<group>";
 		};
 		45364338B3AC0AF2E4620218 /* Frameworks */ = {
@@ -603,6 +621,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -617,6 +636,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -661,6 +681,8 @@
 			files = (
 				22400C3E219C47400086C86A /* DZCMainTableViewController.m in Sources */,
 				22400C4A219C47CD0086C86A /* DZCPhotosTableViewController.m in Sources */,
+				22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */,
+				22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */,
 				22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */,
 				22400C50219C48090086C86A /* DZCnewsTechTableViewController.m in Sources */,
 				22400C56219C48410086C86A /* DZCFinanceTableViewController.m in Sources */,

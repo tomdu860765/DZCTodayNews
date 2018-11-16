@@ -14,4 +14,5 @@ target 'DZCTodayNews' do
    pod 'YYText'
    pod 'Masonry'
    pod 'MJRefresh'
+   pod 'MJExtension'
 end

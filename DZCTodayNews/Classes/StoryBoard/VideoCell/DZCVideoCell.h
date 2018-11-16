@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class DZCMainNewsModel;
+@class DZCVideolistModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCVideoCell : UITableViewCell
-
+@property(strong,nonatomic) DZCMainNewsModel *model;
+@property(strong,nonatomic)DZCVideolistModel *videomodel;
 @end
 
 NS_ASSUME_NONNULL_END

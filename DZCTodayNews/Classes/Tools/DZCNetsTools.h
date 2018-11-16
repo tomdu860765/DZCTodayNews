@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)NetworHotNews:(void(^)(NSArray*))callback;
 //分类新闻网络请求,该方法同时使用可能会产生冲突
 +(void)NetworHotNews:(void(^)(NSArray*))callback WithKeyworks:(id)keyworks;
-
-
+//视频网络请求
++(void)NetworVideo:(void(^)(NSString*))callback;
 @end
 
 NS_ASSUME_NONNULL_END

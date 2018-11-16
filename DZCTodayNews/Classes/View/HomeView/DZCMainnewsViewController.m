@@ -68,6 +68,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(titleviewnoNotification:)
                                                 name:@"offsetForMainscrollview" object:nil];
+    
 }
 //添加主滚动视图
 -(void)setmainscrollview{
@@ -222,6 +223,11 @@
         btnoffset=maxoffset;
     }
     [self.titleScrollview setContentOffset:CGPointMake(btnoffset, 0) animated:YES];
+    
+    
+}
+-(void)jsontest{
+    
     
     
 }
