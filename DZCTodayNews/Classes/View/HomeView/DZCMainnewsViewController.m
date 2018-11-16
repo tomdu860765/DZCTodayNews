@@ -50,10 +50,18 @@
     //网络方法获取导航模型
     [DZCNetsTools ScrollviewSttitle:^(NSArray * arraymodel, NSArray * categoryArray) {
         //分类按钮和文字按钮
-        
-        
-        
-        self.titlemodelArray=arraymodel;
+        NSMutableArray *wordsarray=NSMutableArray.array;
+        [arraymodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isEqualToString:@"关注"]) {
+                return ;
+            }else if ([obj isEqualToString:@"特卖"]){
+                return;
+            }
+            [wordsarray addObject:obj];
+            
+        }];
+
+        self.titlemodelArray=wordsarray.copy;
     }];
     //添加子视图
    [self SetupallChildVC];
@@ -126,7 +134,7 @@
 //添加滚动视图按钮,移除首个元素“关注”
 -(void)scrollViewbtn:(NSArray *)array{
     NSMutableArray *marry= [array mutableCopy];
-    [marry removeObjectAtIndex:0];
+    
     CGFloat margin=15;
     CGFloat btnWidth=40;
     [marry.copy enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -142,7 +150,7 @@
             self.btnmark=titleBtn;
         }
         
-        [titleBtn setFrame:CGRectMake(margin*(idx+1)+btnWidth*idx,0,btnWidth, 34)];
+        [titleBtn setFrame:CGRectMake((margin+btnWidth)*idx+margin,0,btnWidth, 34)];
         [titleBtn addTarget:self action:@selector(clickButtonWithOffset:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.titleScrollview addSubview:titleBtn];

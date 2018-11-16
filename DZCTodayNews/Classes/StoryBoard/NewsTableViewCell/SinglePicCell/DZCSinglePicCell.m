@@ -54,11 +54,11 @@
     self.sourcelabel.text=self.model.media_name;
     
     self.replylabel.text=[NSString stringWithFormat:@"%@评论",self.model.comment_count];
-    
+    if (self.model.middle_image.url){
     NSString *rtlstr=[NSString stringWithUrl:self.model.middle_image.url];
     NSURL *url=[NSURL URLWithString:rtlstr];
     
-    if (url) {
+    
        [self.image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     }
 

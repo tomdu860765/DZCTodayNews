@@ -13,6 +13,7 @@
 #import "DZCSinglePicCell.h"
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
+#import "DZCHotNewsTableViewCell.h"
 @interface DZCNewshotTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
@@ -60,18 +61,25 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellid=@"topnewsid";
-    
     
     DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
+    
     if (model.middle_image.url) {
         DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
         cell.model=model;
         
         return cell;
+    }else if (model.ishot==YES){
+        
+        DZCHotNewsTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"hotnewscell"];
+
+        cell.model=self.MainVCarray[indexPath.row];
+
+        return cell;
+
     }
     
-    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
+    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:@"topnewsid"];
     
     cell.model=self.MainVCarray[indexPath.row];
     
@@ -89,6 +97,10 @@
     UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
     
     [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
+    
+    
+    UINib *hotnewsuib=[UINib nibWithNibName:@"DZCHotNewsTableViewCell" bundle:nil];
+    [self.tableView registerNib:hotnewsuib forCellReuseIdentifier:@"hotnewscell"];
     
 }
 //按照分类加载新闻
