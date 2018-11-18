@@ -14,8 +14,13 @@
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
 #import "DZCVideoCell.h"
+
+
 @interface DZCVideoTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
+@property(nonatomic,strong)DZCVideoCell *cellmark;
+
+
 @end
 
 @implementation DZCVideoTableViewController
@@ -26,6 +31,8 @@
     [self.tableView reloadData];
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self networkForMainview];
@@ -34,6 +41,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(responseNewsnetwork:)
                                                 name:@"ScrollViewOffset" object:nil];
+    
+   
 }
 //接受通知并进行网络请求
 -(void)responseNewsnetwork:(NSNotification *) noti{
@@ -60,33 +69,54 @@
     return self.MainVCarray.count;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellid=@"topnewsid";
+-(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
     
-   
-    
-    DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
-//    if ([model.has_video isEqualToString:@"true"]) {
-//        
-//    }
-    DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell"];
-    cell.model=model;
-    return cell;
-//    if (model.middle_image.url) {
-//        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
-//        cell.model=model;
-//
-//        return cell;
-//    }
-//
-//    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
-//
-//    cell.model=self.MainVCarray[indexPath.row];
-//
-//    return cell;
+    [self setCellmarkHiddenForenddisplay];
+    //self.AVPlayerViewController=nil;
     
 }
+///通过kvc,重新设置该cell的子控件隐藏和显示
+-(void)setCellmarkHiddenForenddisplay{
+    
+    [self.cellmark setValue:@(1) forKeyPath:@"sharebtn.hidden" ];
+    [self.cellmark setValue:@(1) forKeyPath:@"pyqbtn.hidden"];
+    [self.cellmark setValue:@(1) forKeyPath:@"wechatbtn.hidden"];
+    [self.cellmark setValue:@(0) forKeyPath:@"namelabel.hidden" ];
+    [self.cellmark setValue:@(0) forKeyPath:@"playcountlabel.hidden"];
+    [self.cellmark setValue:@(0) forKeyPath:@"videotitle.hidden"];
+    //返回原来的子控件位置
+    CGRect wecharect=  CGRectMake(4, 12, 28, 27);
+    CGRect  pyqrect=  CGRectMake(8, 13, 26, 23);
+   
+    
+    [self.cellmark setValue:@(wecharect) forKeyPath:@"wechatbtn.frame"];
+    [self.cellmark setValue:@(pyqrect) forKeyPath:@"pyqbtn.frame"];
+    [self.cellmark setValue:nil forKeyPath:@"btnmark"];
+   // [self.cellmark setValue:@(0) forKeyPath:@"imageview.hidden"];
+    [self.cellmark setValue:@(0) forKeyPath:@"playbtn.hidden"];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    
+    DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell" forIndexPath:indexPath];
+    
+    if (cell==nil) {
+        cell=[[DZCVideoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"videocell"];
+   }
+
+        DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.model=model;
+        cell.visiblemark=YES;
+        self.cellmark=cell;
+    
+       return cell;
+
+
+}
+
 -(void)registerClass{
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
@@ -168,9 +198,36 @@
     
     
 }
+//销毁通知中心
 -(void)dealloc{
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+///添加视频控制器到视图控制器上
+-(void)addVideocontrollerFortableviewcell{
+    
+    //创建播放控制器,创建播放器player.
+   self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:[self.cellmark valueForKey:@"videourl"]];
+    //获取背景图大小
+    NSValue *framevalue=[self.cellmark valueForKeyPath:@"imageview.frame"];
+    
+    CGRect rect=[framevalue CGRectValue];
+    
+    self.AVPlayerViewController.view.frame=rect;
+    //视频layer
+    AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];
+    
+    playerlayer.frame =rect;
+    playerlayer.videoGravity = AVLayerVideoGravityResize;
+    
+    [self.cellmark.contentView addSubview:self.AVPlayerViewController.view];
+   //视频f播放
+    [self.AVPlayerViewController.player play];
+   
+    
+   
+    
+  
 }
 
 

@@ -7,7 +7,7 @@
 //
 
 #import "DZCMainNewsModel.h"
-
+#import "YYModel.h"
 @implementation DZCMainNewsModel
 -(NSString*)description{
     

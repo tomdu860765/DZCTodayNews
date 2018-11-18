@@ -7,7 +7,7 @@
 //
 
 #import "DZCNewsNetWorkTools.h"
-#import "YYModel.h"
+
 #import "DZCTitleScrollViewModel.h"
 
 @implementation DZCNewsNetWorkTools

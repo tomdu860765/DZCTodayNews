@@ -12,7 +12,7 @@
 #import "DZCMainNewsModel.h"
 #import "NSData+CRC32.h"
 #import "DZCVideoModel.h"
-#import "MJExtension.h"
+
 @implementation DZCNetsTools
 ///滚动标题视图模型网络请求
 ///
@@ -136,7 +136,9 @@
      ];
     
 }
-//分类新闻请求
+///主界面推荐新闻界面请求方法
+///
+///*参数一 返回分类新闻详细信息数组
 +(void)NetworHotNews:(void(^)(NSArray*))callback{
     
     
@@ -220,7 +222,7 @@
      ];
     
 }
-///video获取网络请求方法
+///获取video网络请求方法
 ///
 /// 拼接字符串请务必一致否则会没有返回数据
 ///*参数一 返回为视频真实链接字符串
