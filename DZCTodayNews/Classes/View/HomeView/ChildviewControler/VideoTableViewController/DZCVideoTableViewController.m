@@ -19,7 +19,7 @@
 @interface DZCVideoTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @property(nonatomic,strong)DZCVideoCell *cellmark;
-
+@property(nonatomic,assign)CGFloat rooloffsetY;
 
 @end
 
@@ -73,9 +73,12 @@
  
     
     [self setCellmarkHiddenForenddisplay];
-    //self.AVPlayerViewController=nil;
+ 
     
 }
+
+
+
 ///通过kvc,重新设置该cell的子控件隐藏和显示
 -(void)setCellmarkHiddenForenddisplay{
     
@@ -93,8 +96,9 @@
     [self.cellmark setValue:@(wecharect) forKeyPath:@"wechatbtn.frame"];
     [self.cellmark setValue:@(pyqrect) forKeyPath:@"pyqbtn.frame"];
     [self.cellmark setValue:nil forKeyPath:@"btnmark"];
-   // [self.cellmark setValue:@(0) forKeyPath:@"imageview.hidden"];
+   
     [self.cellmark setValue:@(0) forKeyPath:@"playbtn.hidden"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"stopcellvideo" object:self];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,7 +113,7 @@
         DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.model=model;
-        cell.visiblemark=YES;
+       
         self.cellmark=cell;
     
        return cell;
@@ -203,32 +207,7 @@
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
-///添加视频控制器到视图控制器上
--(void)addVideocontrollerFortableviewcell{
-    
-    //创建播放控制器,创建播放器player.
-   self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:[self.cellmark valueForKey:@"videourl"]];
-    //获取背景图大小
-    NSValue *framevalue=[self.cellmark valueForKeyPath:@"imageview.frame"];
-    
-    CGRect rect=[framevalue CGRectValue];
-    
-    self.AVPlayerViewController.view.frame=rect;
-    //视频layer
-    AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];
-    
-    playerlayer.frame =rect;
-    playerlayer.videoGravity = AVLayerVideoGravityResize;
-    
-    [self.cellmark.contentView addSubview:self.AVPlayerViewController.view];
-   //视频f播放
-    [self.AVPlayerViewController.player play];
-   
-    
-   
-    
-  
-}
+
 
 
 @end

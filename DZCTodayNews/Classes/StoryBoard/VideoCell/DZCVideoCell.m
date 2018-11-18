@@ -29,18 +29,19 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pyqleftconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wechatconstraint;
 @property(strong,nonatomic)UIButton *btnmark;
-@property(strong,nonatomic)NSURL *videourl;
+@property(assign,nonatomic,getter=isvideoplay)BOOL videoplay;
 @property(nonatomic,strong)AVPlayerViewController *AVPlayerViewController;
+@property(nonatomic,strong)AVPlayer *cellplayer;
 @end
 
 @implementation DZCVideoCell
 
 -(AVPlayerViewController*)AVPlayerViewController{
-    
+
     if (_AVPlayerViewController==nil) {
         _AVPlayerViewController=[[AVPlayerViewController alloc]init];
     }
-    
+
     return  _AVPlayerViewController;
 }
 
@@ -55,7 +56,8 @@
     [DZCNetsTools NetworVideo:[self.model.video_detail_info valueForKey:@"video_id"] finishBlock:^(NSString * realVideourl) {
         
         NSURL *url=[[NSURL alloc]initWithString:realVideourl];
-        self.videourl=url;
+        [self addVideocontrollerFortableviewcell:url];
+        
     }];
     
     
@@ -63,8 +65,8 @@
     [self wechatAnimotionshow];
     self.btnmark=sender;
     [sender setHidden:YES];
-   // [[NSNotificationCenter defaultCenter]postNotificationName:@"cellvideoplay" object:self];
-    [self addVideocontrollerFortableviewcell];
+    
+   
     
 }
 
@@ -94,14 +96,14 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
- 
+   
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(stopvideo) name:@"stopcellvideo" object:nil];
   
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+  
     
 }
 
@@ -147,7 +149,7 @@
     
     animation.fromValue=@(self.wechatbtn.frame.origin.x);
     animation.toValue=@(self.wechatbtn.frame.origin.x+50);
-    animation.duration=2;
+    animation.duration=0.25;
     animation.removedOnCompletion=NO;
     animation.fillMode=kCAFillModeForwards;
     [self.wechatbtn.layer addAnimation:animation forKey:nil];
@@ -159,7 +161,7 @@
     pyqanmimation.toValue=@(self.pyqbtn.frame.origin.x+90);
     pyqanmimation.removedOnCompletion=NO;
     pyqanmimation.fillMode=kCAFillModeForwards;
-    pyqanmimation.duration=2;
+    pyqanmimation.duration=0.25;
     [self.pyqbtn.layer addAnimation:pyqanmimation forKey:nil];
     [self.pyqleftconstraint setConstant:90];
     [self.wechatconstraint setConstant:50];
@@ -169,25 +171,39 @@
 -(void)dealloc{
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [self removeObserver:self.AVPlayerViewController.player forKeyPath:@"timeControlStatus"];
 }
--(void)addVideocontrollerFortableviewcell{
+-(void)addVideocontrollerFortableviewcell:(NSURL*)url{
     
+    
+
     //创建播放控制器,创建播放器player.
-    self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:self.videourl];
+    self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:url];
     //获取背景图大小
-  
     
-    self.AVPlayerViewController.view.frame=self.imageview.frame;
-    //视频layer
+     self.AVPlayerViewController.view.frame=self.imageview.frame;
+    //添加视频layer
     AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];
     
     playerlayer.frame =self.imageview.frame;
     playerlayer.videoGravity = AVLayerVideoGravityResize;
-    
+    [self.AVPlayerViewController.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.AVPlayerViewController.view];
-    //视频f播放
     [self.AVPlayerViewController.player play];
-
+    
+   
+    
+    
 }
+
+-(void)stopvideo{
+   
+    [self.AVPlayerViewController.player pause];
+    
+    [self.AVPlayerViewController.view removeFromSuperview];
+    
+    
+}
+
 
 @end

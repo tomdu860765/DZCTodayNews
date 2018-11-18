@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DZCVideoCell : UITableViewCell
 @property(strong,nonatomic) DZCMainNewsModel *model;
 
-@property(assign,nonatomic,getter=isvisiblemark)BOOL visiblemark;
 
 @end
 

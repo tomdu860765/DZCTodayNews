@@ -13,21 +13,22 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="videocell" rowHeight="250" id="7sB-BY-Lkb" customClass="DZCVideoCell">
             <rect key="frame" x="0.0" y="0.0" width="377" height="221"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7sB-BY-Lkb" id="nI1-YY-SZr">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7sB-BY-Lkb" id="nI1-YY-SZr">
                 <rect key="frame" x="0.0" y="0.0" width="377" height="220.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-HH-6kK">
-                        <rect key="frame" x="0.0" y="0.0" width="377" height="172.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="377" height="180.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="172.5" id="L40-dG-g7X"/>
+                            <constraint firstAttribute="height" constant="180.5" id="23r-Ed-5pQ"/>
+                            <constraint firstAttribute="width" constant="377" id="kQi-gz-zd6"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-wR-cRY">
-                        <rect key="frame" x="0.0" y="172.5" width="377" height="40"/>
+                        <rect key="frame" x="0.0" y="180.5" width="377" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8l-DT-iFq">
-                                <rect key="frame" x="249" y="11" width="51" height="21"/>
+                                <rect key="frame" x="249" y="10" width="51" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="D8g-KQ-v7z"/>
                                 </constraints>
@@ -85,7 +86,6 @@
                             <constraint firstItem="8sY-Lf-OK3" firstAttribute="top" secondItem="EWQ-wR-cRY" secondAttribute="top" constant="12" id="d6p-0Q-DB4"/>
                             <constraint firstAttribute="bottom" secondItem="UaO-FW-u84" secondAttribute="bottom" constant="7" id="h1Q-x5-VhO"/>
                             <constraint firstAttribute="bottom" secondItem="y8l-DT-iFq" secondAttribute="bottom" constant="8" id="kFg-qu-JC8"/>
-                            <constraint firstItem="y8l-DT-iFq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EWQ-wR-cRY" secondAttribute="top" constant="11" id="kYb-l1-oeq"/>
                             <constraint firstItem="ccY-zS-Jmx" firstAttribute="leading" secondItem="EWQ-wR-cRY" secondAttribute="leading" constant="8" id="kjL-hs-kPE"/>
                             <constraint firstItem="8sY-Lf-OK3" firstAttribute="leading" secondItem="EWQ-wR-cRY" secondAttribute="leading" constant="4" id="ktd-X3-Q6a"/>
                             <constraint firstItem="ktM-CX-wfO" firstAttribute="top" secondItem="EWQ-wR-cRY" secondAttribute="top" constant="12" id="ldZ-Pn-hYk"/>
@@ -134,15 +134,14 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tOi-HH-6kK" secondAttribute="bottom" constant="40" id="0II-oj-jT9"/>
                     <constraint firstItem="Qxa-9P-UUu" firstAttribute="top" secondItem="cpz-Z7-PXD" secondAttribute="bottom" constant="16" id="3lQ-iD-10z"/>
-                    <constraint firstAttribute="trailing" secondItem="tOi-HH-6kK" secondAttribute="trailing" id="Ah9-te-tvl"/>
                     <constraint firstItem="3zc-4E-D0e" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leadingMargin" constant="246" id="Khd-Gx-RUN"/>
                     <constraint firstItem="cpz-Z7-PXD" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leadingMargin" id="UBK-ZD-nL2"/>
-                    <constraint firstItem="tOi-HH-6kK" firstAttribute="top" secondItem="nI1-YY-SZr" secondAttribute="top" id="ZGS-z3-WQY"/>
-                    <constraint firstItem="EWQ-wR-cRY" firstAttribute="top" secondItem="tOi-HH-6kK" secondAttribute="bottom" id="dTh-QX-KKh"/>
+                    <constraint firstItem="tOi-HH-6kK" firstAttribute="top" secondItem="nI1-YY-SZr" secondAttribute="top" id="exC-PZ-tMB"/>
                     <constraint firstItem="3zc-4E-D0e" firstAttribute="top" secondItem="cpz-Z7-PXD" secondAttribute="bottom" constant="72" id="h2B-I8-ft0"/>
+                    <constraint firstItem="tOi-HH-6kK" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leading" id="hZw-ao-GFR"/>
                     <constraint firstItem="Qxa-9P-UUu" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leadingMargin" id="jWI-LD-6xc"/>
-                    <constraint firstItem="tOi-HH-6kK" firstAttribute="leading" secondItem="nI1-YY-SZr" secondAttribute="leading" id="kqx-68-aXV"/>
                     <constraint firstAttribute="trailing" secondItem="EWQ-wR-cRY" secondAttribute="trailing" id="ku2-9I-y1S"/>
                     <constraint firstItem="cpz-Z7-PXD" firstAttribute="top" secondItem="nI1-YY-SZr" secondAttribute="topMargin" id="l6p-AF-h3d"/>
                     <constraint firstAttribute="bottom" secondItem="EWQ-wR-cRY" secondAttribute="bottom" id="s0T-DZ-SsT"/>

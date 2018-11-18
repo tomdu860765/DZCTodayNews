@@ -324,42 +324,170 @@
 		22400C3B219C47150086C86A /* ChildviewControler */ = {
 			isa = PBXGroup;
 			children = (
-				22400C3C219C47400086C86A /* DZCMainTableViewController.h */,
-				22400C3D219C47400086C86A /* DZCMainTableViewController.m */,
-				22400C3F219C476B0086C86A /* DZCNewshotTableViewController.h */,
-				22400C40219C476B0086C86A /* DZCNewshotTableViewController.m */,
-				22400C42219C47A10086C86A /* DZCnewsLocalTableViewController.h */,
-				22400C43219C47A10086C86A /* DZCnewsLocalTableViewController.m */,
-				22400C45219C47BA0086C86A /* DZCVideoTableViewController.h */,
-				22400C46219C47BA0086C86A /* DZCVideoTableViewController.m */,
-				22400C48219C47CD0086C86A /* DZCPhotosTableViewController.h */,
-				22400C49219C47CD0086C86A /* DZCPhotosTableViewController.m */,
-				22400C4B219C47E60086C86A /* DZCEntertainmentTableViewController.h */,
-				22400C4C219C47E60086C86A /* DZCEntertainmentTableViewController.m */,
-				22400C4E219C48090086C86A /* DZCnewsTechTableViewController.h */,
-				22400C4F219C48090086C86A /* DZCnewsTechTableViewController.m */,
-				22400C51219C48250086C86A /* DZCnewsCarTableViewController.h */,
-				22400C52219C48250086C86A /* DZCnewsCarTableViewController.m */,
-				22400C54219C48410086C86A /* DZCFinanceTableViewController.h */,
-				22400C55219C48410086C86A /* DZCFinanceTableViewController.m */,
-				22400C57219C48590086C86A /* DZCMilitaryTableViewController.h */,
-				22400C58219C48590086C86A /* DZCMilitaryTableViewController.m */,
-				22400C5A219C48700086C86A /* DZCSportsTableViewController.h */,
-				22400C5B219C48700086C86A /* DZCSportsTableViewController.m */,
-				22400C5D219C48A30086C86A /* DZCWorldTableViewController.h */,
-				22400C5E219C48A30086C86A /* DZCWorldTableViewController.m */,
-				22400C6F219C4A530086C86A /* DZChealthTableViewController.h */,
-				22400C70219C4A530086C86A /* DZChealthTableViewController.m */,
-				22400C63219C48EA0086C86A /* DZCTemaiTableViewController.h */,
-				22400C64219C48EA0086C86A /* DZCTemaiTableViewController.m */,
-				22400C66219C49010086C86A /* DZCHouseTableViewController.h */,
-				22400C67219C49010086C86A /* DZCHouseTableViewController.m */,
-				22400C69219C491D0086C86A /* DZCCultureTableViewController.h */,
-				22400C6A219C491D0086C86A /* DZCCultureTableViewController.m */,
+				226B1E2921A1890500F2346A /* CultureTableViewController */,
+				226B1E2521A187B200F2346A /* LocalNewsViewController */,
+				226B1E1F21A187B100F2346A /* VideoTableViewController */,
+				226B1E1C21A187B000F2346A /* PhotosTableViewController */,
+				226B1E2321A187B200F2346A /* EntertainmentTableViewController */,
+				226B1E2421A187B200F2346A /* TechTableViewController */,
+				226B1E2621A187B300F2346A /* CarTableViewController */,
+				226B1E2021A187B100F2346A /* FinanceTableViewController */,
+				226B1E2821A187B300F2346A /* MilitaryTableViewController */,
+				226B1E1D21A187B100F2346A /* SportsTableViewController */,
+				226B1E1E21A187B100F2346A /* WorldTableViewController */,
+				226B1E2121A187B200F2346A /* HealthTableViewController */,
+				226B1E2721A187B300F2346A /* TemaiTableViewController */,
+				226B1E2221A187B200F2346A /* HouseTableViewController */,
+				226B1E1A21A1870600F2346A /* MainChildController */,
+				226B1E1B21A1872900F2346A /* HotNewsController */,
 				22400C6C219C49FC0086C86A /* DZCBaseTableViewController.h */,
 				22400C6D219C49FC0086C86A /* DZCBaseTableViewController.m */,
 			);
 			path = ChildviewControler;
+			sourceTree = "<group>";
+		};
+		226B1E1A21A1870600F2346A /* MainChildController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C3C219C47400086C86A /* DZCMainTableViewController.h */,
+				22400C3D219C47400086C86A /* DZCMainTableViewController.m */,
+			);
+			path = MainChildController;
+			sourceTree = "<group>";
+		};
+		226B1E1B21A1872900F2346A /* HotNewsController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C3F219C476B0086C86A /* DZCNewshotTableViewController.h */,
+				22400C40219C476B0086C86A /* DZCNewshotTableViewController.m */,
+			);
+			path = HotNewsController;
+			sourceTree = "<group>";
+		};
+		226B1E1C21A187B000F2346A /* PhotosTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C48219C47CD0086C86A /* DZCPhotosTableViewController.h */,
+				22400C49219C47CD0086C86A /* DZCPhotosTableViewController.m */,
+			);
+			path = PhotosTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E1D21A187B100F2346A /* SportsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C5A219C48700086C86A /* DZCSportsTableViewController.h */,
+				22400C5B219C48700086C86A /* DZCSportsTableViewController.m */,
+			);
+			path = SportsTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E1E21A187B100F2346A /* WorldTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C5D219C48A30086C86A /* DZCWorldTableViewController.h */,
+				22400C5E219C48A30086C86A /* DZCWorldTableViewController.m */,
+			);
+			path = WorldTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E1F21A187B100F2346A /* VideoTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C45219C47BA0086C86A /* DZCVideoTableViewController.h */,
+				22400C46219C47BA0086C86A /* DZCVideoTableViewController.m */,
+			);
+			path = VideoTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2021A187B100F2346A /* FinanceTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C54219C48410086C86A /* DZCFinanceTableViewController.h */,
+				22400C55219C48410086C86A /* DZCFinanceTableViewController.m */,
+			);
+			path = FinanceTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2121A187B200F2346A /* HealthTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C6F219C4A530086C86A /* DZChealthTableViewController.h */,
+				22400C70219C4A530086C86A /* DZChealthTableViewController.m */,
+			);
+			path = HealthTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2221A187B200F2346A /* HouseTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C66219C49010086C86A /* DZCHouseTableViewController.h */,
+				22400C67219C49010086C86A /* DZCHouseTableViewController.m */,
+			);
+			path = HouseTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2321A187B200F2346A /* EntertainmentTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C4B219C47E60086C86A /* DZCEntertainmentTableViewController.h */,
+				22400C4C219C47E60086C86A /* DZCEntertainmentTableViewController.m */,
+			);
+			path = EntertainmentTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2421A187B200F2346A /* TechTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C4E219C48090086C86A /* DZCnewsTechTableViewController.h */,
+				22400C4F219C48090086C86A /* DZCnewsTechTableViewController.m */,
+			);
+			path = TechTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2521A187B200F2346A /* LocalNewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C42219C47A10086C86A /* DZCnewsLocalTableViewController.h */,
+				22400C43219C47A10086C86A /* DZCnewsLocalTableViewController.m */,
+			);
+			path = LocalNewsViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2621A187B300F2346A /* CarTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C51219C48250086C86A /* DZCnewsCarTableViewController.h */,
+				22400C52219C48250086C86A /* DZCnewsCarTableViewController.m */,
+			);
+			path = CarTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2721A187B300F2346A /* TemaiTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C63219C48EA0086C86A /* DZCTemaiTableViewController.h */,
+				22400C64219C48EA0086C86A /* DZCTemaiTableViewController.m */,
+			);
+			path = TemaiTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2821A187B300F2346A /* MilitaryTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C57219C48590086C86A /* DZCMilitaryTableViewController.h */,
+				22400C58219C48590086C86A /* DZCMilitaryTableViewController.m */,
+			);
+			path = MilitaryTableViewController;
+			sourceTree = "<group>";
+		};
+		226B1E2921A1890500F2346A /* CultureTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22400C69219C491D0086C86A /* DZCCultureTableViewController.h */,
+				22400C6A219C491D0086C86A /* DZCCultureTableViewController.m */,
+			);
+			path = CultureTableViewController;
 			sourceTree = "<group>";
 		};
 		227A1D642198888A009808A0 /* ScrollView */ = {
