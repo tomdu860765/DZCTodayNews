@@ -50,11 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCMainNewsModel : NSObject
 
-@property(nonatomic,copy)NSString *media_name, *title, *display_url, *label,*has_video,*read_count,*video_duration ;
+@property(nonatomic,copy)NSString *media_name, *title, *display_url, *label,*has_video,*read_count ;
 
 @property(nonatomic,strong)NSNumber *comment_count ;
 
-@property(nonatomic,assign)NSInteger publish_time;
+@property(nonatomic,assign)NSInteger publish_time,video_duration;
 
 @property(nonatomic,assign,getter=ishot)BOOL  hot;
 

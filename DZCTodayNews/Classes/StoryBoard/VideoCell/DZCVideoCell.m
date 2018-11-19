@@ -10,7 +10,6 @@
 #import "DZCMainNewsModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSString+RegularUrl.h"
-#import<AVFoundation/AVFoundation.h>
 #import "DZCNetsTools.h"
 #import  <AVFoundation/AVFoundation.h>
 #import  <AVKit/AVKit.h>
@@ -25,13 +24,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *videotitle;
 @property (weak, nonatomic) IBOutlet UILabel *playcountlabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
-@property (weak, nonatomic) IBOutlet UILabel *videoduration;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pyqleftconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wechatconstraint;
 @property(strong,nonatomic)UIButton *btnmark;
-@property(assign,nonatomic,getter=isvideoplay)BOOL videoplay;
 @property(nonatomic,strong)AVPlayerViewController *AVPlayerViewController;
-@property(nonatomic,strong)AVPlayer *cellplayer;
+@property (weak, nonatomic) IBOutlet UIButton *videotimebtn;
+
 @end
 
 @implementation DZCVideoCell
@@ -136,9 +134,11 @@
     NSNumber *watchnumber=[self.model.video_detail_info valueForKey:@"video_watch_count"];
     
     self.playcountlabel.text=[[NSString alloc]initWithFormat:@"%@万次播放", @([watchnumber integerValue]/10000) ];
-
    
-    self.videoduration.text=self.model.video_duration;
+    
+    NSString *timestr=[[NSString alloc]initWithFormat:@"%ld:%ld",self.model.video_duration/60,self.model.video_duration%60];
+    [self.videotimebtn setTitle:timestr forState:UIControlStateDisabled];
+    
     
 }
 
@@ -171,7 +171,7 @@
 -(void)dealloc{
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [self removeObserver:self.AVPlayerViewController.player forKeyPath:@"timeControlStatus"];
+    
 }
 -(void)addVideocontrollerFortableviewcell:(NSURL*)url{
     
@@ -190,19 +190,16 @@
     [self.AVPlayerViewController.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.AVPlayerViewController.view];
     [self.AVPlayerViewController.player play];
-    
    
-    
+
     
 }
-
+///停止视频播放
 -(void)stopvideo{
    
     [self.AVPlayerViewController.player pause];
     
-    [self.AVPlayerViewController.view removeFromSuperview];
-    
-    
+
 }
 
 

@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self networkForMainview];
-    [self registerClass];
+   
     [self addrefreshWithview:self.MainVCarray];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(responseNewsnetwork:)
@@ -74,7 +74,10 @@
     
     [self setCellmarkHiddenForenddisplay];
  
-    
+    if ([self.tableView.visibleCells containsObject:self.cellmark]) {
+        
+        [self.cellmark.contentView.subviews.lastObject removeFromSuperview];
+    }
 }
 
 
@@ -102,41 +105,24 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    
-    DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell" forIndexPath:indexPath];
+    DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
+  
+   
+    DZCVideoCell *cell=[tableView cellForRowAtIndexPath:indexPath];
     
     if (cell==nil) {
-        cell=[[DZCVideoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"videocell"];
-   }
+        cell=[[NSBundle mainBundle]loadNibNamed:@"DZCVideoCell" owner:self options:nil].lastObject;
+    }
 
-        DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.model=model;
-       
-        self.cellmark=cell;
-    
-       return cell;
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.model=model;
+    self.cellmark=cell;
+    return cell;
 
 
 }
 
--(void)registerClass{
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
-    
-    UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
-    
-    [self.tableView registerNib:uib forCellReuseIdentifier:@"topnewsid"];
-    
-    UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
-    
-    [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
-    
-    UINib *videocelluib=[UINib nibWithNibName:@"DZCVideoCell" bundle:nil];
-    
-    [self.tableView registerNib:videocelluib forCellReuseIdentifier:@"videocell"];
-}
+
 //按照分类加载新闻
 -(void)networkForMainview{
     
