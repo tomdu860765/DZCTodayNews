@@ -13,11 +13,25 @@
 #import "DZCRereshControl.h"
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
+#import "DZCCellDeataleViewController.h"
+#import "DZCHotNewsTableViewCell.h"
+#import "DZCThreePicCell.h"
+
+
+
+
 @interface DZCBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property(nonatomic,assign)BOOL markYcount;
+@property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
 
 @implementation DZCBaseTableViewController
+-(void)setMainVCarray:(NSMutableArray *)MainVCarray{
+    _MainVCarray=MainVCarray;
+    
+    [self.tableView reloadData];
+}
+
 
 - (void)viewDidLoad {
     
@@ -40,28 +54,48 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *cellid=@"topnewsid";
-
-    DZCMainNewsModel *model=self.modelArray[indexPath.row];
-    if (model.middle_image.url) {
+    DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
+    
+    if (model.gallary_image_count==1) {
         DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
+        if (cell==nil) {
+            cell=[[NSBundle mainBundle]loadNibNamed:@"SinglePicCell" owner:nil options:nil].lastObject ;
+        }
         cell.model=model;
-
+        
+        return cell;
+    }else if (model.ishot==YES&&model.gallary_image_count<3){
+        
+        DZCHotNewsTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"hotnewscell"];
+        if (cell==nil) {
+            cell=[[NSBundle mainBundle]loadNibNamed:@"DZCHotNewsTableViewCell" owner:nil options:nil].lastObject ;
+        }
+        
+        cell.model=model;
+        
+        return cell;
+        
+    }else if (model.gallary_image_count>=3&&model.image_list){
+        
+        DZCThreePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"threepiccell" forIndexPath:indexPath];
+        
+        
+        cell.model=model;
+        
         return cell;
     }
-
-    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
-
-    cell.model=self.modelArray[indexPath.row];
-   
-   
+    
+    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:@"topnewsid"];
+    if (cell==nil) {
+        cell=[[NSBundle mainBundle]loadNibNamed:@"NewsTableViewCell" owner:nil options:nil].lastObject ;
+    }
+    cell.model=self.MainVCarray[indexPath.row];
+    
     return cell;
     
 }
 
 -(void)SetupTableviewnib{
-    
-   self.tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentScrollableAxes;
     UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
     
     [self.tableView registerNib:uib forCellReuseIdentifier:@"topnewsid"];
@@ -70,6 +104,12 @@
     
     [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
     
+    UINib *hotnewsuib=[UINib nibWithNibName:@"DZCHotNewsTableViewCell" bundle:nil];
+    [self.tableView registerNib:hotnewsuib forCellReuseIdentifier:@"hotnewscell"];
+    
+    UINib *threepic=[UINib nibWithNibName:@"ThreePiccell" bundle:nil];
+    
+    [self.tableView registerNib:threepic forCellReuseIdentifier:@"threepiccell"];
 
 }
 
@@ -156,4 +196,15 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *sbvc=[UIStoryboard storyboardWithName:@"CellDeataleController" bundle:nil];
+     DZCCellDeataleViewController *deatalevc=[sbvc instantiateViewControllerWithIdentifier:@"celldeatalecontroller"];
+    
+    [self presentViewController:deatalevc animated:YES completion:^{
+        NSLog(@"被选中的cell");
+    }];
+    
+}
+
 @end

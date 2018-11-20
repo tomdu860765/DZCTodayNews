@@ -9,11 +9,10 @@
 #import "DZCSportsTableViewController.h"
 #import "DZCRereshControl.h"
 #import "DZCMainNewsModel.h"
-#import "DZCTopNewsCell.h"
-#import "DZCSinglePicCell.h"
+
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
-#import "DZCThreePicCell.h"
+
 @interface DZCSportsTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
@@ -29,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self networkForMainview];
-    [self registerClass];
+    
     [self addrefreshWithview:self.MainVCarray];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(responseNewsnetwork:)
@@ -61,49 +60,8 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellid=@"topnewsid";
-    
-    
-    DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
-    if (model.middle_image.url) {
-        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
-        cell.model=model;
 
-        return cell;
-    }else if (model.image_list){
-        
-        DZCThreePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"threepiccell"];
-        
-        cell.model=model;
-        
-        return cell;
-    }
-    
-    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:cellid];
-    
-    cell.model=self.MainVCarray[indexPath.row];
-    
-    return cell;
-    
-}
--(void)registerClass{
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
-    
-    UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
-    
-    [self.tableView registerNib:uib forCellReuseIdentifier:@"topnewsid"];
-    
-    UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
-    
-    [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
-    
-    UINib *threepic=[UINib nibWithNibName:@"ThreePiccell" bundle:nil];
-    
-    [self.tableView registerNib:threepic forCellReuseIdentifier:@"threepiccell"];
-    
-}
+
 //按照分类加载新闻
 -(void)networkForMainview{
     

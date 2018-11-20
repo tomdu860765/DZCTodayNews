@@ -9,12 +9,11 @@
 #import "DZCNewshotTableViewController.h"
 #import "DZCRereshControl.h"
 #import "DZCMainNewsModel.h"
-#import "DZCTopNewsCell.h"
-#import "DZCSinglePicCell.h"
+
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
 #import "DZCHotNewsTableViewCell.h"
-#import "DZCThreePicCell.h"
+
 @interface DZCNewshotTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
@@ -29,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self networkForMainview];
-    [self registerClass];
+    
     [self addrefreshWithview:self.MainVCarray];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(responseNewsnetwork:)
@@ -61,70 +60,9 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
-    
-    if (model.gallary_image_count==1) {
-        DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
-        if (cell==nil) {
-            cell=[[NSBundle mainBundle]loadNibNamed:@"SinglePicCell" owner:nil options:nil].lastObject ;
-        }
-        cell.model=model;
-        
-        return cell;
-    }else if (model.ishot==YES&&model.gallary_image_count<3){
-        
-        DZCHotNewsTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"hotnewscell"];
-        if (cell==nil) {
-            cell=[[NSBundle mainBundle]loadNibNamed:@"DZCHotNewsTableViewCell" owner:nil options:nil].lastObject ;
-        }
-        
-        cell.model=model;
-        
-        return cell;
-        
-    }else if (model.gallary_image_count>=3&&model.image_list){
-        
-        DZCThreePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"threepiccell" forIndexPath:indexPath];
-        
-       
-        
-        cell.model=model;
-        
-        return cell;
-    }
-    
-    DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:@"topnewsid"];
-    if (cell==nil) {
-        cell=[[NSBundle mainBundle]loadNibNamed:@"NewsTableViewCell" owner:nil options:nil].lastObject ;
-    }
-    cell.model=self.MainVCarray[indexPath.row];
-    
-    return cell;
-    
-}
--(void)registerClass{
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
-    
-    UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
-    
-    [self.tableView registerNib:uib forCellReuseIdentifier:@"topnewsid"];
-    
-    UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
-    
-    [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
-    
-    
-    UINib *hotnewsuib=[UINib nibWithNibName:@"DZCHotNewsTableViewCell" bundle:nil];
-    [self.tableView registerNib:hotnewsuib forCellReuseIdentifier:@"hotnewscell"];
-    
-    UINib *threepic=[UINib nibWithNibName:@"ThreePiccell" bundle:nil];
-    
-    [self.tableView registerNib:threepic forCellReuseIdentifier:@"threepiccell"];
-    
-}
+
+
+
 //按照分类加载新闻
 -(void)networkForMainview{
     

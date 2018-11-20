@@ -70,13 +70,7 @@
         [self.videotimebtn setHidden:NO];
     }
 
-//    if (self.model.image_list) {
-//        //NSLog(@"%@",[self.model.image_list valueForKey:@"url"]);
-//        NSArray *array=[self.model.image_list valueForKey:@"url"];
-//        NSLog(@"%@",array);
-//    }
-//    
-    
+
 }
 
 @end

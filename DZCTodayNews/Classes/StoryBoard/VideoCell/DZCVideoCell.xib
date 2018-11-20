@@ -27,7 +27,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-wR-cRY">
                         <rect key="frame" x="0.0" y="180.5" width="377" height="40"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8l-DT-iFq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8l-DT-iFq">
                                 <rect key="frame" x="249" y="10" width="51" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="D8g-KQ-v7z"/>
@@ -51,8 +51,11 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaO-FW-u84">
-                                <rect key="frame" x="337" y="9" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaO-FW-u84">
+                                <rect key="frame" x="311" y="9" width="58" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="dqM-5k-uJQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" image="comment_24x24_"/>
                             </button>
@@ -76,7 +79,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ccY-zS-Jmx" secondAttribute="bottom" constant="4" id="2RL-as-TuP"/>
-                            <constraint firstAttribute="trailing" secondItem="UaO-FW-u84" secondAttribute="trailing" constant="16" id="9k2-dh-3aD"/>
+                            <constraint firstAttribute="trailing" secondItem="UaO-FW-u84" secondAttribute="trailing" constant="8" id="9k2-dh-3aD"/>
                             <constraint firstItem="ccY-zS-Jmx" firstAttribute="top" secondItem="EWQ-wR-cRY" secondAttribute="top" constant="13" id="CJ2-UX-KWH"/>
                             <constraint firstAttribute="height" constant="40" id="MDU-zo-iOx"/>
                             <constraint firstItem="Erc-Hg-xQb" firstAttribute="leading" secondItem="EWQ-wR-cRY" secondAttribute="leading" constant="20" id="NF1-TA-9qU"/>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cell Deatale View Controller-->
+        <scene sceneID="SmE-LZ-IO2">
+            <objects>
+                <viewController storyboardIdentifier="celldeatalecontroller" id="gRB-YZ-itA" customClass="DZCCellDeataleViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PCB-vV-rJj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfS-K4-Ofy">
+                                <rect key="frame" x="0.0" y="40" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="rTa-aY-Tm3">
+                                        <barButtonItem key="leftBarButtonItem" image="personal_home_back_black_night_24x24_" id="wcu-8Z-4p2"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IP7-ug-wf7">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="UE0-aP-VK3">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="✏️写评论" textAlignment="natural" minimumFontSize="17" id="e2W-bf-esm">
+                                            <rect key="frame" x="16" y="7" width="133" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jde-6T-Bm2"/>
+                                    <barButtonItem title="Item" image="weitoutiao_tabbar_32x32_" id="CHD-VH-Bkr"/>
+                                    <barButtonItem title="Item" image="love_video_20x20_" id="y3P-qd-ZHW"/>
+                                    <barButtonItem title="Item" image="repost_video_20x20_" id="pMK-bC-pqA"/>
+                                </items>
+                            </toolbar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQD-Cu-UOb">
+                                <rect key="frame" x="0.0" y="84" width="375" height="539"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kfS-K4-Ofy" firstAttribute="leading" secondItem="AJA-Yg-lxJ" secondAttribute="leading" id="0xa-xd-8Fr"/>
+                            <constraint firstItem="IP7-ug-wf7" firstAttribute="top" secondItem="uQD-Cu-UOb" secondAttribute="bottom" id="3zf-6L-erJ"/>
+                            <constraint firstItem="IP7-ug-wf7" firstAttribute="bottom" secondItem="AJA-Yg-lxJ" secondAttribute="bottom" id="9FQ-UH-NX6"/>
+                            <constraint firstItem="kfS-K4-Ofy" firstAttribute="trailing" secondItem="AJA-Yg-lxJ" secondAttribute="trailing" id="FoN-rS-C5A"/>
+                            <constraint firstItem="uQD-Cu-UOb" firstAttribute="leading" secondItem="AJA-Yg-lxJ" secondAttribute="leading" id="Ldy-IW-uJL"/>
+                            <constraint firstItem="uQD-Cu-UOb" firstAttribute="top" secondItem="kfS-K4-Ofy" secondAttribute="bottom" id="TTS-nd-6LD"/>
+                            <constraint firstItem="IP7-ug-wf7" firstAttribute="trailing" secondItem="AJA-Yg-lxJ" secondAttribute="trailing" id="Ylh-gI-LiJ"/>
+                            <constraint firstItem="IP7-ug-wf7" firstAttribute="leading" secondItem="AJA-Yg-lxJ" secondAttribute="leading" id="iqG-EB-B1J"/>
+                            <constraint firstItem="kfS-K4-Ofy" firstAttribute="top" secondItem="AJA-Yg-lxJ" secondAttribute="top" constant="20" id="qqE-pm-1iW"/>
+                            <constraint firstItem="AJA-Yg-lxJ" firstAttribute="trailing" secondItem="uQD-Cu-UOb" secondAttribute="trailing" id="zKb-xy-sDT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AJA-Yg-lxJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bq-He-8eR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.399999999999999" y="-91.304347826086968"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="love_video_20x20_" width="20" height="20"/>
+        <image name="personal_home_back_black_night_24x24_" width="24" height="24"/>
+        <image name="repost_video_20x20_" width="20" height="20"/>
+        <image name="weitoutiao_tabbar_32x32_" width="32" height="32"/>
+    </resources>
+</document>

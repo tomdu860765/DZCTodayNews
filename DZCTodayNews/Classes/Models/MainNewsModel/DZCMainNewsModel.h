@@ -50,6 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface image_list : NSObject
 
 @property(nonatomic,copy)NSString *url;
+
 @end
 
 @interface DZCMainNewsModel : NSObject

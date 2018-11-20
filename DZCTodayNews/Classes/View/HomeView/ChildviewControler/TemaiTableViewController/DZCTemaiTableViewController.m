@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self networkForMainview];
-    [self registerClass];
+    
     [self addrefreshWithview:self.MainVCarray];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(responseNewsnetwork:)
@@ -82,19 +82,7 @@
     return cell;
     
 }
--(void)registerClass{
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
-    
-    UINib *uib=[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil];
-    
-    [self.tableView registerNib:uib forCellReuseIdentifier:@"topnewsid"];
-    
-    UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
-    
-    [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
-    
-}
+
 //按照分类加载新闻
 -(void)networkForMainview{
     
