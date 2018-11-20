@@ -78,21 +78,21 @@
     //如果有上下拉动不执行该通知.
     // 用bool 拉伸y滚动的真假,最后结束返回假
    
-    if (scrollView.contentOffset.x&&self.markYcount==false) {
+    if (scrollView.contentOffset.x&&self.markYcount==NO) {
 
     int page= scrollView.contentOffset.x/SCREENWIDTH ;
      
         
     self.page=page;
      [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
-     self.markYcount=false;
+     self.markYcount=NO;
     }else if
-        (scrollView.contentOffset.x==0&&self.markYcount==false&&scrollView.contentOffset.y==0)
+        (scrollView.contentOffset.x==0&&self.markYcount==NO&&scrollView.contentOffset.y==0)
     {
         self.page=0;
        
         [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
-        self.markYcount=false;
+        self.markYcount=NO;
     }
 
 }
@@ -100,7 +100,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     if (scrollView.contentOffset.y){
-        self.markYcount=true;
+        self.markYcount=YES;
     }
 }
 

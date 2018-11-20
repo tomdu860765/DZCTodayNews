@@ -48,6 +48,20 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKD-rZ-CUn">
+                        <rect key="frame" x="301" y="68" width="44" height="14"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="4Ma-21-YPY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="Button" image="palyicon_video_textpage_6x8_"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="vXW-8B-zOq" firstAttribute="trailing" secondItem="f3F-3v-IHa" secondAttribute="leading" constant="-22" id="4gQ-yW-Sol"/>
@@ -56,6 +70,8 @@
                     <constraint firstItem="f3F-3v-IHa" firstAttribute="top" secondItem="vXW-8B-zOq" secondAttribute="top" id="IyV-p3-dtI"/>
                     <constraint firstItem="f3F-3v-IHa" firstAttribute="width" secondItem="vXW-8B-zOq" secondAttribute="width" id="JIK-sc-a3c"/>
                     <constraint firstItem="dMz-tH-W0f" firstAttribute="top" secondItem="QgO-Uz-GbT" secondAttribute="top" constant="12" id="T6T-sg-Awd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="SKD-rZ-CUn" secondAttribute="trailing" constant="15" id="Wtn-Cq-51K"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="SKD-rZ-CUn" secondAttribute="bottom" constant="16" id="YQE-QC-2Tr"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dMz-tH-W0f" secondAttribute="bottom" constant="30.5" id="afK-8r-Ors"/>
                     <constraint firstItem="CYr-7P-0Us" firstAttribute="leading" secondItem="dMz-tH-W0f" secondAttribute="trailing" constant="11" id="dkn-Ej-g5U"/>
                     <constraint firstItem="dMz-tH-W0f" firstAttribute="leading" secondItem="QgO-Uz-GbT" secondAttribute="leading" constant="10" id="gnx-og-NKl"/>
@@ -68,8 +84,12 @@
                 <outlet property="replylabel" destination="f3F-3v-IHa" id="fWq-Iw-BbO"/>
                 <outlet property="sourcelabel" destination="vXW-8B-zOq" id="8YB-72-YMJ"/>
                 <outlet property="textlabel" destination="dMz-tH-W0f" id="77z-Za-3bg"/>
+                <outlet property="videotimebtn" destination="SKD-rZ-CUn" id="QZl-c5-yLi"/>
             </connections>
-            <point key="canvasLocation" x="128" y="106.59670164917542"/>
+            <point key="canvasLocation" x="128" y="105.69715142428787"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="palyicon_video_textpage_6x8_" width="6" height="8"/>
+    </resources>
 </document>

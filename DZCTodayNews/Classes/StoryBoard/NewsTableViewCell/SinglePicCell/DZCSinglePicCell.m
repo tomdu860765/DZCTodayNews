@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sourcelabel;
 //正文
 @property (weak, nonatomic) IBOutlet UILabel *textlabel;
+@property (weak, nonatomic) IBOutlet UIButton *videotimebtn;
 
 
 @end
@@ -61,8 +62,20 @@
     
        [self.image sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     }
+    //如果含有视频
+    if (self.model.has_video) {
+       
+        NSString *strtime=[[NSString alloc]initWithFormat:@"%ld:%ld",self.model.video_duration/60,self.model.video_duration%60];
+        [self.videotimebtn setTitle:strtime forState:UIControlStateDisabled];
+        [self.videotimebtn setHidden:NO];
+    }
 
-    
+//    if (self.model.image_list) {
+//        //NSLog(@"%@",[self.model.image_list valueForKey:@"url"]);
+//        NSArray *array=[self.model.image_list valueForKey:@"url"];
+//        NSLog(@"%@",array);
+//    }
+//    
     
 }
 

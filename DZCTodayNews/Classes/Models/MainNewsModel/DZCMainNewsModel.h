@@ -19,7 +19,7 @@
  video_detail_info 视频详细内容
  video_id 视频请求id
  read_count 阅读数量
- 
+ gallary_image_count 图片数量
  */
 
 #import <Foundation/Foundation.h>
@@ -47,17 +47,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface image_list : NSObject
+
+@property(nonatomic,copy)NSString *url;
+@end
 
 @interface DZCMainNewsModel : NSObject
 
-@property(nonatomic,copy)NSString *media_name, *title, *display_url, *label,*has_video,*read_count ;
+@property(nonatomic,copy)NSString *media_name, *title, *display_url, *label,*read_count ;
 
 @property(nonatomic,strong)NSNumber *comment_count ;
 
-@property(nonatomic,assign)NSInteger publish_time,video_duration;
+@property(nonatomic,assign)NSInteger publish_time,video_duration,gallary_image_count;
 
 @property(nonatomic,assign,getter=ishot)BOOL  hot;
 
+@property(nonatomic,assign,getter=ishas_video)BOOL has_video;
 
 @property(nonatomic,strong)middle_image *middle_image;
 
@@ -65,6 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)video_detail_info *video_detail_info;
 
+@property(nonatomic,strong)image_list *image_list;
 @end
 
 

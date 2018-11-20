@@ -173,6 +173,7 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
 }
+///添加视频播放器方法
 -(void)addVideocontrollerFortableviewcell:(NSURL*)url{
     
     

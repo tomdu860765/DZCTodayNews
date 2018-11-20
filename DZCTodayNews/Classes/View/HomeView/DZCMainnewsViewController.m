@@ -33,7 +33,7 @@
     
     return _vcarray;
 }
-//获取网络滚动视图数组
+///获取网络滚动视图数组
 -(void)setTitlemodelArray:(NSArray *)titlemodelArray{
     _titlemodelArray=titlemodelArray;
     //设置滚动导航栏
@@ -69,7 +69,7 @@
                                             selector:@selector(titleviewnoNotification:)
                                                 name:@"offsetForMainscrollview" object:nil];
     }
-//添加主滚动视图
+///添加主滚动视图
 -(void)setmainscrollview{
     
     UIScrollView *sv=[[UIScrollView alloc]init];
@@ -81,7 +81,7 @@
     sv.bounces=NO;
     _mainScrollview=sv;
 }
-//添加导航滚动视图
+///添加导航滚动视图
 -(void)setTitlescrollview{
     
     UIScrollView  *scrollview=[[UIScrollView alloc]init];
@@ -101,7 +101,7 @@
     }];
 }
 
-//加载全部子视图控制器
+///加载全部子视图控制器
 -(void)SetupallChildVC{
     [self setmainscrollview];
    
@@ -169,7 +169,7 @@
     [self titleScrollViewFormiddelPosition:button ];
 }
 
-//按钮高亮显示方法
+///按钮高亮显示方法
 -(void)changeChanle:(UIButton *)sender{
     if (sender==self.btnmark) {
         return;
@@ -180,7 +180,7 @@
     self.btnmark=sender;
    
 }
-//滚动视图位移并执行网络请求
+///滚动视图位移并执行网络请求
 -(void)moveScrollview{
    
     
@@ -188,7 +188,7 @@
     [self.mainScrollview setContentOffset:CGPointMake(375*self.btnmark.tag, 0) animated:YES];
     //网络请求主滚动视图,发送网络请求通知
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ScrollViewOffset" object:self];
-    //要传一个可以标示的mark 避免重复的视图刷新
+    
     
 }
 //注销消息中心
@@ -198,7 +198,7 @@
  
 }
 
-//响应滚动标题栏
+///响应滚动标题栏
 -(void)titleviewnoNotification:(NSNotification *)notification{
     
     //用通知获取滚动页面数,再响应按钮选择方法.
@@ -210,7 +210,7 @@
     [self titleScrollViewFormiddelPosition:btn];
     
 }
-//按钮随着主滚动视图移动到中间
+///按钮随着主滚动视图移动到中间
 -(void)titleScrollViewFormiddelPosition:(UIButton*)button{
 
     CGFloat btnoffset=button.frame.origin.x-SCREENWIDTH*0.5;
@@ -222,11 +222,6 @@
         btnoffset=maxoffset;
     }
     [self.titleScrollview setContentOffset:CGPointMake(btnoffset, 0) animated:YES];
-    
-    
-}
--(void)jsontest{
-    
     
     
 }

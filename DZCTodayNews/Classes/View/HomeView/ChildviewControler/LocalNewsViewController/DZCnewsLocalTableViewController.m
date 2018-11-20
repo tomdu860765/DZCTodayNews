@@ -14,8 +14,10 @@
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
 #import "DZCHotNewsTableViewCell.h"
+#import "DZCThreePicCell.h"
 @interface DZCnewsLocalTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
+@property(nonatomic,strong)UITableViewCell *cellmark;
 @end
 
 @implementation DZCnewsLocalTableViewController
@@ -61,31 +63,48 @@
 }
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
     
-    if (model.middle_image.url) {
+    if (model.gallary_image_count==1) {
         DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
+        if (cell==nil) {
+            cell=[[NSBundle mainBundle]loadNibNamed:@"SinglePicCell" owner:nil options:nil].lastObject ;
+        }
         cell.model=model;
         
         return cell;
-    }else if (model.ishot==YES){
+    }else if (model.ishot==YES&&model.gallary_image_count<3){
         
         DZCHotNewsTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"hotnewscell"];
+        if (cell==nil) {
+            cell=[[NSBundle mainBundle]loadNibNamed:@"DZCHotNewsTableViewCell" owner:nil options:nil].lastObject ;
+        }
         
-        cell.model=self.MainVCarray[indexPath.row];
+        cell.model=model;
         
         return cell;
         
+    }else if (model.gallary_image_count>=3&&model.image_list){
+        
+         DZCThreePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"threepiccell" forIndexPath:indexPath];
+
+        
+        self.cellmark=cell;
+        cell.model=model;
+        
+        return cell;
     }
     
     DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:@"topnewsid"];
-    
-    cell.model=self.MainVCarray[indexPath.row];
+    if (cell==nil) {
+        cell=[[NSBundle mainBundle]loadNibNamed:@"NewsTableViewCell" owner:nil options:nil].lastObject ;
+    }
+    cell.model=model;
     
     return cell;
-    
 }
 -(void)registerClass{
     
@@ -102,6 +121,12 @@
     
     UINib *hotnewsuib=[UINib nibWithNibName:@"DZCHotNewsTableViewCell" bundle:nil];
     [self.tableView registerNib:hotnewsuib forCellReuseIdentifier:@"hotnewscell"];
+    
+    UINib *threepic=[UINib nibWithNibName:@"ThreePiccell" bundle:nil];
+    
+    [self.tableView registerNib:threepic forCellReuseIdentifier:@"threepiccell"];
+    
+    
     
 }
 //按照分类加载新闻

@@ -11,6 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (RegularUrl)
+
+
+///正则表达式提取链接方法
+///
+///*参数一 返回正则表达式链接
+///*参数二 原始链接
+
+
 +(NSString*)stringWithUrl:(NSString*)urlstring;
 @end
 

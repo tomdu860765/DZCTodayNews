@@ -13,6 +13,7 @@
 #import "DZCSinglePicCell.h"
 #import "DZCNetsTools.h"
 #import "DZCMainnewsViewController.h"
+#import "DZCThreePicCell.h"
 @interface DZCSportsTableViewController ()
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
 @end
@@ -68,6 +69,13 @@
     if (model.middle_image.url) {
         DZCSinglePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"singlepiccell"];
         cell.model=model;
+
+        return cell;
+    }else if (model.image_list){
+        
+        DZCThreePicCell *cell=[tableView dequeueReusableCellWithIdentifier:@"threepiccell"];
+        
+        cell.model=model;
         
         return cell;
     }
@@ -90,6 +98,10 @@
     UINib *singleuib=[UINib nibWithNibName:@"SinglePicCell" bundle:nil];
     
     [self.tableView registerNib:singleuib forCellReuseIdentifier:@"singlepiccell"];
+    
+    UINib *threepic=[UINib nibWithNibName:@"ThreePiccell" bundle:nil];
+    
+    [self.tableView registerNib:threepic forCellReuseIdentifier:@"threepiccell"];
     
 }
 //按照分类加载新闻

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sourcelabel;
 @property (weak, nonatomic) IBOutlet UILabel *timelabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelrightconstraint;
 
 @end
 @implementation DZCHotNewsTableViewCell
@@ -60,6 +61,8 @@
        
         
     }else{
+       
+        [self.labelrightconstraint setConstant:10];
         [self.imageview setHidden:YES];
         [self.imageview setFrame:CGRectZero];
     }
