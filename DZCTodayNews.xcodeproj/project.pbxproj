@@ -61,6 +61,7 @@
 		22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D8C219E845C0024F350 /* NSData+CRC32.m */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
 		22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */; };
+		22CE38AE21A58EAC00A34460 /* UIButton+CustomerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */; };
 		22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D531BC219ECE5D00910315 /* DZCVideoModel.m */; };
 		22D82F97219CF2DC00AE394C /* DZCTitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D82F96219CF2DC00AE394C /* DZCTitleScrollView.m */; };
 		22E51BAF21A3DBB9006BDD00 /* CellDeataleController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E51BAE21A3DBB9006BDD00 /* CellDeataleController.storyboard */; };
@@ -169,6 +170,8 @@
 		22BE19FD21926B310041E47D /* TabBarItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TabBarItem.plist; sourceTree = "<group>"; };
 		22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularUrl.h"; sourceTree = "<group>"; };
 		22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularUrl.m"; sourceTree = "<group>"; };
+		22CE38AC21A58EAC00A34460 /* UIButton+CustomerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+CustomerItem.h"; sourceTree = "<group>"; };
+		22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CustomerItem.m"; sourceTree = "<group>"; };
 		22D531BB219ECE5D00910315 /* DZCVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCVideoModel.h; sourceTree = "<group>"; };
 		22D531BC219ECE5D00910315 /* DZCVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCVideoModel.m; sourceTree = "<group>"; };
 		22D82F95219CF2DC00AE394C /* DZCTitleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollView.h; sourceTree = "<group>"; };
@@ -540,6 +543,8 @@
 				229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */,
 				22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */,
 				22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */,
+				22CE38AC21A58EAC00A34460 /* UIButton+CustomerItem.h */,
+				22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */,
 			);
 			path = Extesion;
 			sourceTree = "<group>";
@@ -853,6 +858,7 @@
 				22400C56219C48410086C86A /* DZCFinanceTableViewController.m in Sources */,
 				22400C5F219C48A30086C86A /* DZCWorldTableViewController.m in Sources */,
 				22400C65219C48EA0086C86A /* DZCTemaiTableViewController.m in Sources */,
+				22CE38AE21A58EAC00A34460 /* UIButton+CustomerItem.m in Sources */,
 				22193F23219161D500FC150A /* DZCHuoShanVC.m in Sources */,
 				22E51BB221A3DBE0006BDD00 /* DZCCellDeataleViewController.m in Sources */,
 				22193EF2219119F300FC150A /* ViewController.m in Sources */,

@@ -18,8 +18,6 @@
 #import "DZCThreePicCell.h"
 
 
-
-
 @interface DZCBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property(nonatomic,assign)BOOL markYcount;
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
@@ -202,7 +200,7 @@
      DZCCellDeataleViewController *deatalevc=[sbvc instantiateViewControllerWithIdentifier:@"celldeatalecontroller"];
     
     [self presentViewController:deatalevc animated:YES completion:^{
-        NSLog(@"被选中的cell");
+      deatalevc.deatalModel =self.modelArray[indexPath.row];
     }];
     
 }

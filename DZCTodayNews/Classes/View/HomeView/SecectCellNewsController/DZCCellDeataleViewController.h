@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class DZCMainNewsModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCCellDeataleViewController : UIViewController
-
+@property(nonatomic,strong)DZCMainNewsModel *deatalModel;
 @end
 
 NS_ASSUME_NONNULL_END

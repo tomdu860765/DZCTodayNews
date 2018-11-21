@@ -21,7 +21,20 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="rTa-aY-Tm3">
-                                        <barButtonItem key="leftBarButtonItem" image="personal_home_back_black_night_24x24_" id="wcu-8Z-4p2"/>
+                                        <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="TuH-vB-MNE">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4d-VR-lPt">
+                                                <rect key="frame" x="16" y="10" width="24" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="personal_home_back_black_night_24x24_"/>
+                                                <connections>
+                                                    <action selector="getback:" destination="gRB-YZ-itA" eventType="touchUpInside" id="oDa-eE-RRT"/>
+                                                </connections>
+                                            </button>
+                                            <connections>
+                                                <action selector="backmainvc:" destination="gRB-YZ-itA" id="RtL-rw-aYv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -42,10 +55,29 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jde-6T-Bm2"/>
-                                    <barButtonItem title="Item" image="weitoutiao_tabbar_32x32_" id="CHD-VH-Bkr"/>
-                                    <barButtonItem title="Item" image="love_video_20x20_" id="y3P-qd-ZHW"/>
-                                    <barButtonItem title="Item" image="repost_video_20x20_" id="pMK-bC-pqA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2tf-WF-yQ3"/>
+                                    <barButtonItem style="plain" id="Npj-fh-N4q">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a7L-Nb-fs1">
+                                            <rect key="frame" x="253" y="6" width="27" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="comment_night_24x24_"/>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="IlB-2r-dmg">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SbX-CJ-UBd">
+                                            <rect key="frame" x="280" y="11" width="52" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="love_video_20x20_"/>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="CwJ-wW-Jw8">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jiz-4T-bqU">
+                                            <rect key="frame" x="332" y="11" width="27" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal" image="repost_video_20x20_"/>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQD-Cu-UOb">
@@ -72,6 +104,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AJA-Yg-lxJ"/>
                     </view>
+                    <connections>
+                        <outlet property="commentbtn" destination="Npj-fh-N4q" id="S6k-E3-VYN"/>
+                        <outlet property="commenttextfield" destination="e2W-bf-esm" id="ptd-tN-bh0"/>
+                        <outlet property="getbackitem" destination="Q4d-VR-lPt" id="AGx-Pe-7ld"/>
+                        <outlet property="islikebtn" destination="IlB-2r-dmg" id="aIM-hT-gcL"/>
+                        <outlet property="repostbtn" destination="CwJ-wW-Jw8" id="Bff-qa-MTO"/>
+                        <outlet property="webview" destination="uQD-Cu-UOb" id="dIg-Gb-rAt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Bq-He-8eR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,9 +119,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="comment_night_24x24_" width="24" height="24"/>
         <image name="love_video_20x20_" width="20" height="20"/>
         <image name="personal_home_back_black_night_24x24_" width="24" height="24"/>
         <image name="repost_video_20x20_" width="20" height="20"/>
-        <image name="weitoutiao_tabbar_32x32_" width="32" height="32"/>
     </resources>
 </document>
