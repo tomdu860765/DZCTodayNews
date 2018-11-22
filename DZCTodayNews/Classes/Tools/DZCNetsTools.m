@@ -12,7 +12,7 @@
 #import "DZCMainNewsModel.h"
 #import "NSData+CRC32.h"
 #import "DZCVideoModel.h"
-
+#import "DZCXiGuaVideoModel.h"
 @implementation DZCNetsTools
 ///滚动标题视图模型网络请求
 ///
@@ -20,7 +20,7 @@
 ///*参数二 返回category数组
 ///*参数三 监听目标
 ///*参数四 回调错误
-///*参数五
+
 +(void)titlescrollView:(void(^)(NSArray *,NSArray *))isuccessBlock failure:(void(^)(void))isfailureBlock{
     NSString *string=@"article/category/get_subscribed/v9/?";
     NSMutableArray *marry=NSMutableArray.array;
@@ -279,8 +279,30 @@
      ];
     
 }
+///西瓜视频网络请求
+///
+///*参数一 返回一个标题数组
 
++(void)netWorkForXiGuaVideo:(void(^)(NSArray*))finishBlock{
+    NSString *urlstring=@"https://api.apiopen.top/videoHomeTab";
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:@[] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *array=[NSArray yy_modelArrayWithClass:[DZCXiGuaVideoModel class] json:[responseObject valueForKey:@"result"]];
+        if (array) {
+            finishBlock(array);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error) {
+            NSHTTPURLResponse *response=(NSHTTPURLResponse*)task.response;
+        
+          NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+        }
+ 
+    }];
+    
 
+}
 
 
 

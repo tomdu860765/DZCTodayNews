@@ -14,16 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCNetsTools : DZCNewsNetWorkTools
 
-//请求网络新闻模型方法
+///请求网络新闻模型方法
 +(void)NetworkMainNews:(void(^)(NSArray*))callback;
-//请求网络滚动视图模型方法
+///请求网络滚动视图模型方法
 +(void)ScrollviewSttitle:(void(^)(NSArray*,NSArray*))finishblock;
-//刷新热点新闻
+///刷新热点新闻
 +(void)NetworHotNews:(void(^)(NSArray*))callback;
-//分类新闻网络请求,该方法同时使用可能会产生冲突
+///分类新闻网络请求,该方法同时使用可能会产生冲突
 +(void)NetworHotNews:(void(^)(NSArray*))callback WithKeyworks:(id)keyworks;
-//视频网络请求
+///视频网络请求
 +(void)NetworVideo:(NSString*)Videoidstring finishBlock:(void(^)(NSString*))callback;
+///西瓜视频网络请求
++(void)netWorkForXiGuaVideo:(void(^)(NSArray*))finishBlock;
 @end
 
 NS_ASSUME_NONNULL_END

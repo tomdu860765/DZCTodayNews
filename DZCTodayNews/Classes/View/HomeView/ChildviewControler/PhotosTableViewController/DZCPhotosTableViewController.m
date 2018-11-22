@@ -75,7 +75,7 @@
            
             [self.tableView reloadData];
         }
-    } WithKeyworks:@(4)];
+    } WithKeyworks:@(2)];
     
     
     

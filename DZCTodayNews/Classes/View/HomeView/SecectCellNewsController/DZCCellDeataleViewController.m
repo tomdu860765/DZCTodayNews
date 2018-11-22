@@ -10,7 +10,8 @@
 #import <WebKit/WebKit.h>
 #import "UIButton+CustomerItem.h"
 #import "DZCMainNewsModel.h"
-@interface DZCCellDeataleViewController ()
+#import "SVProgressHUD.h"
+@interface DZCCellDeataleViewController ()<WKNavigationDelegate>
 @property (weak, nonatomic) IBOutlet WKWebView *webview;
 @property (weak, nonatomic) IBOutlet UIButton *getbackitem;
 @property (weak, nonatomic) IBOutlet UIButton *commentbtn;
@@ -67,7 +68,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    self.webview.navigationDelegate=self;
 }
 
 
@@ -85,6 +86,18 @@ NSURLRequest *request=[NSURLRequest requestWithURL:url cachePolicy:0 timeoutInte
 [self.webview loadRequest:request];
     
 }
+
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    
+    [SVProgressHUD showWithStatus:@"网页加载中"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
+
+}
+
+
 
 
 @end

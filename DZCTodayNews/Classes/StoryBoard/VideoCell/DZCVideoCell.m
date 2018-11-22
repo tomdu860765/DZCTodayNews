@@ -136,7 +136,7 @@
     self.playcountlabel.text=[[NSString alloc]initWithFormat:@"%@万次播放", @([watchnumber integerValue]/10000) ];
    
     
-    NSString *timestr=[[NSString alloc]initWithFormat:@"%ld:%ld",self.model.video_duration/60,self.model.video_duration%60];
+    NSString *timestr=[[NSString alloc]initWithFormat:@"%ld:%0.2ld",self.model.video_duration/60,self.model.video_duration%60];
     [self.videotimebtn setTitle:timestr forState:UIControlStateDisabled];
     
     
