@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 //主链接
 @property(nonatomic,copy)NSString  *video_duration;
 
-@property(nonatomic,copy)video_list *video_list;
+@property(nonatomic,strong)video_list *video_list;
 
 
 

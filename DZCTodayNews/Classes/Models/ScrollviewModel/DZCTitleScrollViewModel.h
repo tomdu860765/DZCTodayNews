@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface dataModel : NSObject
 
-@property(nonatomic,strong)NSArray *data;
+@property(nonatomic,copy)NSArray *data;
 
 @end
 

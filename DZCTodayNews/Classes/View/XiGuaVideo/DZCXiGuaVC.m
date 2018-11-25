@@ -10,6 +10,9 @@
 #import "Masonry.h"
 #import "DZCNetsTools.h"
 #import "DZCXiGuaVideoModel.h"
+#import "XiGuaBaseTableViewController.h"
+
+
 @interface DZCXiGuaVC ()
 @property(strong,nonatomic)UIScrollView *titleScrollview;
 @property(strong,nonatomic)UIScrollView *mainVideoScrollview;
@@ -50,16 +53,19 @@
     [DZCNetsTools netWorkForXiGuaVideo:^(NSArray * titlearray) {
         self.titleBtnarray=titlearray;
     }];
+    [self setupChildVideoViewController];
+    
+
 }
 //添加标题滚动视图
 -(void)setupTitleScrollview{
     
-    self.titleScrollview.pagingEnabled=NO;
+    
     self.titleScrollview.showsVerticalScrollIndicator=NO;
     self.titleScrollview.showsHorizontalScrollIndicator=NO;
     self.titleScrollview.bounces=NO;
     self.titleScrollview.backgroundColor=UIColor.whiteColor;
-   // self.titleScrollview.contentSize=CGSizeMake(SCREENWIDTH*4, 0);
+   
     [self.view addSubview:self.titleScrollview];
    
     if (self.titleScrollview) {
@@ -75,13 +81,11 @@
 
 //添加主滚动视图
 -(void)setupMainScrollview{
-    self.mainVideoScrollview.pagingEnabled=NO;
+    self.mainVideoScrollview.pagingEnabled=YES;
     self.mainVideoScrollview.showsVerticalScrollIndicator=NO;
     self.mainVideoScrollview.showsHorizontalScrollIndicator=NO;
     self.mainVideoScrollview.bounces=NO;
-    self.mainVideoScrollview.backgroundColor=UIColor.orangeColor;
-    self.mainVideoScrollview.contentSize=CGSizeMake(SCREENWIDTH*5, 0);
-   
+  
     [self.view addSubview:self.mainVideoScrollview];
     if (self.titleScrollview) {
         [self.mainVideoScrollview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,6 +97,7 @@
     }
     
 }
+
 //根据模型添加导航栏按钮
 -(void)addBtnForTitlescrollview:(NSArray*)btnarray{
     CGFloat margin=15;
@@ -108,10 +113,39 @@
             self.btnmark=titlebtn;
         }
         [self.titleScrollview addSubview:titlebtn];
+       
     }];
-    
+    self.mainVideoScrollview.contentSize=CGSizeMake(SCREENWIDTH*btnarray.count, 0);
+   
     self.titleScrollview.contentSize=CGSizeMake(btnwidth*btnarray.count+(btnarray.count+1)*margin, 0);
   
 }
+//添加自控制器到主滚动视图
+-(void)setupChildVideoViewController{
+    NSString *budlestring=[[NSBundle mainBundle]pathForResource:@"XiGuaVIdeo.plist" ofType:nil];
+    NSArray *arrayvideoVC=[[NSArray alloc]initWithContentsOfFile:budlestring];
+    [arrayvideoVC enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        id clz=NSClassFromString([obj valueForKey:@"Viewcontroller"]);
+        id videocontroller= [[clz alloc]init];
+        if (videocontroller) {
+            XiGuaBaseTableViewController *tablevc=(XiGuaBaseTableViewController*)videocontroller;
+            [self addChildViewController:videocontroller];
+            self.mainVideoScrollview.delegate=tablevc;
+            [self.mainVideoScrollview addSubview:tablevc.view];
+            [tablevc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.titleScrollview.mas_top).offset(0);
+                make.left.mas_equalTo(SCREENWIDTH*idx);
+                make.height.mas_equalTo(SCREENHEIGHT);
+                make.width.mas_equalTo(SCREENWIDTH);
+            }];
+        }
+    }];
+ 
+}
+
+
+
+
 
 @end

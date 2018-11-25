@@ -47,6 +47,9 @@
 		225136892193DECB00ED382D /* NewsTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225136882193DECB00ED382D /* NewsTableview.xib */; };
 		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
 		22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */; };
+		22849AA621A96E8E00890B21 /* DZCStoryVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AA521A96E8E00890B21 /* DZCStoryVideoController.m */; };
+		22849AAA21A96F4100890B21 /* DZCRecirdVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AA921A96F4100890B21 /* DZCRecirdVideoController.m */; };
+		22849AAD21AA343A00890B21 /* XiGuaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AAC21AA343A00890B21 /* XiGuaModel.m */; };
 		228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 228656F92195115B001F8E60 /* DZCRereshControl.m */; };
 		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
@@ -60,6 +63,27 @@
 		22A35D66219E67860024F350 /* DZCVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D65219E67860024F350 /* DZCVideoCell.m */; };
 		22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A35D67219E67920024F350 /* DZCVideoCell.xib */; };
 		22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D8C219E845C0024F350 /* NSData+CRC32.m */; };
+		22B9486421A8100D00336E4A /* XiGuaBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9486321A8100D00336E4A /* XiGuaBaseTableViewController.m */; };
+		22B9486721A840C900336E4A /* DZCDiscoverVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9486621A840C900336E4A /* DZCDiscoverVideoController.m */; };
+		22B9486A21A840DD00336E4A /* DZCPostVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9486921A840DD00336E4A /* DZCPostVideoController.m */; };
+		22B9486D21A840F500336E4A /* DZCLiveHoodVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9486C21A840F500336E4A /* DZCLiveHoodVideoController.m */; };
+		22B9487021A8415500336E4A /* DZCAdventVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9486F21A8415500336E4A /* DZCAdventVideoController.m */; };
+		22B9487321A8416C00336E4A /* DZCAnimationVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9487221A8416C00336E4A /* DZCAnimationVideoController.m */; };
+		22B9487621A8419100336E4A /* DZCCommunityVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9487521A8419100336E4A /* DZCCommunityVideoController.m */; };
+		22B9487921A841AB00336E4A /* DZCCreativieVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9487821A841AB00336E4A /* DZCCreativieVideoController.m */; };
+		22B9487C21A8581500336E4A /* DailyVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9487B21A8581500336E4A /* DailyVideoController.m */; };
+		22B9487F21A8582E00336E4A /* EntertranmentVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9487E21A8582E00336E4A /* EntertranmentVideoController.m */; };
+		22B9488221A8584000336E4A /* FashionVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9488121A8584000336E4A /* FashionVideoController.m */; };
+		22B9488521A8585B00336E4A /* FilmVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9488421A8585B00336E4A /* FilmVideoController.m */; };
+		22B9488821A8586D00336E4A /* FunnyVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9488721A8586D00336E4A /* FunnyVideoController.m */; };
+		22B9488B21A8587B00336E4A /* GameVIdeoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9488A21A8587B00336E4A /* GameVIdeoController.m */; };
+		22B9488E21A8589000336E4A /* MusicVIdeoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9488D21A8589000336E4A /* MusicVIdeoController.m */; };
+		22B9489121A858A200336E4A /* PetsVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9489021A858A200336E4A /* PetsVideoController.m */; };
+		22B9489421A858BC00336E4A /* SecinceVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9489321A858BC00336E4A /* SecinceVideoController.m */; };
+		22B9489721A858CF00336E4A /* SportsVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9489621A858CF00336E4A /* SportsVideoController.m */; };
+		22B9489A21A858DE00336E4A /* TripVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9489921A858DE00336E4A /* TripVideoController.m */; };
+		22B9489D21A858EF00336E4A /* YummyVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9489C21A858EF00336E4A /* YummyVideoController.m */; };
+		22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
 		22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */; };
 		22CE38AE21A58EAC00A34460 /* UIButton+CustomerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */; };
@@ -148,6 +172,12 @@
 		22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollViewModel.m; sourceTree = "<group>"; };
 		22779B672197200F00E2186F /* DZCNewsNetWorkTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCNewsNetWorkTools.h; sourceTree = "<group>"; };
 		22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCNewsNetWorkTools.m; sourceTree = "<group>"; };
+		22849AA421A96E8E00890B21 /* DZCStoryVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCStoryVideoController.h; sourceTree = "<group>"; };
+		22849AA521A96E8E00890B21 /* DZCStoryVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCStoryVideoController.m; sourceTree = "<group>"; };
+		22849AA821A96F4100890B21 /* DZCRecirdVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRecirdVideoController.h; sourceTree = "<group>"; };
+		22849AA921A96F4100890B21 /* DZCRecirdVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRecirdVideoController.m; sourceTree = "<group>"; };
+		22849AAB21AA343A00890B21 /* XiGuaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XiGuaModel.h; sourceTree = "<group>"; };
+		22849AAC21AA343A00890B21 /* XiGuaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XiGuaModel.m; sourceTree = "<group>"; };
 		228656F82195115B001F8E60 /* DZCRereshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRereshControl.h; sourceTree = "<group>"; };
 		228656F92195115B001F8E60 /* DZCRereshControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRereshControl.m; sourceTree = "<group>"; };
 		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
@@ -169,6 +199,47 @@
 		22A35D67219E67920024F350 /* DZCVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCVideoCell.xib; sourceTree = "<group>"; };
 		22A35D8B219E84550024F350 /* NSData+CRC32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
 		22A35D8C219E845C0024F350 /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
+		22B9486221A8100D00336E4A /* XiGuaBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XiGuaBaseTableViewController.h; sourceTree = "<group>"; };
+		22B9486321A8100D00336E4A /* XiGuaBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XiGuaBaseTableViewController.m; sourceTree = "<group>"; };
+		22B9486521A840C900336E4A /* DZCDiscoverVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCDiscoverVideoController.h; sourceTree = "<group>"; };
+		22B9486621A840C900336E4A /* DZCDiscoverVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCDiscoverVideoController.m; sourceTree = "<group>"; };
+		22B9486821A840DD00336E4A /* DZCPostVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCPostVideoController.h; sourceTree = "<group>"; };
+		22B9486921A840DD00336E4A /* DZCPostVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCPostVideoController.m; sourceTree = "<group>"; };
+		22B9486B21A840F500336E4A /* DZCLiveHoodVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCLiveHoodVideoController.h; sourceTree = "<group>"; };
+		22B9486C21A840F500336E4A /* DZCLiveHoodVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCLiveHoodVideoController.m; sourceTree = "<group>"; };
+		22B9486E21A8415500336E4A /* DZCAdventVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCAdventVideoController.h; sourceTree = "<group>"; };
+		22B9486F21A8415500336E4A /* DZCAdventVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCAdventVideoController.m; sourceTree = "<group>"; };
+		22B9487121A8416C00336E4A /* DZCAnimationVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCAnimationVideoController.h; sourceTree = "<group>"; };
+		22B9487221A8416C00336E4A /* DZCAnimationVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCAnimationVideoController.m; sourceTree = "<group>"; };
+		22B9487421A8419100336E4A /* DZCCommunityVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCCommunityVideoController.h; sourceTree = "<group>"; };
+		22B9487521A8419100336E4A /* DZCCommunityVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCCommunityVideoController.m; sourceTree = "<group>"; };
+		22B9487721A841AB00336E4A /* DZCCreativieVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCCreativieVideoController.h; sourceTree = "<group>"; };
+		22B9487821A841AB00336E4A /* DZCCreativieVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCCreativieVideoController.m; sourceTree = "<group>"; };
+		22B9487A21A8581500336E4A /* DailyVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyVideoController.h; sourceTree = "<group>"; };
+		22B9487B21A8581500336E4A /* DailyVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyVideoController.m; sourceTree = "<group>"; };
+		22B9487D21A8582E00336E4A /* EntertranmentVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntertranmentVideoController.h; sourceTree = "<group>"; };
+		22B9487E21A8582E00336E4A /* EntertranmentVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntertranmentVideoController.m; sourceTree = "<group>"; };
+		22B9488021A8584000336E4A /* FashionVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FashionVideoController.h; sourceTree = "<group>"; };
+		22B9488121A8584000336E4A /* FashionVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FashionVideoController.m; sourceTree = "<group>"; };
+		22B9488321A8585B00336E4A /* FilmVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilmVideoController.h; sourceTree = "<group>"; };
+		22B9488421A8585B00336E4A /* FilmVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilmVideoController.m; sourceTree = "<group>"; };
+		22B9488621A8586D00336E4A /* FunnyVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunnyVideoController.h; sourceTree = "<group>"; };
+		22B9488721A8586D00336E4A /* FunnyVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunnyVideoController.m; sourceTree = "<group>"; };
+		22B9488921A8587B00336E4A /* GameVIdeoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameVIdeoController.h; sourceTree = "<group>"; };
+		22B9488A21A8587B00336E4A /* GameVIdeoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameVIdeoController.m; sourceTree = "<group>"; };
+		22B9488C21A8589000336E4A /* MusicVIdeoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicVIdeoController.h; sourceTree = "<group>"; };
+		22B9488D21A8589000336E4A /* MusicVIdeoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicVIdeoController.m; sourceTree = "<group>"; };
+		22B9488F21A858A200336E4A /* PetsVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetsVideoController.h; sourceTree = "<group>"; };
+		22B9489021A858A200336E4A /* PetsVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetsVideoController.m; sourceTree = "<group>"; };
+		22B9489221A858BC00336E4A /* SecinceVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecinceVideoController.h; sourceTree = "<group>"; };
+		22B9489321A858BC00336E4A /* SecinceVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecinceVideoController.m; sourceTree = "<group>"; };
+		22B9489521A858CF00336E4A /* SportsVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SportsVideoController.h; sourceTree = "<group>"; };
+		22B9489621A858CF00336E4A /* SportsVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SportsVideoController.m; sourceTree = "<group>"; };
+		22B9489821A858DE00336E4A /* TripVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripVideoController.h; sourceTree = "<group>"; };
+		22B9489921A858DE00336E4A /* TripVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripVideoController.m; sourceTree = "<group>"; };
+		22B9489B21A858EF00336E4A /* YummyVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YummyVideoController.h; sourceTree = "<group>"; };
+		22B9489C21A858EF00336E4A /* YummyVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YummyVideoController.m; sourceTree = "<group>"; };
+		22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = XiGuaVIdeo.plist; sourceTree = "<group>"; };
 		22BE19FD21926B310041E47D /* TabBarItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TabBarItem.plist; sourceTree = "<group>"; };
 		22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularUrl.h"; sourceTree = "<group>"; };
 		22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularUrl.m"; sourceTree = "<group>"; };
@@ -229,9 +300,7 @@
 				22193EF3219119F300FC150A /* Main.storyboard */,
 				22193EF6219119F500FC150A /* Assets.xcassets */,
 				22193EF8219119F500FC150A /* LaunchScreen.storyboard */,
-				22400C75219C5B020086C86A /* childVC.plist */,
 				22193EFB219119F500FC150A /* Info.plist */,
-				22BE19FD21926B310041E47D /* TabBarItem.plist */,
 				22193EFC219119F500FC150A /* main.m */,
 				22193F0321911A4400FC150A /* TodayNewsHeader.h */,
 			);
@@ -334,6 +403,8 @@
 		2221553821A705CC0042409A /* XiGuaChildViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22849AA721A96F2A00890B21 /* RecordViewController */,
+				22849AA321A96E5900890B21 /* StoryViewController */,
 				2221554821A70A480042409A /* DiscovewViewController */,
 				2221554321A70A470042409A /* PostViewController */,
 				2221554621A70A480042409A /*  LivelihoodViewcontroller */,
@@ -360,6 +431,8 @@
 		2221553921A70A470042409A /* FashionViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9488021A8584000336E4A /* FashionVideoController.h */,
+				22B9488121A8584000336E4A /* FashionVideoController.m */,
 			);
 			name = FashionViewController;
 			path = "用所选项目新建的文件夹/FashionViewController";
@@ -368,6 +441,8 @@
 		2221553A21A70A470042409A /* PetsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9488F21A858A200336E4A /* PetsVideoController.h */,
+				22B9489021A858A200336E4A /* PetsVideoController.m */,
 			);
 			name = PetsViewController;
 			path = "用所选项目新建的文件夹/PetsViewController";
@@ -376,6 +451,8 @@
 		2221553B21A70A470042409A /* DailyViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9487A21A8581500336E4A /* DailyVideoController.h */,
+				22B9487B21A8581500336E4A /* DailyVideoController.m */,
 			);
 			name = DailyViewController;
 			path = "用所选项目新建的文件夹/DailyViewController";
@@ -384,6 +461,8 @@
 		2221553C21A70A470042409A /* SportsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9489521A858CF00336E4A /* SportsVideoController.h */,
+				22B9489621A858CF00336E4A /* SportsVideoController.m */,
 			);
 			name = SportsViewController;
 			path = "用所选项目新建的文件夹/SportsViewController";
@@ -392,6 +471,8 @@
 		2221553D21A70A470042409A /* CreativeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9487721A841AB00336E4A /* DZCCreativieVideoController.h */,
+				22B9487821A841AB00336E4A /* DZCCreativieVideoController.m */,
 			);
 			name = CreativeViewController;
 			path = "用所选项目新建的文件夹/CreativeViewController";
@@ -400,6 +481,8 @@
 		2221553E21A70A470042409A /* EntertranmentViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9487D21A8582E00336E4A /* EntertranmentVideoController.h */,
+				22B9487E21A8582E00336E4A /* EntertranmentVideoController.m */,
 			);
 			name = EntertranmentViewController;
 			path = "用所选项目新建的文件夹/EntertranmentViewController";
@@ -408,6 +491,8 @@
 		2221553F21A70A470042409A /* TripViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9489821A858DE00336E4A /* TripVideoController.h */,
+				22B9489921A858DE00336E4A /* TripVideoController.m */,
 			);
 			name = TripViewController;
 			path = "用所选项目新建的文件夹/TripViewController";
@@ -416,6 +501,8 @@
 		2221554021A70A470042409A /* AnimationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9487121A8416C00336E4A /* DZCAnimationVideoController.h */,
+				22B9487221A8416C00336E4A /* DZCAnimationVideoController.m */,
 			);
 			name = AnimationViewController;
 			path = "用所选项目新建的文件夹/AnimationViewController";
@@ -424,6 +511,8 @@
 		2221554121A70A470042409A /* GameViewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				22B9488921A8587B00336E4A /* GameVIdeoController.h */,
+				22B9488A21A8587B00336E4A /* GameVIdeoController.m */,
 			);
 			name = GameViewcontroller;
 			path = "用所选项目新建的文件夹/GameViewcontroller";
@@ -432,6 +521,8 @@
 		2221554221A70A470042409A /* FilmViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9488321A8585B00336E4A /* FilmVideoController.h */,
+				22B9488421A8585B00336E4A /* FilmVideoController.m */,
 			);
 			name = FilmViewController;
 			path = "用所选项目新建的文件夹/FilmViewController";
@@ -440,6 +531,8 @@
 		2221554321A70A470042409A /* PostViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9486821A840DD00336E4A /* DZCPostVideoController.h */,
+				22B9486921A840DD00336E4A /* DZCPostVideoController.m */,
 			);
 			path = PostViewController;
 			sourceTree = "<group>";
@@ -447,6 +540,8 @@
 		2221554421A70A470042409A /* AdventViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9486E21A8415500336E4A /* DZCAdventVideoController.h */,
+				22B9486F21A8415500336E4A /* DZCAdventVideoController.m */,
 			);
 			name = AdventViewController;
 			path = "用所选项目新建的文件夹/AdventViewController";
@@ -455,6 +550,8 @@
 		2221554521A70A480042409A /* FunnyViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9488621A8586D00336E4A /* FunnyVideoController.h */,
+				22B9488721A8586D00336E4A /* FunnyVideoController.m */,
 			);
 			name = FunnyViewController;
 			path = "用所选项目新建的文件夹/FunnyViewController";
@@ -463,6 +560,8 @@
 		2221554621A70A480042409A /*  LivelihoodViewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				22B9486B21A840F500336E4A /* DZCLiveHoodVideoController.h */,
+				22B9486C21A840F500336E4A /* DZCLiveHoodVideoController.m */,
 			);
 			name = " LivelihoodViewcontroller";
 			path = "用所选项目新建的文件夹/ LivelihoodViewcontroller";
@@ -471,6 +570,8 @@
 		2221554721A70A480042409A /* CommunityViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9487421A8419100336E4A /* DZCCommunityVideoController.h */,
+				22B9487521A8419100336E4A /* DZCCommunityVideoController.m */,
 			);
 			name = CommunityViewController;
 			path = "用所选项目新建的文件夹/CommunityViewController";
@@ -479,6 +580,8 @@
 		2221554821A70A480042409A /* DiscovewViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9486521A840C900336E4A /* DZCDiscoverVideoController.h */,
+				22B9486621A840C900336E4A /* DZCDiscoverVideoController.m */,
 			);
 			name = DiscovewViewController;
 			path = "用所选项目新建的文件夹/DiscovewViewController";
@@ -487,6 +590,8 @@
 		2221554921A70A480042409A /* MusicViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9488C21A8589000336E4A /* MusicVIdeoController.h */,
+				22B9488D21A8589000336E4A /* MusicVIdeoController.m */,
 			);
 			name = MusicViewController;
 			path = "用所选项目新建的文件夹/MusicViewController";
@@ -495,6 +600,8 @@
 		2221554A21A70A480042409A /* YummyViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9489B21A858EF00336E4A /* YummyVideoController.h */,
+				22B9489C21A858EF00336E4A /* YummyVideoController.m */,
 			);
 			name = YummyViewController;
 			path = "用所选项目新建的文件夹/YummyViewController";
@@ -503,6 +610,8 @@
 		2221554B21A70A480042409A /* SecinceViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9489221A858BC00336E4A /* SecinceVideoController.h */,
+				22B9489321A858BC00336E4A /* SecinceVideoController.m */,
 			);
 			name = SecinceViewController;
 			path = "用所选项目新建的文件夹/SecinceViewController";
@@ -704,6 +813,31 @@
 			path = ScrollView;
 			sourceTree = "<group>";
 		};
+		22849AA321A96E5900890B21 /* StoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22849AA421A96E8E00890B21 /* DZCStoryVideoController.h */,
+				22849AA521A96E8E00890B21 /* DZCStoryVideoController.m */,
+			);
+			path = StoryViewController;
+			sourceTree = "<group>";
+		};
+		22849AA721A96F2A00890B21 /* RecordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22849AA821A96F4100890B21 /* DZCRecirdVideoController.h */,
+				22849AA921A96F4100890B21 /* DZCRecirdVideoController.m */,
+			);
+			path = RecordViewController;
+			sourceTree = "<group>";
+		};
+		22849AAE21AA7D7800890B21 /* XiGuaVideoCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XiGuaVideoCell;
+			sourceTree = "<group>";
+		};
 		228656F72195111B001F8E60 /* RefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +858,9 @@
 				22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */,
 				22CE38AC21A58EAC00A34460 /* UIButton+CustomerItem.h */,
 				22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */,
+				22BE19FD21926B310041E47D /* TabBarItem.plist */,
+				22400C75219C5B020086C86A /* childVC.plist */,
+				22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */,
 			);
 			path = Extesion;
 			sourceTree = "<group>";
@@ -765,6 +902,8 @@
 				22193F2D2191629500FC150A /* DZCXiGuaVC.h */,
 				22193F2E2191629500FC150A /* DZCXiGuaVC.m */,
 				228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */,
+				22B9486221A8100D00336E4A /* XiGuaBaseTableViewController.h */,
+				22B9486321A8100D00336E4A /* XiGuaBaseTableViewController.m */,
 			);
 			path = XiGuaVideo;
 			sourceTree = "<group>";
@@ -792,6 +931,7 @@
 		22A018B52193227D00BE73D5 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				22849AAE21AA7D7800890B21 /* XiGuaVideoCell */,
 				221D603C21A2642200FAC269 /* ThreePicCell */,
 				22A35D63219E676C0024F350 /* VideoCell */,
 				22A35D59219E66C80024F350 /* HotNewsCell */,
@@ -852,6 +992,8 @@
 				22D531BC219ECE5D00910315 /* DZCVideoModel.m */,
 				2221553521A6F6290042409A /* DZCXiGuaVideoModel.h */,
 				2221553621A6F6290042409A /* DZCXiGuaVideoModel.m */,
+				22849AAB21AA343A00890B21 /* XiGuaModel.h */,
+				22849AAC21AA343A00890B21 /* XiGuaModel.m */,
 			);
 			path = VideoModel;
 			sourceTree = "<group>";
@@ -957,6 +1099,7 @@
 				22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */,
 				22A35D60219E66C80024F350 /* NewsTableViewCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
+				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,51 +1174,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				221D604121A264A300FAC269 /* DZCThreePicCell.m in Sources */,
+				22B9486721A840C900336E4A /* DZCDiscoverVideoController.m in Sources */,
 				22400C3E219C47400086C86A /* DZCMainTableViewController.m in Sources */,
+				22B9487021A8415500336E4A /* DZCAdventVideoController.m in Sources */,
 				22400C4A219C47CD0086C86A /* DZCPhotosTableViewController.m in Sources */,
 				2221553721A6F6290042409A /* DZCXiGuaVideoModel.m in Sources */,
 				22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */,
 				22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */,
+				22B9489421A858BC00336E4A /* SecinceVideoController.m in Sources */,
 				22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */,
 				22400C50219C48090086C86A /* DZCnewsTechTableViewController.m in Sources */,
 				22400C56219C48410086C86A /* DZCFinanceTableViewController.m in Sources */,
+				22B9489A21A858DE00336E4A /* TripVideoController.m in Sources */,
 				22400C5F219C48A30086C86A /* DZCWorldTableViewController.m in Sources */,
+				22B9486D21A840F500336E4A /* DZCLiveHoodVideoController.m in Sources */,
 				22400C65219C48EA0086C86A /* DZCTemaiTableViewController.m in Sources */,
 				22CE38AE21A58EAC00A34460 /* UIButton+CustomerItem.m in Sources */,
 				22193F23219161D500FC150A /* DZCHuoShanVC.m in Sources */,
 				22E51BB221A3DBE0006BDD00 /* DZCCellDeataleViewController.m in Sources */,
 				22193EF2219119F300FC150A /* ViewController.m in Sources */,
+				22B9489121A858A200336E4A /* PetsVideoController.m in Sources */,
 				22400C59219C48590086C86A /* DZCMilitaryTableViewController.m in Sources */,
+				22B9486A21A840DD00336E4A /* DZCPostVideoController.m in Sources */,
 				22400C4D219C47E60086C86A /* DZCEntertainmentTableViewController.m in Sources */,
 				22193F1A2191375C00FC150A /* DZCMainViewController.m in Sources */,
 				22400C5C219C48700086C86A /* DZCSportsTableViewController.m in Sources */,
 				229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */,
+				22849AAA21A96F4100890B21 /* DZCRecirdVideoController.m in Sources */,
 				22A35D61219E66C80024F350 /* DZCHotNewsTableViewCell.m in Sources */,
 				22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */,
 				22193F152191369D00FC150A /* DZCNaviViewController.m in Sources */,
 				22D82F97219CF2DC00AE394C /* DZCTitleScrollView.m in Sources */,
+				22B9489D21A858EF00336E4A /* YummyVideoController.m in Sources */,
 				22400C41219C476B0086C86A /* DZCNewshotTableViewController.m in Sources */,
+				22B9486421A8100D00336E4A /* XiGuaBaseTableViewController.m in Sources */,
 				22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */,
+				22B9487F21A8582E00336E4A /* EntertranmentVideoController.m in Sources */,
 				22193F122191365500FC150A /* DZCBaseViewController.m in Sources */,
 				22400C68219C49010086C86A /* DZCHouseTableViewController.m in Sources */,
 				22400C53219C48250086C86A /* DZCnewsCarTableViewController.m in Sources */,
 				2225A0BB21995F620030CE5E /* DZCMainNewsModel.m in Sources */,
+				22B9488821A8586D00336E4A /* FunnyVideoController.m in Sources */,
+				22849AA621A96E8E00890B21 /* DZCStoryVideoController.m in Sources */,
 				22193EFD219119F500FC150A /* main.m in Sources */,
 				22400C47219C47BA0086C86A /* DZCVideoTableViewController.m in Sources */,
+				22B9488521A8585B00336E4A /* FilmVideoController.m in Sources */,
 				22400C74219C51770086C86A /* DZCMainnewsViewController.m in Sources */,
+				22B9488E21A8589000336E4A /* MusicVIdeoController.m in Sources */,
 				22A35D5D219E66C80024F350 /* DZCSinglePicCell.m in Sources */,
+				22B9487C21A8581500336E4A /* DailyVideoController.m in Sources */,
+				22B9487621A8419100336E4A /* DZCCommunityVideoController.m in Sources */,
 				22400C6B219C491D0086C86A /* DZCCultureTableViewController.m in Sources */,
 				22400C71219C4A530086C86A /* DZChealthTableViewController.m in Sources */,
+				22B9489721A858CF00336E4A /* SportsVideoController.m in Sources */,
 				22A35D66219E67860024F350 /* DZCVideoCell.m in Sources */,
 				22400C6E219C49FC0086C86A /* DZCBaseTableViewController.m in Sources */,
+				22B9488221A8584000336E4A /* FashionVideoController.m in Sources */,
 				2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */,
+				22B9487921A841AB00336E4A /* DZCCreativieVideoController.m in Sources */,
 				22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */,
 				22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */,
 				22193EEF219119F300FC150A /* AppDelegate.m in Sources */,
 				228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */,
 				22193F262191620E00FC150A /* DZCPulishVC.m in Sources */,
 				22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */,
+				22B9488B21A8587B00336E4A /* GameVIdeoController.m in Sources */,
 				22A35D5F219E66C80024F350 /* DZCTopNewsCell.m in Sources */,
+				22B9487321A8416C00336E4A /* DZCAnimationVideoController.m in Sources */,
+				22849AAD21AA343A00890B21 /* XiGuaModel.m in Sources */,
 				22400C44219C47A10086C86A /* DZCnewsLocalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

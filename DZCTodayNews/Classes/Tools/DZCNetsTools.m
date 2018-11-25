@@ -13,6 +13,7 @@
 #import "NSData+CRC32.h"
 #import "DZCVideoModel.h"
 #import "DZCXiGuaVideoModel.h"
+#import "XiGuaModel.h"
 @implementation DZCNetsTools
 ///滚动标题视图模型网络请求
 ///
@@ -300,8 +301,50 @@
         }
  
     }];
-    
 
+}
+///西瓜视频网络详情请求
+///
+///*参数一 返回任意类型的对象
+///*参数二 当前控制器的名称
++(void)netWorkForXiGuaVideoWithModel:(void(^)(id))Completionblock WithControllerString:(NSString*)ControllerString{
+    NSString *urlstring=@"https://api.apiopen.top/videoCategoryDetails";
+    NSString *budlestring=[[NSBundle mainBundle]pathForResource:@"XiGuaVIdeo.plist" ofType:nil];
+    NSArray *arrayvideoVC=[[NSArray alloc]initWithContentsOfFile:budlestring];
+   //寻找对应的id字符,发出网络请求
+    [arrayvideoVC enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([ControllerString isEqualToString:[obj valueForKey:@"Viewcontroller"]]) {
+            NSDictionary *dictparmeter=@{@"id":[obj valueForKey:@"id"]};
+            NSLog(@"%@",dictparmeter);
+            [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:dictparmeter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                if (responseObject) {
+                    NSArray *modelarray=(NSArray*)[responseObject valueForKey:@"result"];
+                    NSMutableArray *modelmarray=NSMutableArray.array;
+                    [modelarray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        NSDictionary *dict=[obj valueForKeyPath:@"data.content"];
+                        XiGuaModel *model=[XiGuaModel yy_modelWithJSON:[dict valueForKey:@"data"] ];
+                        [modelmarray addObject:model];
+                        
+                    }];
+                    Completionblock(modelmarray.copy);
+                    
+                }
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                if (error) {
+                    NSHTTPURLResponse *response=(NSHTTPURLResponse*)task.response;
+                    
+                    NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+                }
+                Completionblock(error);
+            }];
+            *stop=YES;
+            return;
+        }
+    }];
+    
+   
+    
+    
 }
 
 

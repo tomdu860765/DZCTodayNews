@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)NetworVideo:(NSString*)Videoidstring finishBlock:(void(^)(NSString*))callback;
 ///西瓜视频网络请求
 +(void)netWorkForXiGuaVideo:(void(^)(NSArray*))finishBlock;
+
+///西瓜视频网络详情请求
++(void)netWorkForXiGuaVideoWithModel:(void(^)(id))Completionblock WithControllerString:(NSString*)ControllerString;
 @end
 
 NS_ASSUME_NONNULL_END
