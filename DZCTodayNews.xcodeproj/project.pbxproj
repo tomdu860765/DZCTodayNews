@@ -50,6 +50,8 @@
 		22849AA621A96E8E00890B21 /* DZCStoryVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AA521A96E8E00890B21 /* DZCStoryVideoController.m */; };
 		22849AAA21A96F4100890B21 /* DZCRecirdVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AA921A96F4100890B21 /* DZCRecirdVideoController.m */; };
 		22849AAD21AA343A00890B21 /* XiGuaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AAC21AA343A00890B21 /* XiGuaModel.m */; };
+		22849AB121AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22849AB021AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.m */; };
+		22849AB321AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22849AB221AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib */; };
 		228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 228656F92195115B001F8E60 /* DZCRereshControl.m */; };
 		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
@@ -178,6 +180,9 @@
 		22849AA921A96F4100890B21 /* DZCRecirdVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRecirdVideoController.m; sourceTree = "<group>"; };
 		22849AAB21AA343A00890B21 /* XiGuaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XiGuaModel.h; sourceTree = "<group>"; };
 		22849AAC21AA343A00890B21 /* XiGuaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XiGuaModel.m; sourceTree = "<group>"; };
+		22849AAF21AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCXiGuaVideoCellTableViewCell.h; sourceTree = "<group>"; };
+		22849AB021AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCXiGuaVideoCellTableViewCell.m; sourceTree = "<group>"; };
+		22849AB221AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCXiGuaVideoCellTableViewCell.xib; sourceTree = "<group>"; };
 		228656F82195115B001F8E60 /* DZCRereshControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRereshControl.h; sourceTree = "<group>"; };
 		228656F92195115B001F8E60 /* DZCRereshControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRereshControl.m; sourceTree = "<group>"; };
 		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
@@ -834,6 +839,9 @@
 		22849AAE21AA7D7800890B21 /* XiGuaVideoCell */ = {
 			isa = PBXGroup;
 			children = (
+				22849AAF21AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.h */,
+				22849AB021AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.m */,
+				22849AB221AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib */,
 			);
 			path = XiGuaVideoCell;
 			sourceTree = "<group>";
@@ -1096,6 +1104,7 @@
 				22E51BAF21A3DBB9006BDD00 /* CellDeataleController.storyboard in Resources */,
 				22400C76219C5B020086C86A /* childVC.plist in Resources */,
 				22193EF7219119F500FC150A /* Assets.xcassets in Resources */,
+				22849AB321AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib in Resources */,
 				22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */,
 				22A35D60219E66C80024F350 /* NewsTableViewCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
@@ -1198,6 +1207,7 @@
 				22B9486A21A840DD00336E4A /* DZCPostVideoController.m in Sources */,
 				22400C4D219C47E60086C86A /* DZCEntertainmentTableViewController.m in Sources */,
 				22193F1A2191375C00FC150A /* DZCMainViewController.m in Sources */,
+				22849AB121AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.m in Sources */,
 				22400C5C219C48700086C86A /* DZCSportsTableViewController.m in Sources */,
 				229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */,
 				22849AAA21A96F4100890B21 /* DZCRecirdVideoController.m in Sources */,

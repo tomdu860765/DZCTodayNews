@@ -13,7 +13,7 @@
 #import "XiGuaBaseTableViewController.h"
 
 
-@interface DZCXiGuaVC ()
+@interface DZCXiGuaVC ()<UIScrollViewDelegate>
 @property(strong,nonatomic)UIScrollView *titleScrollview;
 @property(strong,nonatomic)UIScrollView *mainVideoScrollview;
 @property(strong,nonatomic)NSArray *titleBtnarray;
@@ -54,7 +54,7 @@
         self.titleBtnarray=titlearray;
     }];
     [self setupChildVideoViewController];
-    
+    self.mainVideoScrollview.delegate=self;
 
 }
 //添加标题滚动视图
@@ -143,7 +143,9 @@
     }];
  
 }
-
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSLog(@"视频主滚动视图停止");
+}
 
 
 

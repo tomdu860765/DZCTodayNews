@@ -10,6 +10,7 @@
 #import "DZCRereshControl.h"
 #import "XiGuaModel.h"
 #import "DZCNetsTools.h"
+#import "DZCXiGuaVideoCellTableViewCell.h"
 @interface XiGuaBaseTableViewController ()
 @property(nonatomic,strong)NSMutableArray *VideoArray;
 @end
@@ -25,8 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addrefreshWithview:self.VideoArray];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"xiguavideocell"];
+    [self registervideoCell];
     [self netWorkForXiGuaVideoController];
+    self.tableView.estimatedRowHeight = 300;
+    self.tableView.rowHeight=UITableViewAutomaticDimension;
+    
 }
 //基类表视图执行网络方法
 -(void)netWorkForXiGuaVideoController{
@@ -47,17 +51,25 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xiguavideocell" forIndexPath:indexPath];
+    DZCXiGuaVideoCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xiguavideocell" forIndexPath:indexPath];
     
     if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"xiguavideocell"];
+        cell=[[NSBundle mainBundle]loadNibNamed:@"DZCXiGuaVideoCellTableViewCell" owner:nil options:nil].lastObject;
     }
     XiGuaModel *videomodel=self.VideoArray[indexPath.row];
     
-    cell.textLabel.text=videomodel.title;
+    cell.cellmodel=videomodel;
     return cell;
 }
-
+-(void)registervideoCell{
+    
+ 
+    
+    UINib *videonib=[UINib nibWithNibName:@"DZCXiGuaVideoCellTableViewCell" bundle:nil];
+    [self.tableView registerNib:videonib forCellReuseIdentifier:@"xiguavideocell"];
+    
+    
+}
 
 //添加刷新控件方法
 -(void)addrefreshWithview:(NSMutableArray *)marray{
@@ -104,4 +116,6 @@
     } WithControllerString:NSStringFromClass([self class])] ;
     
 }
+
+
 @end

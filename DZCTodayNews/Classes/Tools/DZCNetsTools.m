@@ -315,7 +315,7 @@
     [arrayvideoVC enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([ControllerString isEqualToString:[obj valueForKey:@"Viewcontroller"]]) {
             NSDictionary *dictparmeter=@{@"id":[obj valueForKey:@"id"]};
-            NSLog(@"%@",dictparmeter);
+           
             [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:dictparmeter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (responseObject) {
                     NSArray *modelarray=(NSArray*)[responseObject valueForKey:@"result"];
@@ -323,6 +323,7 @@
                     [modelarray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         NSDictionary *dict=[obj valueForKeyPath:@"data.content"];
                         XiGuaModel *model=[XiGuaModel yy_modelWithJSON:[dict valueForKey:@"data"] ];
+                       
                         [modelmarray addObject:model];
                         
                     }];

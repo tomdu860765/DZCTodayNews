@@ -14,9 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface XiGuaModel : NSObject
-//播放链接,标题,标题详情,播放时间
-@property(nonatomic,copy)NSString *playUrl,*title,*descriptionEditor,*duration;
-
+//播放链接,标题,标题详情,播放时间,分类
+@property(nonatomic,copy)NSString *playUrl,*title,*descriptionPgc,*category;
+@property(nonatomic,assign)NSInteger duration;
+@property(nonatomic,strong)NSDictionary *cover,*tags;
 @end
 
 
