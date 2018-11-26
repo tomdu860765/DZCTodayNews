@@ -42,7 +42,7 @@
     _titleBtnarray=titleBtnarray;
     
     [self addBtnForTitlescrollview:titleBtnarray];
- 
+    
 }
 
 
@@ -55,7 +55,7 @@
     }];
     [self setupChildVideoViewController];
     self.mainVideoScrollview.delegate=self;
-
+    
 }
 //添加标题滚动视图
 -(void)setupTitleScrollview{
@@ -65,9 +65,9 @@
     self.titleScrollview.showsHorizontalScrollIndicator=NO;
     self.titleScrollview.bounces=NO;
     self.titleScrollview.backgroundColor=UIColor.whiteColor;
-   
+    
     [self.view addSubview:self.titleScrollview];
-   
+    
     if (self.titleScrollview) {
         [self.titleScrollview mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view.mas_left).offset(0);
@@ -85,7 +85,7 @@
     self.mainVideoScrollview.showsVerticalScrollIndicator=NO;
     self.mainVideoScrollview.showsHorizontalScrollIndicator=NO;
     self.mainVideoScrollview.bounces=NO;
-  
+    
     [self.view addSubview:self.mainVideoScrollview];
     if (self.titleScrollview) {
         [self.mainVideoScrollview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,19 +108,20 @@
         [titlebtn  setTitle:model.name forState:UIControlStateNormal];
         [titlebtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         [titlebtn setTitleColor:UIColor.redColor forState:UIControlStateSelected];
+        titlebtn.tag=idx;
         if (idx==0) {
             [titlebtn setSelected:YES];
             self.btnmark=titlebtn;
         }
         [self.titleScrollview addSubview:titlebtn];
-       
+        [titlebtn addTarget:self action:@selector(moveMainScrollview:) forControlEvents:UIControlEventTouchDown];
     }];
     self.mainVideoScrollview.contentSize=CGSizeMake(SCREENWIDTH*btnarray.count, 0);
-   
+    
     self.titleScrollview.contentSize=CGSizeMake(btnwidth*btnarray.count+(btnarray.count+1)*margin, 0);
-  
+    
 }
-//添加自控制器到主滚动视图
+//添加子控制器到主滚动视图
 -(void)setupChildVideoViewController{
     NSString *budlestring=[[NSBundle mainBundle]pathForResource:@"XiGuaVIdeo.plist" ofType:nil];
     NSArray *arrayvideoVC=[[NSArray alloc]initWithContentsOfFile:budlestring];
@@ -141,13 +142,54 @@
             }];
         }
     }];
+    
+}
+//滚动到哪个视图控制器加载网络模型
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+   
+    NSInteger pagevc=scrollView.contentOffset.x/SCREENWIDTH;
+    XiGuaBaseTableViewController *basevc=self.childViewControllers[pagevc];
+    [basevc netWorkForXiGuaVideoController];
+    [self titlebtnmark:pagevc];
+}
+//按钮高亮方法
+-(void)titlebtnmark:(NSInteger)btntag{
+    if (self.btnmark.tag==btntag) {
+        return;
+    }
+    self.btnmark.selected=NO;
+    for (UIButton *btns in self.titleScrollview.subviews) {
+        if (btns.tag==btntag) {
+            [self titleScrollViewFormiddelPosition:btns];
+            self.btnmark=btns;
+            btns.selected=YES;
+            break;}
+    }
+    
+}
+//按钮随着主滚动视图移动到中间
+-(void)titleScrollViewFormiddelPosition:(UIButton*)button{
+    
+    CGFloat btnoffset=button.frame.origin.x-SCREENWIDTH*0.5;
+    CGFloat maxoffset=self.titleScrollview.contentSize.width-SCREENWIDTH;
+    if (btnoffset<0) {
+        btnoffset=0;
+    }else if (btnoffset>maxoffset)
+    {
+        btnoffset=maxoffset;
+    }
+    [self.titleScrollview setContentOffset:CGPointMake(btnoffset, 0) animated:YES];
  
 }
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSLog(@"视频主滚动视图停止");
+//点击标题按钮方法
+-(void)moveMainScrollview:(UIButton*)sender{
+
+    [self.mainVideoScrollview setContentOffset:CGPointMake(SCREENWIDTH*sender.tag, 0) animated:YES];
+    [self titlebtnmark:sender.tag];
+   //点击后响应网络请求
+    XiGuaBaseTableViewController *basevc=self.childViewControllers[sender.tag];
+    [basevc netWorkForXiGuaVideoController];
 }
-
-
-
 
 @end

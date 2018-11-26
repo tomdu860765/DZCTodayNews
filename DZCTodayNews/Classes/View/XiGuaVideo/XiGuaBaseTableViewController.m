@@ -11,8 +11,10 @@
 #import "XiGuaModel.h"
 #import "DZCNetsTools.h"
 #import "DZCXiGuaVideoCellTableViewCell.h"
+
 @interface XiGuaBaseTableViewController ()
 @property(nonatomic,strong)NSMutableArray *VideoArray;
+
 @end
 
 @implementation XiGuaBaseTableViewController
@@ -27,20 +29,26 @@
     [super viewDidLoad];
     [self addrefreshWithview:self.VideoArray];
     [self registervideoCell];
-    [self netWorkForXiGuaVideoController];
+    if ([NSStringFromClass([self class]) isEqualToString:@"DZCDiscoverVideoController"]) {
+        [self netWorkForXiGuaVideoController];}
     self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
-    
+   
 }
+
+
+
+
 //基类表视图执行网络方法
 -(void)netWorkForXiGuaVideoController{
+    
+ 
     [DZCNetsTools netWorkForXiGuaVideoWithModel:^(id modelarray) {
         self.VideoArray=[NSMutableArray arrayWithArray:modelarray];
          
         
     } WithControllerString:NSStringFromClass([self class])];
-   
-   
+    
 }
 
 

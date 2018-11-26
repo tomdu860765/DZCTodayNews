@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XiGuaBaseTableViewController : UITableViewController
 @property(nonatomic,strong)XiGuaModel *model;
+
+-(void)netWorkForXiGuaVideoController;
 @end
 
 NS_ASSUME_NONNULL_END

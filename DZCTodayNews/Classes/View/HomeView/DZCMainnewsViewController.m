@@ -185,7 +185,7 @@
    
     
     //视图移动
-    [self.mainScrollview setContentOffset:CGPointMake(375*self.btnmark.tag, 0) animated:YES];
+    [self.mainScrollview setContentOffset:CGPointMake(SCREENWIDTH*self.btnmark.tag, 0) animated:YES];
     //网络请求主滚动视图,发送网络请求通知
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ScrollViewOffset" object:self];
     
