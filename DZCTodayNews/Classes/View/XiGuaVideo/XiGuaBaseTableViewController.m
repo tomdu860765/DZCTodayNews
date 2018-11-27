@@ -14,7 +14,7 @@
 
 @interface XiGuaBaseTableViewController ()
 @property(nonatomic,strong)NSMutableArray *VideoArray;
-
+@property(nonatomic,strong)DZCXiGuaVideoCellTableViewCell *cellmark;
 @end
 
 @implementation XiGuaBaseTableViewController
@@ -35,9 +35,12 @@
     self.tableView.rowHeight=UITableViewAutomaticDimension;
    
 }
-
-
-
+-(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //暂停播放
+    [self.cellmark.playercontroller.player pause];
+    [self.cellmark setHiddenavplayer];
+    
+}
 
 //基类表视图执行网络方法
 -(void)netWorkForXiGuaVideoController{
@@ -65,7 +68,7 @@
         cell=[[NSBundle mainBundle]loadNibNamed:@"DZCXiGuaVideoCellTableViewCell" owner:nil options:nil].lastObject;
     }
     XiGuaModel *videomodel=self.VideoArray[indexPath.row];
-    
+    self.cellmark=cell;
     cell.cellmodel=videomodel;
     return cell;
 }
@@ -124,6 +127,7 @@
     } WithControllerString:NSStringFromClass([self class])] ;
     
 }
+
 
 
 @end

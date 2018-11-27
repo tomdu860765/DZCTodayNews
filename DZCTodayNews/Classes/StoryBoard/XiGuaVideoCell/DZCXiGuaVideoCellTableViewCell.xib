@@ -106,6 +106,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KK-az-Eb2">
                         <rect key="frame" x="166" y="72.5" width="44" height="60.5"/>
                         <state key="normal" image="new_play_video_44x44_"/>
+                        <connections>
+                            <action selector="showplayer:" destination="gsJ-ES-zFg" eventType="touchUpInside" id="uY0-lY-Gcc"/>
+                        </connections>
                     </button>
                     <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIf-6H-J9B">
                         <rect key="frame" x="293" y="161" width="58" height="30"/>
@@ -157,9 +160,11 @@
                 <outlet property="playcountlabel" destination="Ycr-jc-AWt" id="3Wh-Rl-24d"/>
                 <outlet property="playerimageview" destination="8vM-T1-ADT" id="XJA-Yl-yvH"/>
                 <outlet property="pyqbtn" destination="Y8T-wM-d5R" id="dzi-zq-V22"/>
+                <outlet property="pyqleftcinstraint" destination="xtT-Hm-Kv7" id="bj7-B6-c6z"/>
                 <outlet property="rescouebtn" destination="Rdv-z4-g5u" id="302-J8-UCf"/>
                 <outlet property="sharebtn" destination="emB-Sj-C19" id="Qei-qj-z8S"/>
                 <outlet property="titlebel" destination="MHq-NX-N8f" id="awx-Ay-uKa"/>
+                <outlet property="wechaleftcibstraint" destination="9MY-jk-kks" id="cqQ-n4-Tl9"/>
                 <outlet property="wechatbtn" destination="cqE-Mx-jNQ" id="w0g-xV-08Y"/>
             </connections>
             <point key="canvasLocation" x="-358.39999999999998" y="83.658170914542737"/>
