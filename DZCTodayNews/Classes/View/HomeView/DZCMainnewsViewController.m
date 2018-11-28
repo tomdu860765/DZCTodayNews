@@ -25,7 +25,7 @@
 //加载子视图控制器文件
 -(NSArray*)vcarray{
     if (!_vcarray) {
-        NSString *bundel=[[NSBundle mainBundle]pathForResource:@"childVC.plist" ofType:nil];
+        NSString *bundel=[[NSBundle mainBundle]pathForResource:@"HomeView.plist" ofType:nil];
         NSArray *array=[NSArray arrayWithContentsOfFile:bundel];
         
         _vcarray=array;

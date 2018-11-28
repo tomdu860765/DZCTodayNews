@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)ScrollviewSttitle:(void(^)(NSArray*,NSArray*))finishblock;
 ///刷新热点新闻
 +(void)NetworHotNews:(void(^)(NSArray*))callback;
-///分类新闻网络请求,该方法同时使用可能会产生冲突
-+(void)NetworHotNews:(void(^)(NSArray*))callback WithKeyworks:(id)keyworks;
 ///视频网络请求
 +(void)NetworVideo:(NSString*)Videoidstring finishBlock:(void(^)(NSString*))callback;
 ///西瓜视频网络请求
@@ -29,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///西瓜视频网络详情请求
 +(void)netWorkForXiGuaVideoWithModel:(void(^)(id))Completionblock WithControllerString:(NSString*)ControllerString;
+///分类新闻网络请求
++(void)basetableviewNetworHotNews:(void(^)(NSArray*))callback wihtViewControllerString:(NSString*)String;
 @end
 
 NS_ASSUME_NONNULL_END

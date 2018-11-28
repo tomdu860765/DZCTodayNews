@@ -30,49 +30,49 @@
 		<key>Viewcontroller</key>
 		<string>DZCAdventVideoController</string>
 		<key>id</key>
-		<string>10</string>
+		<string>14</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>DZCLiveHoodVideoController</string>
 		<key>id</key>
-		<string>12</string>
+		<string>36</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>DZCAnimationVideoController</string>
 		<key>id</key>
-		<string>14</string>
+		<string>10</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>FunnyVideoController</string>
 		<key>id</key>
-		<string>38</string>
+		<string>28</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>YummyVideoController</string>
 		<key>id</key>
-		<string>18</string>
+		<string>4</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>DZCCreativieVideoController</string>
 		<key>id</key>
-		<string>20</string>
+		<string>2</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>SportsVideoController</string>
 		<key>id</key>
-		<string>22</string>
+		<string>18</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>MusicVIdeoController</string>
 		<key>id</key>
-		<string>24</string>
+		<string>20</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
@@ -84,37 +84,37 @@
 		<key>Viewcontroller</key>
 		<string>DZCStoryVideoController</string>
 		<key>id</key>
-		<string>28</string>
+		<string>12</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>SecinceVideoController</string>
 		<key>id</key>
-		<string>30</string>
+		<string>32</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>TripVideoController</string>
 		<key>id</key>
-		<string>32</string>
+		<string>6</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>FilmVideoController</string>
 		<key>id</key>
-		<string>4</string>
+		<string>8</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>DZCRecirdVideoController</string>
 		<key>id</key>
-		<string>36</string>
+		<string>22</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
 		<string>GameVIdeoController</string>
 		<key>id</key>
-		<string>38</string>
+		<string>30</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
@@ -126,7 +126,7 @@
 		<key>Viewcontroller</key>
 		<string>FashionVideoController</string>
 		<key>id</key>
-		<string>38</string>
+		<string>24</string>
 	</dict>
 </array>
 </plist>

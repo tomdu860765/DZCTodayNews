@@ -91,6 +91,7 @@
 		22CE38AE21A58EAC00A34460 /* UIButton+CustomerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */; };
 		22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D531BC219ECE5D00910315 /* DZCVideoModel.m */; };
 		22D82F97219CF2DC00AE394C /* DZCTitleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D82F96219CF2DC00AE394C /* DZCTitleScrollView.m */; };
+		22DDD6AC21AD8610007EFBCE /* HomeView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22DDD6AB21AD8610007EFBCE /* HomeView.plist */; };
 		22E51BAF21A3DBB9006BDD00 /* CellDeataleController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E51BAE21A3DBB9006BDD00 /* CellDeataleController.storyboard */; };
 		22E51BB221A3DBE0006BDD00 /* DZCCellDeataleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E51BB121A3DBE0006BDD00 /* DZCCellDeataleViewController.m */; };
 		22E51BB421A449DF006BDD00 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E51BB321A449DF006BDD00 /* WebKit.framework */; };
@@ -254,6 +255,7 @@
 		22D531BC219ECE5D00910315 /* DZCVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCVideoModel.m; sourceTree = "<group>"; };
 		22D82F95219CF2DC00AE394C /* DZCTitleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollView.h; sourceTree = "<group>"; };
 		22D82F96219CF2DC00AE394C /* DZCTitleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollView.m; sourceTree = "<group>"; };
+		22DDD6AB21AD8610007EFBCE /* HomeView.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HomeView.plist; sourceTree = "<group>"; };
 		22E51BAE21A3DBB9006BDD00 /* CellDeataleController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CellDeataleController.storyboard; sourceTree = "<group>"; };
 		22E51BB021A3DBE0006BDD00 /* DZCCellDeataleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCCellDeataleViewController.h; sourceTree = "<group>"; };
 		22E51BB121A3DBE0006BDD00 /* DZCCellDeataleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCCellDeataleViewController.m; sourceTree = "<group>"; };
@@ -643,8 +645,6 @@
 		22400C3B219C47150086C86A /* ChildviewControler */ = {
 			isa = PBXGroup;
 			children = (
-				22400C6C219C49FC0086C86A /* DZCBaseTableViewController.h */,
-				22400C6D219C49FC0086C86A /* DZCBaseTableViewController.m */,
 				226B1E1A21A1870600F2346A /* MainChildController */,
 				226B1E2921A1890500F2346A /* CultureTableViewController */,
 				226B1E2521A187B200F2346A /* LocalNewsViewController */,
@@ -868,6 +868,7 @@
 				22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */,
 				22BE19FD21926B310041E47D /* TabBarItem.plist */,
 				22400C75219C5B020086C86A /* childVC.plist */,
+				22DDD6AB21AD8610007EFBCE /* HomeView.plist */,
 				22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */,
 			);
 			path = Extesion;
@@ -923,6 +924,8 @@
 				22400C3B219C47150086C86A /* ChildviewControler */,
 				22400C72219C51770086C86A /* DZCMainnewsViewController.h */,
 				22400C73219C51770086C86A /* DZCMainnewsViewController.m */,
+				22400C6C219C49FC0086C86A /* DZCBaseTableViewController.h */,
+				22400C6D219C49FC0086C86A /* DZCBaseTableViewController.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				22193EF7219119F500FC150A /* Assets.xcassets in Resources */,
 				22849AB321AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib in Resources */,
 				22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */,
+				22DDD6AC21AD8610007EFBCE /* HomeView.plist in Resources */,
 				22A35D60219E66C80024F350 /* NewsTableViewCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
 				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,

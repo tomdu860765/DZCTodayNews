@@ -11,8 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSString+RegularUrl.h"
 #import "DZCNetsTools.h"
-#import  <AVFoundation/AVFoundation.h>
-#import  <AVKit/AVKit.h>
+
 @interface DZCVideoCell()
 @property (weak, nonatomic) IBOutlet UIButton *playbtn;
 @property (weak, nonatomic) IBOutlet UILabel *namelabel;
@@ -27,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pyqleftconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wechatconstraint;
 @property(strong,nonatomic)UIButton *btnmark;
-@property(nonatomic,strong)AVPlayerViewController *AVPlayerViewController;
+
 @property (weak, nonatomic) IBOutlet UIButton *videotimebtn;
 
 @end
@@ -96,7 +95,7 @@
     [super awakeFromNib];
    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(stopvideo) name:@"stopcellvideo" object:nil];
-  
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

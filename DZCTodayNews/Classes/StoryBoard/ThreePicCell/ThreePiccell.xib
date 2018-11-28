@@ -36,29 +36,29 @@
                         <rect key="frame" x="131" y="73" width="109.5" height="80"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xok-QH-zmV">
-                        <rect key="frame" x="11" y="168" width="90" height="15"/>
+                        <rect key="frame" x="11" y="168" width="90" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="ZVd-aF-ICc"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="ZVd-aF-ICc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3r-KM-Fmb">
-                        <rect key="frame" x="205" y="168" width="64" height="14.5"/>
+                        <rect key="frame" x="205" y="168" width="64" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="Tei-hv-0gV"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJc-rP-NZp">
-                        <rect key="frame" x="114" y="168" width="80" height="14.5"/>
+                        <rect key="frame" x="114" y="168" width="80" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="jO9-yv-dTF"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>

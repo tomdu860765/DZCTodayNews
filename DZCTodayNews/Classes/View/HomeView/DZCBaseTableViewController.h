@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCBaseTableViewController : UITableViewController
 
-@property(nonatomic,strong)NSMutableArray *modelArray;
+
 @property(nonatomic,assign)NSInteger page;
 @end
 

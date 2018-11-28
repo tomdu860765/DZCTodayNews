@@ -35,21 +35,27 @@
     
     [super viewDidLoad];
     [self SetupTableviewnib];
-    [self.tableView reloadData];
-    [self addrefreshWithview:self.modelArray];
     
+    [self addrefreshWithview];
+    [self networkWithHomebaseView];
 }
-//改写初始化方法使用固定初始化式启动
-- (instancetype)initWithStyle:(UITableViewStyle)style {
-    
-    return [super initWithStyle:UITableViewStylePlain];
+//主视图基类网络方法
+-(void)networkWithHomebaseView{
+    [DZCNetsTools basetableviewNetworHotNews:^(NSArray * homemodelarray) {
+        
+        self.MainVCarray=[NSMutableArray arrayWithArray:homemodelarray];
+        
+    } wihtViewControllerString:NSStringFromClass([self class])];
     
 }
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.modelArray.count;
+    return self.MainVCarray.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DZCMainNewsModel *model=self.MainVCarray[indexPath.row];
@@ -114,7 +120,7 @@
 //滚动视图控制器监控
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     //如果有上下拉动不执行该通知.
-    // 用bool 拉伸y滚动的真假,最后结束返回假
+    // 用bool记录拉伸y滚动的真假,最后结束返回假
    
     if (scrollView.contentOffset.x&&self.markYcount==NO) {
 
@@ -143,18 +149,18 @@
 }
 
 //添加刷新控件方法
--(void)addrefreshWithview:(NSMutableArray *)marray{
+-(void)addrefreshWithview{
     
     DZCRereshControl *rereshControl=DZCRereshControl.new;
     
     [rereshControl addRefreshControlheader:self.tableView vcblock:^{
-        [self refreshloaddata:marray];
+        [self refreshloaddata:self.MainVCarray];
        
         NSLog(@"上拉刷新");
     }];
     
     [rereshControl addfooterRefresh:self.tableView vcblock:^{
-        [self pullrefreshloaddata:marray];
+        [self pullrefreshloaddata:self.MainVCarray];
         NSLog(@"上拉刷新");
     }];
     
@@ -164,28 +170,37 @@
 //向下刷新方法,注意数据是插入最前面
 -(void)refreshloaddata:(NSMutableArray *)marray{
     
-    [DZCNetsTools NetworkMainNews:^(NSArray * newsmodel) {
+  
+    [DZCNetsTools basetableviewNetworHotNews:^(NSArray * newsmodel) {
+        
         if (newsmodel) {
             [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [marray insertObject:obj atIndex:0];
                 
             }];
+           
             [self.tableView reloadData];
         }
-    }];
+        
+    } wihtViewControllerString:NSStringFromClass([self class])];
+    
     
 }
 //向上拉刷新数据
 -(void)pullrefreshloaddata:(NSMutableArray *)marray{
-    [DZCNetsTools NetworkMainNews:^(NSArray * newsmodel)  {
+ 
+    [DZCNetsTools basetableviewNetworHotNews:^(NSArray * newsmodel) {
         if (newsmodel) {
             [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [marray addObject:obj];
             }];
+           
             [self.tableView reloadData];
         }
         
-    }];
+    } wihtViewControllerString:NSStringFromClass([self class])];
+    
+    
 }
 //销毁通知
 -(void)dealloc{
@@ -196,11 +211,12 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     UIStoryboard *sbvc=[UIStoryboard storyboardWithName:@"CellDeataleController" bundle:nil];
      DZCCellDeataleViewController *deatalevc=[sbvc instantiateViewControllerWithIdentifier:@"celldeatalecontroller"];
     
     [self presentViewController:deatalevc animated:YES completion:^{
-      deatalevc.deatalModel =self.modelArray[indexPath.row];
+      deatalevc.deatalModel =self.MainVCarray[indexPath.row];
     }];
     
 }

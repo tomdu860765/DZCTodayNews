@@ -25,22 +25,22 @@
 
 @implementation DZCVideoTableViewController
 
--(void)setMainVCarray:(NSMutableArray *)MainVCarray{
-    _MainVCarray=MainVCarray;
-    
-    [self.tableView reloadData];
-}
+//-(void)setMainVCarray:(NSMutableArray *)MainVCarray{
+//    _MainVCarray=MainVCarray;
+//
+//    [self.tableView reloadData];
+//}
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self networkForMainview];
+   // [self networkForMainview];
    
-    [self addrefreshWithview:self.MainVCarray];
-    [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(responseNewsnetwork:)
-                                                name:@"ScrollViewOffset" object:nil];
+//    [self addrefreshWithview:self.MainVCarray];
+//    [[NSNotificationCenter defaultCenter]addObserver:self
+//                                            selector:@selector(responseNewsnetwork:)
+//                                                name:@"ScrollViewOffset" object:nil];
     
    
 }
@@ -56,7 +56,7 @@
     if ([stringVC isEqualToString:stringChildVC]) {
         
         
-        [self refreshloaddata:self.MainVCarray];
+      //  [self refreshloaddata:self.MainVCarray];
         
         [self.tableView setContentOffset:CGPointMake(0, 0)];
         
@@ -76,7 +76,7 @@
  
     if ([self.tableView.visibleCells containsObject:self.cellmark]) {
         
-        [self.cellmark.contentView.subviews.lastObject removeFromSuperview];
+        [self.cellmark.AVPlayerViewController.view removeFromSuperview];
     }
 }
 
@@ -124,76 +124,79 @@
 
 
 //按照分类加载新闻
--(void)networkForMainview{
-    
-    
-    [DZCNetsTools NetworHotNews:^(NSArray * array) {
-        if (array) {
-            
-            
-            self.modelArray=[NSMutableArray arrayWithArray:array];
-            self.MainVCarray=self.modelArray;}
-    } WithKeyworks:@(3)];
-    
-    
-    
-}
-//添加刷新控件方法
--(void)addrefreshWithview:(NSMutableArray *)marray{
-    
-    DZCRereshControl *rereshControl=DZCRereshControl.new;
-    
-    [rereshControl addRefreshControlheader:self.tableView vcblock:^{
-        [self refreshloaddata:marray];
-        
-        NSLog(@"上拉刷新");
-    }];
-    
-    [rereshControl addfooterRefresh:self.tableView vcblock:^{
-        [self pullrefreshloaddata:marray];
-        NSLog(@"上拉刷新");
-    }];
-    
-    
-}
+//-(void)networkForMainview{
+//
+//
+//    [DZCNetsTools NetworHotNews:^(NSArray * array) {
+//        if (array) {
+//
+//
+//            self.modelArray=[NSMutableArray arrayWithArray:array];
+//            self.MainVCarray=self.modelArray;}
+//    } WithKeyworks:@(3)];
+//
+//
+//
+//}
+////添加刷新控件方法
+//-(void)addrefreshWithview:(NSMutableArray *)marray{
+//
+//    DZCRereshControl *rereshControl=DZCRereshControl.new;
+//
+//    [rereshControl addRefreshControlheader:self.tableView vcblock:^{
+//        [self refreshloaddata:marray];
+//
+//        NSLog(@"上拉刷新");
+//    }];
+//
+//    [rereshControl addfooterRefresh:self.tableView vcblock:^{
+//        [self pullrefreshloaddata:marray];
+//        NSLog(@"上拉刷新");
+//    }];
+//
+//
+//}
 
 
 //向下刷新方法,注意数据是插入最前面
--(void)refreshloaddata:(NSMutableArray*)marray{
-    
-    
-    [DZCNetsTools NetworHotNews:^(NSArray * newsmodel) {
-        if (newsmodel) {
-            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [self.MainVCarray insertObject:obj atIndex:0];
-                
-            }];
-            
-            [self.tableView reloadData];}
-    } WithKeyworks:@(3)];
-    
-    
-    
-}
-//向上拉刷新数据
--(void)pullrefreshloaddata:(NSMutableArray*)marray{
-    
-    [DZCNetsTools NetworHotNews:^(NSArray * newsmodel) {
-        if (newsmodel) {
-            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [self.MainVCarray addObject:obj];
-            }];
-            [self.tableView reloadData];}
-    } WithKeyworks:@(3)];
-    
-    
-}
+//-(void)refreshloaddata:(NSMutableArray*)marray{
+//
+//
+//    [DZCNetsTools NetworHotNews:^(NSArray * newsmodel) {
+//        if (newsmodel) {
+//            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                [self.MainVCarray insertObject:obj atIndex:0];
+//
+//            }];
+//
+//            [self.tableView reloadData];}
+//    } WithKeyworks:@(3)];
+//
+//
+//
+//}
+////向上拉刷新数据
+//-(void)pullrefreshloaddata:(NSMutableArray*)marray{
+//
+//    [DZCNetsTools NetworHotNews:^(NSArray * newsmodel) {
+//        if (newsmodel) {
+//            [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                [self.MainVCarray addObject:obj];
+//            }];
+//            [self.tableView reloadData];}
+//    } WithKeyworks:@(3)];
+//
+//
+//}
 //销毁通知中心
 -(void)dealloc{
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
-
+//重写点击cell方法
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 @end
