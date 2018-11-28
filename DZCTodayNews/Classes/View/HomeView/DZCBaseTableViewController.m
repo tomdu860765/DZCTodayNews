@@ -16,14 +16,17 @@
 #import "DZCCellDeataleViewController.h"
 #import "DZCHotNewsTableViewCell.h"
 #import "DZCThreePicCell.h"
-
+#import "DZCVideoCell.h"
 
 @interface DZCBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property(nonatomic,assign)BOOL markYcount;
 @property(nonatomic,strong)NSMutableArray *MainVCarray;
+@property(nonatomic,strong)DZCVideoCell *cellmark;
 @end
 
 @implementation DZCBaseTableViewController
+
+
 -(void)setMainVCarray:(NSMutableArray *)MainVCarray{
     _MainVCarray=MainVCarray;
     
@@ -87,6 +90,18 @@
         cell.model=model;
         
         return cell;
+    }else if ([@"DZCVideoTableViewController" isEqualToString:NSStringFromClass([self class])]){
+        DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell"];
+        
+        if (cell==nil) {
+            cell=[[NSBundle mainBundle]loadNibNamed:@"DZCVideoCell" owner:self options:nil].lastObject;
+        }
+        
+        
+        cell.model=model;
+        self.cellmark=cell;
+        return cell;
+        
     }
     
     DZCTopNewsCell *cell =[tableView dequeueReusableCellWithIdentifier:@"topnewsid"];
@@ -114,6 +129,10 @@
     UINib *threepic=[UINib nibWithNibName:@"ThreePiccell" bundle:nil];
     
     [self.tableView registerNib:threepic forCellReuseIdentifier:@"threepiccell"];
+    
+    UINib *videouib=[UINib nibWithNibName:@"DZCVideoCell" bundle:nil];
+    
+    [self.tableView registerNib:videouib forCellReuseIdentifier:@"DZCVideoCell"];
 
 }
 

@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCVideoCell : UITableViewCell
 @property(strong,nonatomic) DZCMainNewsModel *model;
-@property(nonatomic,strong)AVPlayerViewController *AVPlayerViewController;
 
+//移除播放器显示按钮
+-(void)cellsubViewsshow;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -25,10 +25,10 @@
 //加载子视图控制器文件
 -(NSArray*)vcarray{
     if (!_vcarray) {
-        NSString *bundel=[[NSBundle mainBundle]pathForResource:@"HomeView.plist" ofType:nil];
-        NSArray *array=[NSArray arrayWithContentsOfFile:bundel];
-        
-        _vcarray=array;
+        NSString *bundel=[[NSBundle mainBundle]
+                          pathForResource:@"HomeView.plist" ofType:nil];
+
+        _vcarray=[NSArray arrayWithContentsOfFile:bundel];
     }
     
     return _vcarray;
@@ -109,10 +109,12 @@
     
     [self.vcarray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([obj isKindOfClass:[NSString class]]) {
-            id clz=NSClassFromString(obj);
+        if ([obj valueForKey:@"viewcontroller"]) {
+            
+        
+            id clz=NSClassFromString([obj valueForKey:@"viewcontroller"]);
             id classvc= [[clz alloc]init];
-            UITableViewController *tableviewvc= (DZCBaseTableViewController*)classvc;
+            DZCBaseTableViewController *tableviewvc= (DZCBaseTableViewController*)classvc;
           
             self.mainScrollview.delegate=tableviewvc;
             [self addChildViewController:tableviewvc];
@@ -126,8 +128,8 @@
                 
             }];
             
-        }
         
+        }
     }];
     
 }

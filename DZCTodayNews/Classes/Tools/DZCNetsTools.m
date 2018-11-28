@@ -304,7 +304,7 @@
 ///
 ///*参数一 返回分类新闻详细信息数组
 +(void)basetableviewNetworHotNews:(void(^)(NSArray*))callback wihtViewControllerString:(NSString*)String {
-    NSString *string=@"api/news/feed/v64/?";
+    NSString *stringurl=@"api/news/feed/v64/?";
     NSString *bundelstr=[[NSBundle mainBundle]pathForResource:@"HomeView.plist" ofType:nil];
     NSArray *basearray=[[NSArray alloc]initWithContentsOfFile:bundelstr];
     
@@ -312,8 +312,8 @@
         if ([String isEqualToString:[obj valueForKey:@"viewcontroller"]]) {
     NSDictionary * dict=@{@"category":[obj valueForKey:@"category"]};
 
-    
-    [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:string parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:stringurl parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         if (responseObject) {
             NSArray *array=(NSArray*)responseObject[@"data"];
             NSMutableArray *marray=NSMutableArray.array;

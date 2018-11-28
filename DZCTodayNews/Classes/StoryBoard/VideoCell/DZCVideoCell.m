@@ -25,8 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pyqleftconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wechatconstraint;
-@property(strong,nonatomic)UIButton *btnmark;
-
+@property(nonatomic,strong)AVPlayerViewController *AVPlayerViewController;
 @property (weak, nonatomic) IBOutlet UIButton *videotimebtn;
 
 @end
@@ -44,10 +43,7 @@
 
 //播放器方法
 - (IBAction)playactionbtn:(UIButton *)sender {
-    if (sender==self.btnmark) {
-        
-        return;
-    }
+
 
     //点击按钮获取视频id,获取网络方法反馈链接,并回调给视频播放器
     [DZCNetsTools NetworVideo:[self.model.video_detail_info valueForKey:@"video_id"] finishBlock:^(NSString * realVideourl) {
@@ -60,13 +56,12 @@
     
     [self cellsubViewshidden];
     [self wechatAnimotionshow];
-    self.btnmark=sender;
-    [sender setHidden:YES];
+    [self.playbtn setHidden:YES];
     
    
     
 }
-
+//按钮隐藏
 -(void)cellsubViewshidden{
     
     
@@ -79,6 +74,25 @@
     [self.sharebtn setHidden:NO];
     [self.wechatbtn setHidden:NO];
     
+    
+}
+//显示按钮移除播放器
+-(void)cellsubViewsshow{
+    
+    [self.namelabel setHidden:NO];
+    [self.playcountlabel setHidden:NO];
+    [self.videotitle setHidden:NO];
+    
+    [self.pyqbtn setHidden:YES];
+    [self.sharebtn setHidden:YES];
+    [self.wechatbtn setHidden:YES];
+    //移除播放器
+    
+    [self.playbtn setHidden:NO];
+    [self.pyqleftconstraint setConstant:8];
+    [self.wechatconstraint setConstant:8];
+    [self.AVPlayerViewController.player pause];
+    [self.AVPlayerViewController.view removeFromSuperview];
     
 }
 
@@ -94,7 +108,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(stopvideo) name:@"stopcellvideo" object:nil];
+ 
     self.selectionStyle=UITableViewCellSelectionStyleNone;
 }
 
@@ -167,11 +181,7 @@
     
 }
 
--(void)dealloc{
-    
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-    
-}
+
 ///添加视频播放器方法
 -(void)addVideocontrollerFortableviewcell:(NSURL*)url{
     
@@ -190,17 +200,10 @@
     [self.AVPlayerViewController.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.AVPlayerViewController.view];
     [self.AVPlayerViewController.player play];
-   
-
+    
     
 }
-///停止视频播放
--(void)stopvideo{
-   
-    [self.AVPlayerViewController.player pause];
-    
 
-}
 
 
 @end

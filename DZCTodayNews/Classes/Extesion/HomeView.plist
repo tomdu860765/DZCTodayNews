@@ -6,7 +6,7 @@
 		<key>viewcontroller</key>
 		<string>DZCMainTableViewController</string>
 		<key>category</key>
-		<string>all</string>
+		<string></string>
 	</dict>
 	<dict>
 		<key>viewcontroller</key>
@@ -30,7 +30,7 @@
 		<key>viewcontroller</key>
 		<string>DZCPhotosTableViewController</string>
 		<key>category</key>
-		<string>all</string>
+		<string></string>
 	</dict>
 	<dict>
 		<key>viewcontroller</key>
