@@ -14,7 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCXiGuaVideoCellTableViewCell : UITableViewCell
 @property(nonatomic,strong)XiGuaModel *cellmodel;
-@property(strong,nonatomic)AVPlayerViewController *playercontroller;
+
+
+
 ///显示子按钮隐和藏播放器
 -(void)setHiddenavplayer;
 @end

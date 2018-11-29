@@ -33,12 +33,15 @@
         [self netWorkForXiGuaVideoController];}
     self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
-   
+  
 }
+
+
 -(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    //暂停播放
-    [self.cellmark.playercontroller.player pause];
+    
     [self.cellmark setHiddenavplayer];
+    
+    
     
 }
 

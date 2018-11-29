@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *likebtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pyqleftcinstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wechaleftcibstraint;
-
+@property(nonatomic,strong)AVPlayerViewController *playercontroller;
 
 @end
 @implementation DZCXiGuaVideoCellTableViewCell
@@ -111,7 +111,7 @@
 }
 //显示播放器并播放
 -(void)SetupavplayerandPlay:(NSURL*)url{
-    
+   
     
     //创建播放控制器,创建播放器player.
     self.playercontroller.player=[[AVPlayer alloc]initWithURL:url];
@@ -121,12 +121,16 @@
     //添加视频layer
     AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.playercontroller.player];
     
-    playerlayer.frame =self.imageView.frame;
+   
     playerlayer.videoGravity = AVLayerVideoGravityResize;
     [self.playercontroller.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.playercontroller.view];
     [self.playercontroller.player play];
-     
+    
+    //发送通知播放视频
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"videocellplayer" object:self];
+    
+    
 }
 ///显示子按钮隐藏播放器
 -(void)setHiddenavplayer{
@@ -141,6 +145,12 @@
     //约束归位
     [self.pyqleftcinstraint setConstant:5];
     [self.wechaleftcibstraint setConstant:5];
+    
+   [self.playercontroller.player pause];
+  
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end

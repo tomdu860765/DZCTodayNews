@@ -11,13 +11,14 @@
 #import "DZCNetsTools.h"
 #import "DZCXiGuaVideoModel.h"
 #import "XiGuaBaseTableViewController.h"
-
+#import "DZCXiGuaVideoCellTableViewCell.h"
 
 @interface DZCXiGuaVC ()<UIScrollViewDelegate>
 @property(strong,nonatomic)UIScrollView *titleScrollview;
 @property(strong,nonatomic)UIScrollView *mainVideoScrollview;
 @property(strong,nonatomic)NSArray *titleBtnarray;
 @property(strong,nonatomic)UIButton *btnmark;
+@property(strong,nonatomic)DZCXiGuaVideoCellTableViewCell *videocell;
 @end
 
 @implementation DZCXiGuaVC
@@ -55,8 +56,15 @@
     }];
     [self setupChildVideoViewController];
     self.mainVideoScrollview.delegate=self;
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(markcellplayer:)
+                                                name:@"videocellplayer" object:nil];
 }
+-(void)markcellplayer:(NSNotification*)notification{
+    
+    self.videocell=notification.object;
+}
+
 //添加标题滚动视图
 -(void)setupTitleScrollview{
     
@@ -150,8 +158,14 @@
    
     NSInteger pagevc=scrollView.contentOffset.x/SCREENWIDTH;
     XiGuaBaseTableViewController *basevc=self.childViewControllers[pagevc];
+    //执行网络请求
     [basevc netWorkForXiGuaVideoController];
+    //执行滚动标题按钮高亮
     [self titlebtnmark:pagevc];
+    //暂停播放
+    [self.videocell setHiddenavplayer];
+   
+    
 }
 //按钮高亮方法
 -(void)titlebtnmark:(NSInteger)btntag{
@@ -192,4 +206,8 @@
     [basevc netWorkForXiGuaVideoController];
 }
 
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 @end

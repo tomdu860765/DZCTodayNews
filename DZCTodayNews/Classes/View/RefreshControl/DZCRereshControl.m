@@ -27,7 +27,7 @@
     
     
     [header setTitle:@"正在载入数据" forState:MJRefreshStateRefreshing];
-    [header setTitle:@"数据载入完成" forState:MJRefreshStateIdle];
+    [header setTitle:@"数据载入中" forState:MJRefreshStateIdle];
      [header setTitle:@"放手就刷新" forState:MJRefreshStatePulling];
     NSMutableArray *imagesarray=NSMutableArray.array;
     for (int i=0; i<16; i++) {
@@ -72,11 +72,11 @@
         
         [sendloadarray addObject:images];
     }
-    [footer setImages:sendloadarray.copy duration:0.5 forState:MJRefreshStateRefreshing];
+    [footer setImages:sendloadarray.copy duration:0.25 forState:MJRefreshStateRefreshing];
     [footer setImages:@[[UIImage imageNamed:@"sendloading_18x18_0"]] forState:MJRefreshStateIdle];
     
     [footer setTitle:@"正在载入数据" forState:MJRefreshStateRefreshing];
-    [footer setTitle:@"数据载入完成" forState:MJRefreshStateIdle];
+    [footer setTitle:@"数据载入中" forState:MJRefreshStateIdle];
     
     tableview.mj_footer=footer;
     

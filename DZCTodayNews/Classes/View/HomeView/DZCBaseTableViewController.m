@@ -41,6 +41,9 @@
     
     [self addrefreshWithview];
     [self networkWithHomebaseView];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(homevideocellmark:)
+                                                name:@"homevideoplayer" object:nil];
 }
 //主视图基类网络方法
 -(void)networkWithHomebaseView{
@@ -51,7 +54,10 @@
     } wihtViewControllerString:NSStringFromClass([self class])];
     
 }
-
+//记录正在播放的cell横向滚动时取消视频播放
+-(void)homevideocellmark:(NSNotification*)notification{
+    self.cellmark=notification.object;
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -91,11 +97,7 @@
         
         return cell;
     }else if ([@"DZCVideoTableViewController" isEqualToString:NSStringFromClass([self class])]){
-        DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell"];
-        
-        if (cell==nil) {
-            cell=[[NSBundle mainBundle]loadNibNamed:@"DZCVideoCell" owner:self options:nil].lastObject;
-        }
+        DZCVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videocell" forIndexPath:indexPath];
         
         
         cell.model=model;
@@ -132,32 +134,36 @@
     
     UINib *videouib=[UINib nibWithNibName:@"DZCVideoCell" bundle:nil];
     
-    [self.tableView registerNib:videouib forCellReuseIdentifier:@"DZCVideoCell"];
-
+    [self.tableView registerNib:videouib forCellReuseIdentifier:@"videocell"];
+    
 }
 
 //滚动视图控制器监控
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     //如果有上下拉动不执行该通知.
     // 用bool记录拉伸y滚动的真假,最后结束返回假
-   
+    
     if (scrollView.contentOffset.x&&self.markYcount==NO) {
-
-    int page= scrollView.contentOffset.x/SCREENWIDTH ;
-     
         
-    self.page=page;
-     [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
-     self.markYcount=NO;
+        int page= scrollView.contentOffset.x/SCREENWIDTH ;
+        //横向移动后禁止播放视频
+        if (page) {
+            [self.cellmark cellsubViewsshow];
+        }
+        self.page=page;
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
+        self.markYcount=NO;
     }else if
         (scrollView.contentOffset.x==0&&self.markYcount==NO&&scrollView.contentOffset.y==0)
     {
         self.page=0;
-       
+        
         [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
         self.markYcount=NO;
     }
-
+    
+    
+    
 }
 //通过有y滚动记录下
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -170,15 +176,18 @@
 //添加刷新控件方法
 -(void)addrefreshWithview{
     
+    
     DZCRereshControl *rereshControl=DZCRereshControl.new;
     
     [rereshControl addRefreshControlheader:self.tableView vcblock:^{
+        
         [self refreshloaddata:self.MainVCarray];
-       
+        
         NSLog(@"上拉刷新");
     }];
     
     [rereshControl addfooterRefresh:self.tableView vcblock:^{
+        
         [self pullrefreshloaddata:self.MainVCarray];
         NSLog(@"上拉刷新");
     }];
@@ -188,8 +197,9 @@
 
 //向下刷新方法,注意数据是插入最前面
 -(void)refreshloaddata:(NSMutableArray *)marray{
-    
-  
+    //暂停视频
+    [self.cellmark cellsubViewsshow];
+    //网络请求
     [DZCNetsTools basetableviewNetworHotNews:^(NSArray * newsmodel) {
         
         if (newsmodel) {
@@ -197,7 +207,7 @@
                 [marray insertObject:obj atIndex:0];
                 
             }];
-           
+            
             [self.tableView reloadData];
         }
         
@@ -207,13 +217,15 @@
 }
 //向上拉刷新数据
 -(void)pullrefreshloaddata:(NSMutableArray *)marray{
- 
+    //暂停视频
+    [self.cellmark cellsubViewsshow];
+    //网络请求
     [DZCNetsTools basetableviewNetworHotNews:^(NSArray * newsmodel) {
         if (newsmodel) {
             [newsmodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [marray addObject:obj];
             }];
-           
+            
             [self.tableView reloadData];
         }
         
@@ -224,18 +236,18 @@
 //销毁通知
 -(void)dealloc{
     
-   
+    
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+    
     UIStoryboard *sbvc=[UIStoryboard storyboardWithName:@"CellDeataleController" bundle:nil];
-     DZCCellDeataleViewController *deatalevc=[sbvc instantiateViewControllerWithIdentifier:@"celldeatalecontroller"];
+    DZCCellDeataleViewController *deatalevc=[sbvc instantiateViewControllerWithIdentifier:@"celldeatalecontroller"];
     
     [self presentViewController:deatalevc animated:YES completion:^{
-      deatalevc.deatalModel =self.MainVCarray[indexPath.row];
+        deatalevc.deatalModel =self.MainVCarray[indexPath.row];
     }];
     
 }

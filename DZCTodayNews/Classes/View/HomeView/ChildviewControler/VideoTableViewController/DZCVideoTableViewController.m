@@ -7,12 +7,6 @@
 //
 
 #import "DZCVideoTableViewController.h"
-#import "DZCRereshControl.h"
-#import "DZCMainNewsModel.h"
-#import "DZCTopNewsCell.h"
-#import "DZCSinglePicCell.h"
-#import "DZCNetsTools.h"
-#import "DZCMainnewsViewController.h"
 #import "DZCVideoCell.h"
 
 
@@ -42,7 +36,7 @@
 
 -(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
  
-    
+    NSLog(@"横向滚动消失");
     [self.cellmark cellsubViewsshow];
 }
 

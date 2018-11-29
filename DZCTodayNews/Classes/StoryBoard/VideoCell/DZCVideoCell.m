@@ -191,17 +191,19 @@
     self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:url];
     //获取背景图大小
     
-     self.AVPlayerViewController.view.frame=self.imageview.frame;
+    self.AVPlayerViewController.view.frame=self.imageview.frame;
+   
     //添加视频layer
     AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];
     
-    playerlayer.frame =self.imageview.frame;
+    
     playerlayer.videoGravity = AVLayerVideoGravityResize;
     [self.AVPlayerViewController.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.AVPlayerViewController.view];
     [self.AVPlayerViewController.player play];
     
-    
+    //发送通知播放视频
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"homevideoplayer" object:self];
 }
 
 

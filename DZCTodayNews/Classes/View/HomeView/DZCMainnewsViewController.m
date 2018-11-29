@@ -11,12 +11,13 @@
 #import "DZCTitleScrollView.h"
 #import "DZCNetsTools.h"
 #import "Masonry.h"
+#import "DZCVideoCell.h"
 @interface DZCMainnewsViewController ()<UIScrollViewDelegate>
 @property(nonatomic,strong)UIScrollView *mainScrollview ;
 @property(nonatomic,strong)UIScrollView *titleScrollview;
 @property(nonatomic,strong)NSArray *vcarray ;
 @property(nonatomic,strong)NSArray *titlemodelArray;
-
+@property(nonatomic,strong)DZCVideoCell *homecellvideo;
 
 @end
 
@@ -46,6 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mainScrollview.delegate=self;
     self.view.backgroundColor=UIColor.whiteColor;
     //网络方法获取导航模型
     [DZCNetsTools ScrollviewSttitle:^(NSArray * arraymodel, NSArray * categoryArray) {
@@ -68,8 +70,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(titleviewnoNotification:)
                                                 name:@"offsetForMainscrollview" object:nil];
+    
+    
     }
-///添加主滚动视图
+
+
+//添加主滚动视图
 -(void)setmainscrollview{
     
     UIScrollView *sv=[[UIScrollView alloc]init];
