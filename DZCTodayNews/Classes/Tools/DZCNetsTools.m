@@ -14,6 +14,7 @@
 #import "DZCVideoModel.h"
 #import "DZCXiGuaVideoModel.h"
 #import "XiGuaModel.h"
+#import "DZCWeitoutiaoModel.h"
 @implementation DZCNetsTools
 ///滚动标题视图模型网络请求
 ///
@@ -347,4 +348,35 @@
         }
     }];
 }
+
+///微头条界面网络请求
+///
+///*参数一 返回分类新闻详细信息数组
++(void)netWrokWithWeitoutiao:(void(^)(NSArray*))Complition{
+    
+    NSString *urlstring=@"https://is.snssdk.com/dongtai/list/v15/?user_id=51025535398";
+    
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+            
+        NSArray *arraymodel=[NSArray yy_modelArrayWithClass:[DZCWeitoutiaoModel class] json:[responseObject valueForKeyPath:@"data.data"]];
+            Complition(arraymodel);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+            
+            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+        }
+    }];
+    
+}
+
+
+
+
+
+
+
+
 @end

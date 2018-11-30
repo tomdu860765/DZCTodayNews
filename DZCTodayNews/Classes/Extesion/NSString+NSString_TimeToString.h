@@ -11,9 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (NSString_TimeToString)
-//时间戳方法转字符串方法
+///时间戳方法转字符串方法
+///
+///*参数一 传入时间参数
+///*返回值一 返回字符串
 +(NSString *)time_timestampToString:(NSInteger)timestamp;
-//对比现在时间戳方法
+///时间戳方法转字符串方法,会计算发布时效
+///
+///*参数一 传入时间参数
+///*返回值一 返回字符串
 +(NSString *)updateTimeForRow:(NSInteger)createTime ;
 @end
 

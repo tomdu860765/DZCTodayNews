@@ -36,7 +36,7 @@
 
 -(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
  
-    NSLog(@"横向滚动消失");
+    
     [self.cellmark cellsubViewsshow];
 }
 

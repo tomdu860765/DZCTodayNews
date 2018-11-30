@@ -150,6 +150,7 @@
         if (page) {
             [self.cellmark cellsubViewsshow];
         }
+        
         self.page=page;
         [[NSNotificationCenter defaultCenter]postNotificationName:@"offsetForMainscrollview" object:self];
         self.markYcount=NO;

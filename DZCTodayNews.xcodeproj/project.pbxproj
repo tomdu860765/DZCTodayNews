@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22134E8121B00A5C00F66F9E /* WeitoutiaoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22134E8021B00A5C00F66F9E /* WeitoutiaoCell.xib */; };
+		22134E8421B00F5E00F66F9E /* DZCWeitoutiaoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22134E8321B00F5E00F66F9E /* DZCWeitoutiaoCell.m */; };
+		22134E8821B01E6700F66F9E /* DZCWeitoutiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22134E8721B01E6700F66F9E /* DZCWeitoutiaoModel.m */; };
+		22134E8B21B024CF00F66F9E /* DZCWeitoutiaoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22134E8A21B024CF00F66F9E /* DZCWeitoutiaoController.m */; };
 		22193EEF219119F300FC150A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193EEE219119F300FC150A /* AppDelegate.m */; };
 		22193EF2219119F300FC150A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22193EF1219119F300FC150A /* ViewController.m */; };
 		22193EF5219119F300FC150A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22193EF3219119F300FC150A /* Main.storyboard */; };
@@ -86,6 +90,8 @@
 		22B9489D21A858EF00336E4A /* YummyVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9489C21A858EF00336E4A /* YummyVideoController.m */; };
 		22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */; };
 		22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BE19FD21926B310041E47D /* TabBarItem.plist */; };
+		22C65B2821B161CF0022B71C /* UIImageView+DZCRoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C65B2721B161CF0022B71C /* UIImageView+DZCRoundImageView.m */; };
+		22C65B2B21B16D3E0022B71C /* UIImage+DZCImageround.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C65B2A21B16D3E0022B71C /* UIImage+DZCImageround.m */; };
 		22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */; };
 		22CE38AE21A58EAC00A34460 /* UIButton+CustomerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */; };
 		22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D531BC219ECE5D00910315 /* DZCVideoModel.m */; };
@@ -98,6 +104,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22134E8021B00A5C00F66F9E /* WeitoutiaoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeitoutiaoCell.xib; sourceTree = "<group>"; };
+		22134E8221B00F5E00F66F9E /* DZCWeitoutiaoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeitoutiaoCell.h; sourceTree = "<group>"; };
+		22134E8321B00F5E00F66F9E /* DZCWeitoutiaoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoCell.m; sourceTree = "<group>"; };
+		22134E8621B01E6700F66F9E /* DZCWeitoutiaoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeitoutiaoModel.h; sourceTree = "<group>"; };
+		22134E8721B01E6700F66F9E /* DZCWeitoutiaoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoModel.m; sourceTree = "<group>"; };
+		22134E8921B024CF00F66F9E /* DZCWeitoutiaoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeitoutiaoController.h; sourceTree = "<group>"; };
+		22134E8A21B024CF00F66F9E /* DZCWeitoutiaoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoController.m; sourceTree = "<group>"; };
 		22193EEA219119F300FC150A /* DZCTodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZCTodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22193EED219119F300FC150A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22193EEE219119F300FC150A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -245,6 +258,10 @@
 		22B9489C21A858EF00336E4A /* YummyVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YummyVideoController.m; sourceTree = "<group>"; };
 		22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = XiGuaVIdeo.plist; sourceTree = "<group>"; };
 		22BE19FD21926B310041E47D /* TabBarItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TabBarItem.plist; sourceTree = "<group>"; };
+		22C65B2621B161CF0022B71C /* UIImageView+DZCRoundImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DZCRoundImageView.h"; sourceTree = "<group>"; };
+		22C65B2721B161CF0022B71C /* UIImageView+DZCRoundImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DZCRoundImageView.m"; sourceTree = "<group>"; };
+		22C65B2921B16D3E0022B71C /* UIImage+DZCImageround.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+DZCImageround.h"; sourceTree = "<group>"; };
+		22C65B2A21B16D3E0022B71C /* UIImage+DZCImageround.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DZCImageround.m"; sourceTree = "<group>"; };
 		22CB34F0219AE9A70021618A /* NSString+RegularUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularUrl.h"; sourceTree = "<group>"; };
 		22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularUrl.m"; sourceTree = "<group>"; };
 		22CE38AC21A58EAC00A34460 /* UIButton+CustomerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+CustomerItem.h"; sourceTree = "<group>"; };
@@ -276,6 +293,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22134E7F21B00A4200F66F9E /* WeitoutiaoCell */ = {
+			isa = PBXGroup;
+			children = (
+				22134E8021B00A5C00F66F9E /* WeitoutiaoCell.xib */,
+				22134E8221B00F5E00F66F9E /* DZCWeitoutiaoCell.h */,
+				22134E8321B00F5E00F66F9E /* DZCWeitoutiaoCell.m */,
+			);
+			path = WeitoutiaoCell;
+			sourceTree = "<group>";
+		};
+		22134E8521B01E4600F66F9E /* WeitoutiaoModel */ = {
+			isa = PBXGroup;
+			children = (
+				22134E8621B01E6700F66F9E /* DZCWeitoutiaoModel.h */,
+				22134E8721B01E6700F66F9E /* DZCWeitoutiaoModel.m */,
+			);
+			path = WeitoutiaoModel;
+			sourceTree = "<group>";
+		};
 		22193EE1219119F300FC150A = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +409,8 @@
 			children = (
 				22193F272191626C00FC150A /* DZCHeadNewsVC.h */,
 				22193F282191626C00FC150A /* DZCHeadNewsVC.m */,
+				22134E8921B024CF00F66F9E /* DZCWeitoutiaoController.h */,
+				22134E8A21B024CF00F66F9E /* DZCWeitoutiaoController.m */,
 			);
 			path = HeadNews;
 			sourceTree = "<group>";
@@ -864,6 +902,10 @@
 				22CB34F1219AE9A70021618A /* NSString+RegularUrl.m */,
 				22CE38AC21A58EAC00A34460 /* UIButton+CustomerItem.h */,
 				22CE38AD21A58EAC00A34460 /* UIButton+CustomerItem.m */,
+				22C65B2621B161CF0022B71C /* UIImageView+DZCRoundImageView.h */,
+				22C65B2721B161CF0022B71C /* UIImageView+DZCRoundImageView.m */,
+				22C65B2921B16D3E0022B71C /* UIImage+DZCImageround.h */,
+				22C65B2A21B16D3E0022B71C /* UIImage+DZCImageround.m */,
 				22BE19FD21926B310041E47D /* TabBarItem.plist */,
 				22DDD6AB21AD8610007EFBCE /* HomeView.plist */,
 				22B9489E21A85C7600336E4A /* XiGuaVIdeo.plist */,
@@ -885,6 +927,7 @@
 		22A018AD21931DB800BE73D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				22134E8521B01E4600F66F9E /* WeitoutiaoModel */,
 				22D531BA219ECE3900910315 /* VideoModel */,
 				2225A0B721995F260030CE5E /* ScrollviewModel */,
 				2225A0B821995F4D0030CE5E /* MainNewsModel */,
@@ -939,6 +982,7 @@
 		22A018B52193227D00BE73D5 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				22134E7F21B00A4200F66F9E /* WeitoutiaoCell */,
 				22849AAE21AA7D7800890B21 /* XiGuaVideoCell */,
 				221D603C21A2642200FAC269 /* ThreePicCell */,
 				22A35D63219E676C0024F350 /* VideoCell */,
@@ -1107,6 +1151,7 @@
 				22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */,
 				22DDD6AC21AD8610007EFBCE /* HomeView.plist in Resources */,
 				22A35D60219E66C80024F350 /* NewsTableViewCell.xib in Resources */,
+				22134E8121B00A5C00F66F9E /* WeitoutiaoCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
 				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,
 			);
@@ -1187,6 +1232,7 @@
 				22400C3E219C47400086C86A /* DZCMainTableViewController.m in Sources */,
 				22B9487021A8415500336E4A /* DZCAdventVideoController.m in Sources */,
 				22400C4A219C47CD0086C86A /* DZCPhotosTableViewController.m in Sources */,
+				22134E8821B01E6700F66F9E /* DZCWeitoutiaoModel.m in Sources */,
 				2221553721A6F6290042409A /* DZCXiGuaVideoModel.m in Sources */,
 				22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */,
 				22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */,
@@ -1208,6 +1254,7 @@
 				22400C4D219C47E60086C86A /* DZCEntertainmentTableViewController.m in Sources */,
 				22193F1A2191375C00FC150A /* DZCMainViewController.m in Sources */,
 				22849AB121AAA6C300890B21 /* DZCXiGuaVideoCellTableViewCell.m in Sources */,
+				22134E8B21B024CF00F66F9E /* DZCWeitoutiaoController.m in Sources */,
 				22400C5C219C48700086C86A /* DZCSportsTableViewController.m in Sources */,
 				229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */,
 				22849AAA21A96F4100890B21 /* DZCRecirdVideoController.m in Sources */,
@@ -1223,6 +1270,7 @@
 				22193F122191365500FC150A /* DZCBaseViewController.m in Sources */,
 				22400C68219C49010086C86A /* DZCHouseTableViewController.m in Sources */,
 				22400C53219C48250086C86A /* DZCnewsCarTableViewController.m in Sources */,
+				22134E8421B00F5E00F66F9E /* DZCWeitoutiaoCell.m in Sources */,
 				2225A0BB21995F620030CE5E /* DZCMainNewsModel.m in Sources */,
 				22B9488821A8586D00336E4A /* FunnyVideoController.m in Sources */,
 				22849AA621A96E8E00890B21 /* DZCStoryVideoController.m in Sources */,
@@ -1240,6 +1288,7 @@
 				22A35D66219E67860024F350 /* DZCVideoCell.m in Sources */,
 				22400C6E219C49FC0086C86A /* DZCBaseTableViewController.m in Sources */,
 				22B9488221A8584000336E4A /* FashionVideoController.m in Sources */,
+				22C65B2821B161CF0022B71C /* UIImageView+DZCRoundImageView.m in Sources */,
 				2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */,
 				22B9487921A841AB00336E4A /* DZCCreativieVideoController.m in Sources */,
 				22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */,
@@ -1252,6 +1301,7 @@
 				22A35D5F219E66C80024F350 /* DZCTopNewsCell.m in Sources */,
 				22B9487321A8416C00336E4A /* DZCAnimationVideoController.m in Sources */,
 				22849AAD21AA343A00890B21 /* XiGuaModel.m in Sources */,
+				22C65B2B21B16D3E0022B71C /* UIImage+DZCImageround.m in Sources */,
 				22400C44219C47A10086C86A /* DZCnewsLocalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,11 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)NetworVideo:(NSString*)Videoidstring finishBlock:(void(^)(NSString*))callback;
 ///西瓜视频网络请求
 +(void)netWorkForXiGuaVideo:(void(^)(NSArray*))finishBlock;
-
 ///西瓜视频网络详情请求
 +(void)netWorkForXiGuaVideoWithModel:(void(^)(id))Completionblock WithControllerString:(NSString*)ControllerString;
 ///分类新闻网络请求
 +(void)basetableviewNetworHotNews:(void(^)(NSArray*))callback wihtViewControllerString:(NSString*)String;
+///微头条网络请求
++(void)netWrokWithWeitoutiao:(void(^)(NSArray*))Complition;
 @end
 
 NS_ASSUME_NONNULL_END
