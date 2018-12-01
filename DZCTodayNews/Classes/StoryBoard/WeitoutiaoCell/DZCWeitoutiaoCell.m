@@ -11,15 +11,19 @@
 #import "UIImageView+DZCRoundImageView.h"
 #import "NSString+NSString_TimeToString.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "YYModel.h"
+#import "DZCWeitoutiaoView.h"
 @interface DZCWeitoutiaoCell()
 @property (weak, nonatomic) IBOutlet UIImageView *headimageview;
 @property (weak, nonatomic) IBOutlet UILabel *namelabel;
 @property (weak, nonatomic) IBOutlet UILabel *timelabel;
 @property (weak, nonatomic) IBOutlet UILabel *textlabel;
-@property (weak, nonatomic) IBOutlet UIImageView *toutiaoimageview;
 @property (weak, nonatomic) IBOutlet UIButton *likebtn;
 @property (weak, nonatomic) IBOutlet UIButton *commentbtn;
 @property (weak, nonatomic) IBOutlet UIButton *repostbtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewheight;
+@property (weak, nonatomic) IBOutlet DZCWeitoutiaoView *cellview;
+
 
 
 @end
@@ -35,6 +39,16 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle=UITableViewCellSelectionStyleNone;
+    
+}
+
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    //移除旧的图片
+    for (UIView *view in self.cellview.subviews) {
+        [view removeFromSuperview];
+    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -68,16 +82,9 @@
     
     self.timelabel.text=[NSString time_timestampToString:time];
     
-    if (self.weitoutiaomodel.ugc_cut_image_list.count==1) {
-        
-        [self.weitoutiaomodel.ugc_cut_image_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-         NSURL *url=[[NSURL alloc]initWithString:[obj valueForKey:@"url"]];
-            
-            [self.toutiaoimageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
-        }];
-        
-        
-    }
+    //设置图像高度
+    [self.viewheight setConstant:[self.cellview ninepicturesViewHeight:self.weitoutiaomodel]];
+   
     
 }
 
