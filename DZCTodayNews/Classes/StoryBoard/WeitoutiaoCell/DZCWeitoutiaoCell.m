@@ -13,6 +13,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "YYModel.h"
 #import "DZCWeitoutiaoView.h"
+#import "NSString+RegularUrl.h"
+#import "NSAttributedString+DZCEmojiAttributedstring.h"
 @interface DZCWeitoutiaoCell()
 @property (weak, nonatomic) IBOutlet UIImageView *headimageview;
 @property (weak, nonatomic) IBOutlet UILabel *namelabel;
@@ -21,8 +23,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *likebtn;
 @property (weak, nonatomic) IBOutlet UIButton *commentbtn;
 @property (weak, nonatomic) IBOutlet UIButton *repostbtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewheight;
 @property (weak, nonatomic) IBOutlet DZCWeitoutiaoView *cellview;
+@property (strong, nonatomic) IBOutlet UILabel *reposttitle;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *viewheight;
+@property (strong, nonatomic) IBOutlet UIView *backgroundview;
+
 
 
 
@@ -47,13 +52,14 @@
     //移除旧的图片
     for (UIView *view in self.cellview.subviews) {
         [view removeFromSuperview];
+        
     }
-    
+    self.reposttitle.attributedText=nil;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     
 }
 //对cell子控件赋值
@@ -73,9 +79,9 @@
     NSString *repostcount=[NSString stringWithFormat:@"%@",self.weitoutiaomodel.forward_count];
     [self.repostbtn setTitle:repostcount forState:UIControlStateNormal];
     
-   //头像图片
+    //头像图片
     [self.headimageview ImageviewcutRound:self.headimageview withurl:[self.weitoutiaomodel.user valueForKey:@"avatar_url"]];
-   //关注名字
+    //关注名字
     self.namelabel.text=[self.weitoutiaomodel.user valueForKey:@"screen_name"];
     //发出时间
     NSInteger time=[self.weitoutiaomodel.create_time integerValue];
@@ -84,8 +90,30 @@
     
     //设置图像高度
     [self.viewheight setConstant:[self.cellview ninepicturesViewHeight:self.weitoutiaomodel]];
-   
-    
+    //转发微博
+    if (self.weitoutiaomodel.is_repost) {
+        //判断是否有转发名字
+        if ([self.weitoutiaomodel.origin_thread.user valueForKey:@"screen_name"]) {
+            //准发人昵称
+            NSString *name=[[NSString alloc]initWithFormat:@"@%@  ",[self.weitoutiaomodel.origin_thread.user valueForKey:@"screen_name"]];
+            
+            NSMutableAttributedString *stringname=[[NSMutableAttributedString alloc]initWithString:name
+                                                  attributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}];
+            
+            //转发内容
+            NSMutableAttributedString *strintext=[NSMutableAttributedString StringWithemoji: self.weitoutiaomodel.origin_thread.content_unescape];
+            //拼接字符串
+            [stringname appendAttributedString:strintext];
+            
+            self.reposttitle.attributedText=stringname;
+            
+            
+        }else{
+            [self.backgroundview setBackgroundColor:[UIColor clearColor]];
+        }
+        
+        
+    }
 }
 
 

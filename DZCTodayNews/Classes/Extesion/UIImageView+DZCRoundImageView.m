@@ -14,11 +14,12 @@
     NSURL *url=[[NSURL alloc]initWithString:urlstring];
     
     
-    [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"] options:0 progress:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"] options:0 progress:nil
+                        completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType,
+                                    NSURL * _Nullable imageURL) {
         //创建一个图片并剪切
         if (image) {
-            
-            
+
             UIImage *roundimage=[image CutRoundImageView:image];
             
             imageview.image=roundimage;}

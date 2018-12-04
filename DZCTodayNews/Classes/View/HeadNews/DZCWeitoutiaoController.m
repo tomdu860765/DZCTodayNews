@@ -41,6 +41,9 @@
     UINib *weitoutiaonib=[UINib nibWithNibName:@"WeitoutiaoCell" bundle:nil];
     [self.tableView registerNib:weitoutiaonib forCellReuseIdentifier:@"weitoutiaocell"];
     
+    UINib *repostnib=[UINib nibWithNibName:@"Repostweitoutiao" bundle:nil];
+    [self.tableView registerNib:repostnib forCellReuseIdentifier:@"repostcell"];
+    
 }
 
 
@@ -53,6 +56,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DZCWeitoutiaoModel *model=self.weitoutiaoarray[indexPath.row];
+    
+    if (model.is_repost) {
+        DZCWeitoutiaoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repostcell" forIndexPath:indexPath];
+        
+        cell.weitoutiaomodel=model;
+        return cell;
+    }
     
     DZCWeitoutiaoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weitoutiaocell" forIndexPath:indexPath];
 

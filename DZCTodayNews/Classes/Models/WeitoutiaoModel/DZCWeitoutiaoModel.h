@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YYModel.h"
+#import "DZCRepostModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSArray *ugc_cut_image_list;//图片链接数组
 @property(nonatomic,strong)NSNumber *comment_count,*create_time,*forward_count,*digg_count;//评论数,创建时间,转载数,点赞数
 @property(nonatomic,copy)NSDictionary *user;//关注微头条用户信息
+@property(nonatomic,strong)DZCRepostModel *origin_thread;//转载模型
 
 @end
 

@@ -15,6 +15,10 @@
     return [DZCWeitoutiaoModel yy_modelDescription];
 }
 
++(NSDictionary*)modelContainerPropertyGenericClass{
+    
+    return @{@"origin_thread":[DZCRepostModel class]};
+}
 
 
 @end

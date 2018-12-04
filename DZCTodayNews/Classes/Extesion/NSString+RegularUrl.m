@@ -7,8 +7,9 @@
 //
 
 #import "NSString+RegularUrl.h"
-
+#import <UIKit/UIKit.h>
 @implementation NSString (RegularUrl)
+//提取图片链接
 +(NSString*)stringWithUrl:(NSString*)urlstring{
     //提取的正则表达式
 NSString *pattern=@"(.*?).webp";
