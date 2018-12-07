@@ -44,6 +44,9 @@
     UINib *repostnib=[UINib nibWithNibName:@"Repostweitoutiao" bundle:nil];
     [self.tableView registerNib:repostnib forCellReuseIdentifier:@"repostcell"];
     
+    UINib *videoarticl=[UINib nibWithNibName:@"DZCWeitoutiaoVideoandArticleCell" bundle:nil];
+    [self.tableView registerNib:videoarticl forCellReuseIdentifier:@"videoarticlecell"];
+    
 }
 
 
@@ -57,10 +60,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DZCWeitoutiaoModel *model=self.weitoutiaoarray[indexPath.row];
     
-    if (model.is_repost) {
+    if (model.is_repost&&model.origin_thread.content_unescape) {
         DZCWeitoutiaoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"repostcell" forIndexPath:indexPath];
         
         cell.weitoutiaomodel=model;
+        
+        return cell;
+    }else if (model.group.title){
+    
+        DZCWeitoutiaoCell *cell=[tableView dequeueReusableCellWithIdentifier:@"videoarticlecell" forIndexPath:indexPath];
+       
+        cell.weitoutiaomodel=model;
+       
         return cell;
     }
     

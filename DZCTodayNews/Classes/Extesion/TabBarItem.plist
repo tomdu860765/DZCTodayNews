@@ -32,17 +32,17 @@
 	</dict>
 	<dict>
 		<key>ViewController</key>
-		<string>DZCPulishVC</string>
+		<string>DZCHuoShanVC</string>
 		<key>Image</key>
-		<string>feed_publish_44x44_</string>
+		<string>huoshan_tabbar_32x32_</string>
 		<key>HLpic</key>
-		<string>feed_publish_press_44x44_</string>
+		<string>huoshan_tabbar_press_32x32_</string>
 		<key>Nightimage</key>
-		<string>feed_publish_night_44x44_</string>
+		<string>huoshan_tabbar_night_32x32_</string>
 		<key>NightimageHL</key>
-		<string>feed_publish_press_night_44x44_</string>
+		<string>huoshan_tabbar_press_night_32x32_</string>
 		<key>title</key>
-		<string></string>
+		<string>火山视频</string>
 	</dict>
 	<dict>
 		<key>ViewController</key>
@@ -60,17 +60,17 @@
 	</dict>
 	<dict>
 		<key>ViewController</key>
-		<string>DZCHuoShanVC</string>
+		<string>DZCMineViewController</string>
 		<key>Image</key>
-		<string>huoshan_tabbar_32x32_</string>
+		<string>mine_tabbar_32x32_</string>
 		<key>HLpic</key>
-		<string>huoshan_tabbar_press_32x32_</string>
+		<string>mine_tabbar_press_32x32_</string>
 		<key>Nightimage</key>
-		<string>huoshan_tabbar_night_32x32_</string>
+		<string>mine_tabbar_night_32x32_</string>
 		<key>NightimageHL</key>
-		<string>huoshan_tabbar_press_night_32x32_</string>
+		<string>mine_tabbar_press_night_32x32_</string>
 		<key>title</key>
-		<string>火山视频</string>
+		<string>我的</string>
 	</dict>
 </array>
 </plist>

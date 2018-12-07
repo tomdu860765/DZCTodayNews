@@ -17,8 +17,11 @@
 
 +(NSDictionary*)modelContainerPropertyGenericClass{
     
-    return @{@"origin_thread":[DZCRepostModel class]};
+    return @{@"origin_thread":[DZCRepostModel class],
+             @"group":[DZCGroupModel class]};
 }
+
+
 
 
 @end

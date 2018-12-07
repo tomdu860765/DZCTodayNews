@@ -11,7 +11,6 @@
 
 @implementation DZCWeitoutiaoView
 
-
 //计算各种图片的高度,九宫格,单图,四图
 -(CGFloat)ninepicturesViewHeight:(DZCWeitoutiaoModel*)modelpics {
    //判断用转发微头条模型或者非转发模型

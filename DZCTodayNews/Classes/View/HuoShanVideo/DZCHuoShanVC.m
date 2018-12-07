@@ -7,26 +7,38 @@
 //
 
 #import "DZCHuoShanVC.h"
-
+#import "DZCHuoShanViewController.h"
+#import "DZCNetsTools.h"
 @interface DZCHuoShanVC ()
+@property(nonatomic,strong)DZCHuoShanViewController *huoshanviewcontroller;
 
 @end
 
 @implementation DZCHuoShanVC
 
+-(DZCHuoShanViewController*)huoshanviewcontroller{
+    if (_huoshanviewcontroller==nil) {
+       
+        _huoshanviewcontroller=DZCHuoShanViewController.new;
+    }
+    
+    return _huoshanviewcontroller;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    
+ 
+    [self addChildViewController:self.huoshanviewcontroller];
+    
+    [self.view addSubview:self.huoshanviewcontroller.collectionView];
+    
+   
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

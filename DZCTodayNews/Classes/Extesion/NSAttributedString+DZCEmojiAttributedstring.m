@@ -11,18 +11,21 @@
 @implementation NSAttributedString (DZCEmojiAttributedstring)
 
 +(NSMutableAttributedString*)StringWithemoji:(NSString*)repostText{
-    //空字符串立即返回
-    if (repostText==nil) {
-        return nil;
-    }
+ 
     
     //正则表达式
     NSString *pattern=@"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
     //截取多个需要的字符串
     NSRegularExpression *regular=[NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    //如果没有捕获个数则返回原字符串
+    if (regular.numberOfCaptureGroups) {
+        
+        return [[NSMutableAttributedString alloc]initWithString:repostText];
+    }
     
     //把字符串建立成数组
     NSArray *textarray=[regular matchesInString:repostText options:0 range:NSMakeRange(0, repostText.length)];
+
     //载入表情文件
     NSString *bundelstring=[[NSBundle mainBundle]pathForResource:@"emojis.plist" ofType:nil];
     
@@ -33,7 +36,7 @@
     UIFont *font=[UIFont systemFontOfSize:14];
     
     CGSize imagesize=CGSizeMake(font.lineHeight, font.lineHeight);
-    NSLog(@"%@",font);
+    
     //反向循环获取数组的元素
     for (NSTextCheckingResult *result in [textarray reverseObjectEnumerator]) {
         //更换表情字符范围

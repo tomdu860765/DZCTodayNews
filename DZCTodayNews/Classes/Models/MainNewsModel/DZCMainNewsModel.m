@@ -27,11 +27,5 @@
 
 @end
 
-@implementation large_image_list
 
--(NSString*)description{
-    
-    return [large_image_list yy_modelDescription];
-}
 
-@end

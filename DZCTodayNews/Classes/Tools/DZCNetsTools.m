@@ -373,6 +373,29 @@
 }
 
 
+//火山小视频请求链接
++(void)netWorkWithHuoShanVideo:(NSString*)viewcontrollerString Complitionblock:(void(^)(NSArray*))Complition{
+    
+    NSString *urlstring=@"api/news/feed/v7/?category=video";
+    
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+            
+            NSArray *huoshanmodel=[NSArray yy_modelArrayWithClass:[DZCMainNewsModel class] json:[responseObject valueForKey:@"data"]];
+           
+            Complition(huoshanmodel);
+        }
+  
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+            
+            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+        }
+    }];
+ 
+}
+
 
 
 

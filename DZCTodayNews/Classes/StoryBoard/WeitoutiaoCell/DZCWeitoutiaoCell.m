@@ -16,17 +16,23 @@
 #import "NSString+RegularUrl.h"
 #import "NSAttributedString+DZCEmojiAttributedstring.h"
 @interface DZCWeitoutiaoCell()
-@property (weak, nonatomic) IBOutlet UIImageView *headimageview;
-@property (weak, nonatomic) IBOutlet UILabel *namelabel;
-@property (weak, nonatomic) IBOutlet UILabel *timelabel;
-@property (weak, nonatomic) IBOutlet UILabel *textlabel;
-@property (weak, nonatomic) IBOutlet UIButton *likebtn;
-@property (weak, nonatomic) IBOutlet UIButton *commentbtn;
-@property (weak, nonatomic) IBOutlet UIButton *repostbtn;
-@property (weak, nonatomic) IBOutlet DZCWeitoutiaoView *cellview;
-@property (strong, nonatomic) IBOutlet UILabel *reposttitle;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *viewheight;
-@property (strong, nonatomic) IBOutlet UIView *backgroundview;
+@property (weak, nonatomic) IBOutlet UIImageView *headimageview;//头像
+@property (weak, nonatomic) IBOutlet UILabel *namelabel;//发布人
+@property (weak, nonatomic) IBOutlet UILabel *timelabel;//发布时间
+@property (weak, nonatomic) IBOutlet UILabel *textlabel;//文章内容
+@property (weak, nonatomic) IBOutlet UIButton *likebtn;//点赞按钮
+@property (weak, nonatomic) IBOutlet UIButton *commentbtn;//评论按钮
+@property (weak, nonatomic) IBOutlet UIButton *repostbtn;//转载按钮
+@property (weak, nonatomic) IBOutlet DZCWeitoutiaoView *cellview;//九宫格布局view
+@property (strong, nonatomic) IBOutlet UILabel *reposttitle;//转载内容
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *viewheight;//九宫格view高度
+@property (strong, nonatomic) IBOutlet UIView *backgroundview;//转载背景view
+@property (strong, nonatomic) IBOutlet UILabel *vatitle;//视频文章标题
+@property (strong, nonatomic) IBOutlet UIButton *playbtn;//播放按钮
+@property (strong, nonatomic) IBOutlet UIImageView *vaimageview;//视频文章图片
+@property (strong, nonatomic) IBOutlet UILabel *recountlabel;//阅读数
+@property (strong, nonatomic) IBOutlet UILabel *likelabel;//点赞数
+@property (strong, nonatomic) IBOutlet UILabel *commentlabel;//评论数
 
 
 
@@ -64,8 +70,9 @@
 }
 //对cell子控件赋值
 -(void)cellmodelwithWeitoutiao{
+
     //内容标题
-    self.textlabel.text=self.weitoutiaomodel.rich_content;
+    self.textlabel.attributedText=[NSMutableAttributedString StringWithemoji:self.weitoutiaomodel.content_unescape];
     
     //点赞数
     NSString *digcount=[NSString stringWithFormat:@"%@",self.weitoutiaomodel.digg_count];
@@ -92,30 +99,61 @@
     [self.viewheight setConstant:[self.cellview ninepicturesViewHeight:self.weitoutiaomodel]];
     //转发微博
     if (self.weitoutiaomodel.is_repost) {
-        //判断是否有转发名字
-        if ([self.weitoutiaomodel.origin_thread.user valueForKey:@"screen_name"]) {
-            //准发人昵称
-            NSString *name=[[NSString alloc]initWithFormat:@"@%@  ",[self.weitoutiaomodel.origin_thread.user valueForKey:@"screen_name"]];
-            
-            NSMutableAttributedString *stringname=[[NSMutableAttributedString alloc]initWithString:name
-                                                  attributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}];
-            
-            //转发内容
-            NSMutableAttributedString *strintext=[NSMutableAttributedString StringWithemoji: self.weitoutiaomodel.origin_thread.content_unescape];
-            //拼接字符串
-            [stringname appendAttributedString:strintext];
-            
-            self.reposttitle.attributedText=stringname;
-            
-            
-        }else{
-            [self.backgroundview setBackgroundColor:[UIColor clearColor]];
-        }
         
-        
+        [self showrepostCell];
     }
+    //视频或者长文章
+    if (self.weitoutiaomodel.group.title)
+    {
+       
+        
+        self.vatitle.attributedText=[NSMutableAttributedString StringWithemoji:self.weitoutiaomodel.group.title];
+        
+        NSURL *url=[NSURL URLWithString:self.weitoutiaomodel.group.thumb_url];
+        [self.vaimageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
+       
+        self.recountlabel.text=[[NSString alloc]initWithFormat:@"%d万阅读" ,[self.weitoutiaomodel.read_count intValue]/10000];
+        
+        self.likelabel.text=[[NSString alloc]initWithFormat:@"%@赞" ,self.weitoutiaomodel.digg_count];
+        
+        self.commentlabel.text=[[NSString alloc]initWithFormat:@"%@评论" ,self.weitoutiaomodel.comment_count ];
+        //第二种格式播放按钮显示
+        if (self.weitoutiaomodel.group.media_type==2) {
+            [self.playbtn setHidden:NO];
+        }
+    
+    }
+    
+    
+    
 }
 
+//显示转发微头条
+-(void)showrepostCell{
+    
+    //判断是否有转发名字
+    if ([self.weitoutiaomodel.origin_thread.user valueForKey:@"screen_name"]) {
+        //准发人昵称
+        NSString *name=[[NSString alloc]initWithFormat:@"@%@  ",[self.weitoutiaomodel.origin_thread.user valueForKey:@"screen_name"]];
+        
+        NSMutableAttributedString *stringname=[[NSMutableAttributedString alloc]initWithString:name
+                                                                                    attributes:@{NSForegroundColorAttributeName:[UIColor blueColor]}];
+        
+        //转发内容
+        NSMutableAttributedString *strintext=[NSMutableAttributedString StringWithemoji: self.weitoutiaomodel.origin_thread.content_unescape];
+        //拼接字符串
+        [stringname appendAttributedString:strintext];
+        
+        self.reposttitle.attributedText=stringname;
+        
+        
+    }else{
+        [self.backgroundview setBackgroundColor:[UIColor clearColor]];
+        
+    }
+    
+    
+}
 
 
 

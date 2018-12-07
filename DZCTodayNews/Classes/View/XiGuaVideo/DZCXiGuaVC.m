@@ -49,6 +49,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   
     [self setupTitleScrollview];
     [self setupMainScrollview];
     [DZCNetsTools netWorkForXiGuaVideo:^(NSArray * titlearray) {

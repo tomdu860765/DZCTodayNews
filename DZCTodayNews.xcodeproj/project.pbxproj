@@ -29,6 +29,9 @@
 		2221553721A6F6290042409A /* DZCXiGuaVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221553621A6F6290042409A /* DZCXiGuaVideoModel.m */; };
 		2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2225A0B521993AC60030CE5E /* DZCNetsTools.m */; };
 		2225A0BB21995F620030CE5E /* DZCMainNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2225A0BA21995F620030CE5E /* DZCMainNewsModel.m */; };
+		2237C07621B80DFF003FCD3C /* DZCHuoShanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237C07521B80DFF003FCD3C /* DZCHuoShanViewController.m */; };
+		2237C07921B818A8003FCD3C /* DZCHuoShanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237C07821B818A8003FCD3C /* DZCHuoShanCell.m */; };
+		2237C07C21B8195D003FCD3C /* HuoShanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2237C07B21B8195D003FCD3C /* HuoShanCell.xib */; };
 		22400C3E219C47400086C86A /* DZCMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22400C3D219C47400086C86A /* DZCMainTableViewController.m */; };
 		22400C41219C476B0086C86A /* DZCNewshotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22400C40219C476B0086C86A /* DZCNewshotTableViewController.m */; };
 		22400C44219C47A10086C86A /* DZCnewsLocalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22400C43219C47A10086C86A /* DZCnewsLocalTableViewController.m */; };
@@ -47,6 +50,9 @@
 		22400C6E219C49FC0086C86A /* DZCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22400C6D219C49FC0086C86A /* DZCBaseTableViewController.m */; };
 		22400C71219C4A530086C86A /* DZChealthTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22400C70219C4A530086C86A /* DZChealthTableViewController.m */; };
 		22400C74219C51770086C86A /* DZCMainnewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22400C73219C51770086C86A /* DZCMainnewsViewController.m */; };
+		224121B021B7945000728908 /* DZCGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121AF21B7945000728908 /* DZCGroupModel.m */; };
+		224121B321B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */; };
+		224121B521B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */; };
 		225136892193DECB00ED382D /* NewsTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225136882193DECB00ED382D /* NewsTableview.xib */; };
 		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
 		22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */; };
@@ -61,7 +67,6 @@
 		228C16AD21B4210200C9927D /* DZCRepostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 228C16AC21B4210200C9927D /* DZCRepostModel.m */; };
 		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
-		22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */; };
 		22A35D5D219E66C80024F350 /* DZCSinglePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D53219E66C80024F350 /* DZCSinglePicCell.m */; };
 		22A35D5E219E66C80024F350 /* SinglePicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A35D54219E66C80024F350 /* SinglePicCell.xib */; };
 		22A35D5F219E66C80024F350 /* DZCTopNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D57219E66C80024F350 /* DZCTopNewsCell.m */; };
@@ -105,6 +110,8 @@
 		22E51BB221A3DBE0006BDD00 /* DZCCellDeataleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E51BB121A3DBE0006BDD00 /* DZCCellDeataleViewController.m */; };
 		22E51BB421A449DF006BDD00 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E51BB321A449DF006BDD00 /* WebKit.framework */; };
 		22F4239221B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4239121B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m */; };
+		22F4239921B6550800EDD747 /* DZCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4239821B6550800EDD747 /* DZCMineViewController.m */; };
+		22FC95CF21B94F20006B13FF /* DZCHuoShanlayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC95CE21B94F20006B13FF /* DZCHuoShanlayout.m */; };
 		FEF09B2647EDE0F57D7D84D3 /* Pods_DZCTodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +157,11 @@
 		2225A0B521993AC60030CE5E /* DZCNetsTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCNetsTools.m; sourceTree = "<group>"; };
 		2225A0B921995F620030CE5E /* DZCMainNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainNewsModel.h; sourceTree = "<group>"; };
 		2225A0BA21995F620030CE5E /* DZCMainNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainNewsModel.m; sourceTree = "<group>"; };
+		2237C07421B80DFF003FCD3C /* DZCHuoShanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCHuoShanViewController.h; sourceTree = "<group>"; };
+		2237C07521B80DFF003FCD3C /* DZCHuoShanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCHuoShanViewController.m; sourceTree = "<group>"; };
+		2237C07721B818A8003FCD3C /* DZCHuoShanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCHuoShanCell.h; sourceTree = "<group>"; };
+		2237C07821B818A8003FCD3C /* DZCHuoShanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCHuoShanCell.m; sourceTree = "<group>"; };
+		2237C07B21B8195D003FCD3C /* HuoShanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuoShanCell.xib; sourceTree = "<group>"; };
 		22400C3C219C47400086C86A /* DZCMainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainTableViewController.h; sourceTree = "<group>"; };
 		22400C3D219C47400086C86A /* DZCMainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainTableViewController.m; sourceTree = "<group>"; };
 		22400C3F219C476B0086C86A /* DZCNewshotTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCNewshotTableViewController.h; sourceTree = "<group>"; };
@@ -186,6 +198,11 @@
 		22400C70219C4A530086C86A /* DZChealthTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZChealthTableViewController.m; sourceTree = "<group>"; };
 		22400C72219C51770086C86A /* DZCMainnewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainnewsViewController.h; sourceTree = "<group>"; };
 		22400C73219C51770086C86A /* DZCMainnewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainnewsViewController.m; sourceTree = "<group>"; };
+		224121AE21B7945000728908 /* DZCGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCGroupModel.h; sourceTree = "<group>"; };
+		224121AF21B7945000728908 /* DZCGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCGroupModel.m; sourceTree = "<group>"; };
+		224121B121B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeitoutiaoVideoandArticleCell.h; sourceTree = "<group>"; };
+		224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoVideoandArticleCell.m; sourceTree = "<group>"; };
+		224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCWeitoutiaoVideoandArticleCell.xib; sourceTree = "<group>"; };
 		225136882193DECB00ED382D /* NewsTableview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableview.xib; sourceTree = "<group>"; };
 		22779B6421971CB600E2186F /* DZCTitleScrollViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollViewModel.h; sourceTree = "<group>"; };
 		22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollViewModel.m; sourceTree = "<group>"; };
@@ -210,8 +227,6 @@
 		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
 		229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_TimeToString.h"; sourceTree = "<group>"; };
 		229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_TimeToString.m"; sourceTree = "<group>"; };
-		22A018B2219320D500BE73D5 /* DZCMainCollectionVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMainCollectionVIew.h; sourceTree = "<group>"; };
-		22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMainCollectionVIew.m; sourceTree = "<group>"; };
 		22A35D52219E66C80024F350 /* DZCSinglePicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCSinglePicCell.h; sourceTree = "<group>"; };
 		22A35D53219E66C80024F350 /* DZCSinglePicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCSinglePicCell.m; sourceTree = "<group>"; };
 		22A35D54219E66C80024F350 /* SinglePicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinglePicCell.xib; sourceTree = "<group>"; };
@@ -288,6 +303,10 @@
 		22E51BB321A449DF006BDD00 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		22F4239021B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DZCEmojiAttributedstring.h"; sourceTree = "<group>"; };
 		22F4239121B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DZCEmojiAttributedstring.m"; sourceTree = "<group>"; };
+		22F4239721B6550800EDD747 /* DZCMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMineViewController.h; sourceTree = "<group>"; };
+		22F4239821B6550800EDD747 /* DZCMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMineViewController.m; sourceTree = "<group>"; };
+		22FC95CD21B94F20006B13FF /* DZCHuoShanlayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCHuoShanlayout.h; sourceTree = "<group>"; };
+		22FC95CE21B94F20006B13FF /* DZCHuoShanlayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCHuoShanlayout.m; sourceTree = "<group>"; };
 		34CF92B85BC519476252A34C /* Pods-DZCTodayNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZCTodayNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews.release.xcconfig"; sourceTree = "<group>"; };
 		C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DZCTodayNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB4C0A4B6BCFD6EB41168CC /* Pods-DZCTodayNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZCTodayNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -311,10 +330,13 @@
 			children = (
 				22134E8021B00A5C00F66F9E /* WeitoutiaoCell.xib */,
 				228C16A921B414A500C9927D /* Repostweitoutiao.xib */,
+				224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */,
 				22134E8221B00F5E00F66F9E /* DZCWeitoutiaoCell.h */,
 				22134E8321B00F5E00F66F9E /* DZCWeitoutiaoCell.m */,
 				228995D821B2ADC500351DBB /* DZCWeitoutiaoView.h */,
 				228995D921B2ADC500351DBB /* DZCWeitoutiaoView.m */,
+				224121B121B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.h */,
+				224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */,
 			);
 			path = WeitoutiaoCell;
 			sourceTree = "<group>";
@@ -326,6 +348,8 @@
 				228C16AC21B4210200C9927D /* DZCRepostModel.m */,
 				22134E8621B01E6700F66F9E /* DZCWeitoutiaoModel.h */,
 				22134E8721B01E6700F66F9E /* DZCWeitoutiaoModel.m */,
+				224121AE21B7945000728908 /* DZCGroupModel.h */,
+				224121AF21B7945000728908 /* DZCGroupModel.m */,
 			);
 			path = WeitoutiaoModel;
 			sourceTree = "<group>";
@@ -382,6 +406,7 @@
 		22193F0721912AE300FC150A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22F4239321B653A700EDD747 /* MineViewController */,
 				227A1D642198888A009808A0 /* ScrollView */,
 				228656F72195111B001F8E60 /* RefreshControl */,
 				22A018B1219320C200BE73D5 /* MainCollectionView */,
@@ -696,6 +721,16 @@
 			path = MainNewsModel;
 			sourceTree = "<group>";
 		};
+		2237C07D21B81986003FCD3C /* HuoShanCell */ = {
+			isa = PBXGroup;
+			children = (
+				2237C07B21B8195D003FCD3C /* HuoShanCell.xib */,
+				2237C07721B818A8003FCD3C /* DZCHuoShanCell.h */,
+				2237C07821B818A8003FCD3C /* DZCHuoShanCell.m */,
+			);
+			path = HuoShanCell;
+			sourceTree = "<group>";
+		};
 		22400C3B219C47150086C86A /* ChildviewControler */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,8 +1029,10 @@
 		22A018B1219320C200BE73D5 /* MainCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				22A018B2219320D500BE73D5 /* DZCMainCollectionVIew.h */,
-				22A018B3219320D500BE73D5 /* DZCMainCollectionVIew.m */,
+				2237C07421B80DFF003FCD3C /* DZCHuoShanViewController.h */,
+				2237C07521B80DFF003FCD3C /* DZCHuoShanViewController.m */,
+				22FC95CD21B94F20006B13FF /* DZCHuoShanlayout.h */,
+				22FC95CE21B94F20006B13FF /* DZCHuoShanlayout.m */,
 			);
 			path = MainCollectionView;
 			sourceTree = "<group>";
@@ -1003,6 +1040,7 @@
 		22A018B52193227D00BE73D5 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				2237C07D21B81986003FCD3C /* HuoShanCell */,
 				22134E7F21B00A4200F66F9E /* WeitoutiaoCell */,
 				22849AAE21AA7D7800890B21 /* XiGuaVideoCell */,
 				221D603C21A2642200FAC269 /* ThreePicCell */,
@@ -1079,6 +1117,15 @@
 				22E51BB121A3DBE0006BDD00 /* DZCCellDeataleViewController.m */,
 			);
 			path = SecectCellNewsController;
+			sourceTree = "<group>";
+		};
+		22F4239321B653A700EDD747 /* MineViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22F4239721B6550800EDD747 /* DZCMineViewController.h */,
+				22F4239821B6550800EDD747 /* DZCMineViewController.m */,
+			);
+			path = MineViewController;
 			sourceTree = "<group>";
 		};
 		45364338B3AC0AF2E4620218 /* Frameworks */ = {
@@ -1173,9 +1220,11 @@
 				22849AB321AAA6E200890B21 /* DZCXiGuaVideoCellTableViewCell.xib in Resources */,
 				22A35D68219E67920024F350 /* DZCVideoCell.xib in Resources */,
 				22DDD6AC21AD8610007EFBCE /* HomeView.plist in Resources */,
+				224121B521B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib in Resources */,
 				22A35D60219E66C80024F350 /* NewsTableViewCell.xib in Resources */,
 				22134E8121B00A5C00F66F9E /* WeitoutiaoCell.xib in Resources */,
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
+				2237C07C21B8195D003FCD3C /* HuoShanCell.xib in Resources */,
 				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1260,6 +1309,8 @@
 				22A35D8D219E845C0024F350 /* NSData+CRC32.m in Sources */,
 				22D531BD219ECE5D00910315 /* DZCVideoModel.m in Sources */,
 				22B9489421A858BC00336E4A /* SecinceVideoController.m in Sources */,
+				22FC95CF21B94F20006B13FF /* DZCHuoShanlayout.m in Sources */,
+				2237C07921B818A8003FCD3C /* DZCHuoShanCell.m in Sources */,
 				22CB34F2219AE9A70021618A /* NSString+RegularUrl.m in Sources */,
 				228995DA21B2ADC500351DBB /* DZCWeitoutiaoView.m in Sources */,
 				22400C50219C48090086C86A /* DZCnewsTechTableViewController.m in Sources */,
@@ -1284,7 +1335,6 @@
 				229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */,
 				22849AAA21A96F4100890B21 /* DZCRecirdVideoController.m in Sources */,
 				22A35D61219E66C80024F350 /* DZCHotNewsTableViewCell.m in Sources */,
-				22A018B4219320D500BE73D5 /* DZCMainCollectionVIew.m in Sources */,
 				22193F152191369D00FC150A /* DZCNaviViewController.m in Sources */,
 				22D82F97219CF2DC00AE394C /* DZCTitleScrollView.m in Sources */,
 				22B9489D21A858EF00336E4A /* YummyVideoController.m in Sources */,
@@ -1303,6 +1353,7 @@
 				22193EFD219119F500FC150A /* main.m in Sources */,
 				22400C47219C47BA0086C86A /* DZCVideoTableViewController.m in Sources */,
 				22B9488521A8585B00336E4A /* FilmVideoController.m in Sources */,
+				224121B021B7945000728908 /* DZCGroupModel.m in Sources */,
 				22400C74219C51770086C86A /* DZCMainnewsViewController.m in Sources */,
 				22B9488E21A8589000336E4A /* MusicVIdeoController.m in Sources */,
 				22A35D5D219E66C80024F350 /* DZCSinglePicCell.m in Sources */,
@@ -1311,6 +1362,7 @@
 				22400C6B219C491D0086C86A /* DZCCultureTableViewController.m in Sources */,
 				22400C71219C4A530086C86A /* DZChealthTableViewController.m in Sources */,
 				22B9489721A858CF00336E4A /* SportsVideoController.m in Sources */,
+				2237C07621B80DFF003FCD3C /* DZCHuoShanViewController.m in Sources */,
 				22A35D66219E67860024F350 /* DZCVideoCell.m in Sources */,
 				22400C6E219C49FC0086C86A /* DZCBaseTableViewController.m in Sources */,
 				22B9488221A8584000336E4A /* FashionVideoController.m in Sources */,
@@ -1325,6 +1377,8 @@
 				22193F2F2191629500FC150A /* DZCXiGuaVC.m in Sources */,
 				22B9488B21A8587B00336E4A /* GameVIdeoController.m in Sources */,
 				22A35D5F219E66C80024F350 /* DZCTopNewsCell.m in Sources */,
+				224121B321B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m in Sources */,
+				22F4239921B6550800EDD747 /* DZCMineViewController.m in Sources */,
 				22B9487321A8416C00336E4A /* DZCAnimationVideoController.m in Sources */,
 				22849AAD21AA343A00890B21 /* XiGuaModel.m in Sources */,
 				22C65B2B21B16D3E0022B71C /* UIImage+DZCImageround.m in Sources */,

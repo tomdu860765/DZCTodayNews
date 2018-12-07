@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weitoutiaocell" rowHeight="353" id="RM8-Tb-1RP" customClass="DZCWeitoutiaoCell">
+        <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weitoutiaocell" rowHeight="353" id="RM8-Tb-1RP" customClass="DZCWeitoutiaoCell">
             <rect key="frame" x="0.0" y="0.0" width="379" height="492"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RM8-Tb-1RP" id="RC3-0i-ISF">
@@ -21,7 +21,7 @@
                         <rect key="frame" x="16" y="31" width="40" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="7pt-Pr-18s"/>
+                            <constraint firstAttribute="height" constant="40" id="LTB-5j-56e"/>
                             <constraint firstAttribute="width" constant="40" id="x3D-f1-caE"/>
                         </constraints>
                     </imageView>
@@ -41,12 +41,6 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXs-ro-Rxl">
-                        <rect key="frame" x="16" y="85" width="37.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ChA-Hb-5S1">
@@ -91,31 +85,37 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZC7-1a-leq" customClass="DZCWeitoutiaoView">
-                        <rect key="frame" x="16" y="111" width="347" height="300"/>
+                        <rect key="frame" x="16" y="123.5" width="347" height="320"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="300" id="fUu-Tg-9j3"/>
+                            <constraint firstAttribute="height" constant="320" id="fUu-Tg-9j3"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXs-ro-Rxl">
+                        <rect key="frame" x="16" y="90.5" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ChA-Hb-5S1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZC7-1a-leq" secondAttribute="bottom" constant="7.5" id="05V-80-azK"/>
                     <constraint firstItem="tXs-ro-Rxl" firstAttribute="leading" secondItem="j0M-L7-3Tr" secondAttribute="leading" id="0BI-Lw-h5w"/>
                     <constraint firstItem="MV0-Xd-N8Y" firstAttribute="leading" secondItem="j0M-L7-3Tr" secondAttribute="trailing" constant="8" id="4y1-Ze-faU"/>
                     <constraint firstItem="Nb3-e2-bIf" firstAttribute="leading" secondItem="MV0-Xd-N8Y" secondAttribute="leading" id="6IZ-0O-kVX"/>
                     <constraint firstAttribute="trailing" secondItem="ChA-Hb-5S1" secondAttribute="trailing" id="6dH-h4-dqg"/>
                     <constraint firstItem="j0M-L7-3Tr" firstAttribute="top" secondItem="RC3-0i-ISF" secondAttribute="topMargin" id="7sY-iD-0N1"/>
-                    <constraint firstItem="ZC7-1a-leq" firstAttribute="trailing" secondItem="RC3-0i-ISF" secondAttribute="trailingMargin" id="MeG-wu-jdo"/>
+                    <constraint firstItem="tXs-ro-Rxl" firstAttribute="top" secondItem="j0M-L7-3Tr" secondAttribute="bottom" constant="19.5" id="T48-kv-Z3D"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tXs-ro-Rxl" secondAttribute="trailing" constant="20" id="TdJ-vy-yz1"/>
                     <constraint firstItem="ChA-Hb-5S1" firstAttribute="leading" secondItem="RC3-0i-ISF" secondAttribute="leading" id="UZt-vx-0tl"/>
                     <constraint firstItem="MV0-Xd-N8Y" firstAttribute="top" secondItem="j0M-L7-3Tr" secondAttribute="top" id="Vo8-Vi-LTQ"/>
+                    <constraint firstItem="ZC7-1a-leq" firstAttribute="trailing" secondItem="RC3-0i-ISF" secondAttribute="trailingMargin" id="bIg-b9-c0A"/>
                     <constraint firstItem="Nb3-e2-bIf" firstAttribute="top" secondItem="MV0-Xd-N8Y" secondAttribute="bottom" constant="9" id="ipB-KM-z4g"/>
                     <constraint firstItem="ZC7-1a-leq" firstAttribute="leading" secondItem="tXs-ro-Rxl" secondAttribute="leading" id="jRB-Sx-amh"/>
                     <constraint firstItem="j0M-L7-3Tr" firstAttribute="leading" secondItem="RC3-0i-ISF" secondAttribute="leadingMargin" id="myU-1a-Vlq"/>
+                    <constraint firstItem="ChA-Hb-5S1" firstAttribute="top" secondItem="ZC7-1a-leq" secondAttribute="bottom" priority="750" constant="20" id="n01-qP-2Nd"/>
                     <constraint firstItem="Nb3-e2-bIf" firstAttribute="leading" secondItem="j0M-L7-3Tr" secondAttribute="trailing" constant="8" id="nzN-xp-zZv"/>
-                    <constraint firstItem="tXs-ro-Rxl" firstAttribute="top" secondItem="j0M-L7-3Tr" secondAttribute="bottom" constant="14" id="qxZ-4N-FSD"/>
                     <constraint firstAttribute="bottom" secondItem="ChA-Hb-5S1" secondAttribute="bottom" id="woc-Xg-MOq"/>
-                    <constraint firstItem="ZC7-1a-leq" firstAttribute="top" secondItem="tXs-ro-Rxl" secondAttribute="bottom" constant="8" id="yu1-OW-Caz"/>
+                    <constraint firstItem="ZC7-1a-leq" firstAttribute="top" secondItem="tXs-ro-Rxl" secondAttribute="bottom" constant="15" id="yu1-OW-Caz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -127,7 +127,7 @@
                 <outlet property="repostbtn" destination="uvr-P3-F01" id="hpc-Bq-Tw9"/>
                 <outlet property="textlabel" destination="tXs-ro-Rxl" id="vEH-o7-bvN"/>
                 <outlet property="timelabel" destination="Nb3-e2-bIf" id="SgR-jz-wXr"/>
-                <outlet property="viewheight" destination="fUu-Tg-9j3" id="L8e-e4-xWG"/>
+                <outlet property="viewheight" destination="fUu-Tg-9j3" id="5rj-Hj-ddc"/>
             </connections>
             <point key="canvasLocation" x="-40.799999999999997" y="133.13343328335833"/>
         </tableViewCell>

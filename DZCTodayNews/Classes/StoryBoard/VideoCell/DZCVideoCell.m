@@ -129,10 +129,12 @@
     self.namelabel.text=self.model.media_name;
 
     if (self.model.middle_image.url) {
-        NSString *rtlstr=[NSString stringWithUrl:self.model.middle_image.url];
+        //缩略图链接
+        //NSString *rtlstr=[NSString stringWithUrl:self.model.middle_image.url];
+        //大图链接
+        NSString *string=[self.model.large_image_list.firstObject valueForKey:@"url"];
 
-
-        NSURL *url=[NSURL URLWithString:rtlstr];
+        NSURL *url=[NSURL URLWithString:string];
 
         [self.imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
 

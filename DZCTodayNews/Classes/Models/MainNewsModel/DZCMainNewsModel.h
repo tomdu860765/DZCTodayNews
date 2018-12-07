@@ -20,6 +20,7 @@
  video_id 视频请求id
  read_count 阅读数量
  gallary_image_count 图片数量
+ digg_count 点赞数
  */
 
 #import <Foundation/Foundation.h>
@@ -33,11 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface large_image_list : NSObject
-
-@property(nonatomic,copy)NSString *url;
-
-@end
 
 @interface video_detail_info : NSObject
 
@@ -59,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSNumber *comment_count ;
 
-@property(nonatomic,assign)NSInteger publish_time,video_duration,gallary_image_count;
+@property(nonatomic,assign)NSInteger publish_time,video_duration,gallary_image_count,digg_count;
 
 @property(nonatomic,assign,getter=ishot)BOOL  hot;
 
@@ -67,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)middle_image *middle_image;
 
-@property(nonatomic,strong)large_image_list *large_image_list;
+@property(nonatomic,strong)NSArray *large_image_list;
 
 @property(nonatomic,strong)video_detail_info *video_detail_info;
 
