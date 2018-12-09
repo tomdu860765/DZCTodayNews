@@ -23,7 +23,7 @@ static NSString * const reuseIdentifier = @"huoshancell";
     _videoarray=videoarray;
 
     [self.collectionView reloadData];
-    //[self.collectionView layoutIfNeeded];
+    
 }
 
 

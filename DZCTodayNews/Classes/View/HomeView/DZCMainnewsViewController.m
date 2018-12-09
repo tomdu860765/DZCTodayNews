@@ -99,7 +99,7 @@
     _titleScrollview=scrollview;
     //添加约束
     [scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(88);
+        make.top.equalTo(self.view.mas_top).offset(NAVIBARHEIGHT+STATUSBARHEIGHT);
         make.width.mas_equalTo(SCREENWIDTH);
         make.height.mas_equalTo(44);
         make.left.equalTo(self.view.mas_left).offset(0);
@@ -128,7 +128,7 @@
             [tableviewvc.view  mas_makeConstraints:^(MASConstraintMaker *make) {
                 
                 make.left.mas_offset(SCREENWIDTH*idx);
-                make.top.mas_offset(44);
+                make.top.mas_offset(NAVIBARHEIGHT+STATUSBARHEIGHT);
                 make.width.mas_equalTo(SCREENWIDTH);
                 make.height.mas_equalTo(SCREENHEIGHT);
                 

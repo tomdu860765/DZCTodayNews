@@ -62,7 +62,8 @@
     self.playcountlabel.text=self.cellmodel.title;
     //播放时间
     NSString *timestring=[[NSString alloc]initWithFormat:@"%ld:%0.2ld",self.cellmodel.duration/60,self.cellmodel.duration%60];
-    [self.durationbtn setTitle:timestring forState:UIControlStateDisabled];
+    NSAttributedString *attrinstring=[[NSAttributedString alloc]initWithString:timestring];
+    [self.durationbtn setAttributedTitle:attrinstring forState:UIControlStateDisabled];
    //cover.feed 模型照片路径
     
     [self.playerimageview sd_setImageWithURL:[self.cellmodel.cover valueForKey:@"feed"] placeholderImage:[UIImage imageNamed:@"user_default"]];

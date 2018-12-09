@@ -14,7 +14,9 @@
 #define  SCREENWIDTH (UIScreen.mainScreen.bounds.size.width)
 //屏幕长度
 #define  SCREENHEIGHT (UIScreen.mainScreen.bounds.size.height)
-
-
+//状态栏高度statusBar
+#define  STATUSBARHEIGHT (UIApplication.sharedApplication.statusBarFrame.size.height)
+//导航栏高度
+#define NAVIBARHEIGHT (self.navigationController.navigationBar.frame.size.height)
 
 #endif /* TodayNewsHeader_h */

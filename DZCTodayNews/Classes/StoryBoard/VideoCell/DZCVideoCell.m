@@ -73,7 +73,7 @@
     [self.pyqbtn setHidden:NO];
     [self.sharebtn setHidden:NO];
     [self.wechatbtn setHidden:NO];
-    
+  
     
 }
 //显示按钮移除播放器
@@ -152,7 +152,9 @@
    
     
     NSString *timestr=[[NSString alloc]initWithFormat:@"%ld:%0.2ld",self.model.video_duration/60,self.model.video_duration%60];
-    [self.videotimebtn setTitle:timestr forState:UIControlStateDisabled];
+    NSAttributedString *attristring=[[NSAttributedString alloc]initWithString:timestr];
+    [self.videotimebtn setAttributedTitle:attristring forState:UIControlStateDisabled];
+   
     
     
 }
@@ -163,7 +165,7 @@
     animation.keyPath=@"position.x";
     
     animation.fromValue=@(self.wechatbtn.frame.origin.x);
-    animation.toValue=@(self.wechatbtn.frame.origin.x+50);
+    animation.toValue=@(self.wechatbtn.frame.origin.x+40);
     animation.duration=0.25;
     animation.removedOnCompletion=NO;
     animation.fillMode=kCAFillModeForwards;
@@ -173,7 +175,7 @@
     CABasicAnimation *pyqanmimation=[[CABasicAnimation alloc]init];
     pyqanmimation.keyPath=@"position.x";
     pyqanmimation.fromValue=@(self.pyqbtn.frame.origin.x);
-    pyqanmimation.toValue=@(self.pyqbtn.frame.origin.x+90);
+    pyqanmimation.toValue=@(self.pyqbtn.frame.origin.x+70);
     pyqanmimation.removedOnCompletion=NO;
     pyqanmimation.fillMode=kCAFillModeForwards;
     pyqanmimation.duration=0.25;
@@ -193,21 +195,21 @@
     self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:url];
     //获取背景图大小
     
-    self.AVPlayerViewController.view.frame=self.imageview.frame;
-   
+   self.AVPlayerViewController.view.frame=self.imageview.frame;
+    
     //添加视频layer
     AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];
     
     
-    playerlayer.videoGravity = AVLayerVideoGravityResize;
+    playerlayer.videoGravity =AVLayerVideoGravityResizeAspect;
     [self.AVPlayerViewController.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.AVPlayerViewController.view];
     [self.AVPlayerViewController.player play];
     
+   
+    
     //发送通知播放视频
     [[NSNotificationCenter defaultCenter]postNotificationName:@"homevideoplayer" object:self];
 }
-
-
 
 @end

@@ -83,7 +83,7 @@
             make.left.equalTo(self.view.mas_left).offset(0);
             make.width.mas_equalTo(SCREENWIDTH);
             make.height.mas_equalTo(44);
-            make.top.mas_equalTo(self.view.mas_top).offset(88);
+            make.top.mas_equalTo(self.view.mas_top).offset(NAVIBARHEIGHT+STATUSBARHEIGHT);
         }];
     }
     

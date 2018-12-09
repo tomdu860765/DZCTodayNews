@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     DZCBaseViewController *baseVC = DZCBaseViewController.new;
     DZCNaviViewController *naviVC = [[DZCNaviViewController alloc]initWithRootViewController:baseVC];
-    self.window.backgroundColor = UIColor.darkGrayColor;
+
     self.window.bounds=SCREENBOUNDS;
     self.window.rootViewController = naviVC;
     [self.window makeKeyAndVisible];

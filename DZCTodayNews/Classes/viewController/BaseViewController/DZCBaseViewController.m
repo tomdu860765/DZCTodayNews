@@ -19,7 +19,7 @@
    
     
     [self CreatTabBarItem];
-    
+   
 }
 
 ///创建tabbar导航控制器
@@ -42,7 +42,7 @@
             [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.redColor,
                                                     NSFontAttributeName:[UIFont systemFontOfSize:(16)]} forState:UIControlStateSelected];
             [controllers addObject:vc];
-            
+  
         };
         
         self.viewControllers = controllers;
@@ -52,7 +52,6 @@
     };
 
 }
-
 
 
 
