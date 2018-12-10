@@ -44,6 +44,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(homevideocellmark:)
                                                 name:@"homevideoplayer" object:nil];
+    
 }
 //主视图基类网络方法
 -(void)networkWithHomebaseView{
@@ -218,6 +219,8 @@
 }
 //向上拉刷新数据
 -(void)pullrefreshloaddata:(NSMutableArray *)marray{
+   
+    
     //暂停视频
     [self.cellmark cellsubViewsshow];
     //网络请求

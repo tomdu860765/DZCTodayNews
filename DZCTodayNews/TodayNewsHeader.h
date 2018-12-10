@@ -18,5 +18,7 @@
 #define  STATUSBARHEIGHT (UIApplication.sharedApplication.statusBarFrame.size.height)
 //导航栏高度
 #define NAVIBARHEIGHT (self.navigationController.navigationBar.frame.size.height)
+//tabbar高度
+#define TABBARHEIGHT (self.tabBarController.tabBar.frame.size.height)
 
 #endif /* TodayNewsHeader_h */

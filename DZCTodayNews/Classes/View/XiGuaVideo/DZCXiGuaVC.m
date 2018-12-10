@@ -49,7 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
    
     [self setupTitleScrollview];
     [self setupMainScrollview];
@@ -147,7 +147,7 @@
             [tablevc.view mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.titleScrollview.mas_top).offset(0);
                 make.left.mas_equalTo(SCREENWIDTH*idx);
-                make.height.mas_equalTo(SCREENHEIGHT);
+                make.bottom.mas_offset(SCREENHEIGHT-TABBARHEIGHT*2);
                 make.width.mas_equalTo(SCREENWIDTH);
             }];
         }

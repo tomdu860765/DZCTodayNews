@@ -130,8 +130,7 @@
                 make.left.mas_offset(SCREENWIDTH*idx);
                 make.top.mas_offset(NAVIBARHEIGHT+STATUSBARHEIGHT);
                 make.width.mas_equalTo(SCREENWIDTH);
-                make.height.mas_equalTo(SCREENHEIGHT);
-                
+                make.bottom.mas_offset(SCREENHEIGHT-TABBARHEIGHT*4);
             }];
             
         

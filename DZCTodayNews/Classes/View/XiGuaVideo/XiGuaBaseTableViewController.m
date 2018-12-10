@@ -97,6 +97,7 @@
     }];
     
     [rereshControl addfooterRefresh:self.tableView vcblock:^{
+       
         [self pullrefreshloaddata:marray];
         NSLog(@"上拉西瓜x视频刷新");
     }];

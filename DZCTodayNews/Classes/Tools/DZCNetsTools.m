@@ -375,10 +375,17 @@
 
 //火山小视频请求链接
 +(void)netWorkWithHuoShanVideo:(NSString*)viewcontrollerString Complitionblock:(void(^)(NSArray*))Complition{
-    
-    NSString *urlstring=@"api/news/feed/v7/?category=video";
-    
-    [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSMutableString *murlstring=NSMutableString.string;
+    //判断视图控制器加载数据
+    if ([viewcontrollerString isEqualToString:@"DZCHuoShanViewController"]) {
+        
+        [murlstring setString:@"api/news/feed/v7/?category=video"];
+    }else{
+        murlstring=[NSMutableString stringWithString:@"api/news/feed/v11/?category=video"];
+        
+    }
+   
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:murlstring parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
             
             NSArray *huoshanmodel=[NSArray yy_modelArrayWithClass:[DZCMainNewsModel class] json:[responseObject valueForKey:@"data"]];

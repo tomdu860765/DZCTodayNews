@@ -24,7 +24,7 @@
 
 - (void)prepareLayout{
     [super prepareLayout];
-    
+  
   
     [self layouthuoshan];
    
@@ -38,8 +38,7 @@
     
     //有多少个item需要布局,布局组数只有一组
     NSInteger count = [self.collectionView numberOfItemsInSection:0];
-    
-
+   
     for (int i=0; i<count; i++) {
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
@@ -60,9 +59,13 @@
       
         
         attributes.frame=CGRectMake(itemX, itemY, SCREENWIDTH*0.5,200);
+        
+        
+        
         [self.attributesarray addObject:attributes];
     }
-   
+    
+
     
 }
 
@@ -81,12 +84,14 @@
 - (CGSize)collectionViewContentSize{
     
     NSInteger count = [self.collectionView numberOfItemsInSection:0];
-    
+ 
+ 
     NSInteger row=count/2;
-    
+   
     CGFloat magin=3;
+ 
     
-    return CGSizeMake(0, row*SCREENHEIGHT*0.5+(row-1)*magin);
+     return  CGSizeMake(0, row*200+(row-1)*magin);
 }
 
 

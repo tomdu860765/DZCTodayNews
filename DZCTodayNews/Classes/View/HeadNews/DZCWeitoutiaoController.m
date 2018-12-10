@@ -10,6 +10,7 @@
 #import "DZCWeitoutiaoCell.h"
 #import "DZCWeitoutiaoModel.h"
 #import "DZCNetsTools.h"
+#import "SVProgressHUD.h"
 @interface DZCWeitoutiaoController ()
 @property(nonatomic,strong)DZCWeitoutiaoModel *cellmodel;
 @property(nonatomic,strong)NSMutableArray *weitoutiaoarray;
@@ -82,6 +83,23 @@
     return cell;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [SVProgressHUD showWithStatus:@"载入中"];
+   
+    //[self.tabBarController.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [SVProgressHUD dismissWithDelay:0.5];
+    
+}
 
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    // [self.tabBarController.navigationController.navigationBar setBarTintColor:[UIColor redColor]];
+    
+}
 
 @end

@@ -11,24 +11,86 @@
 
 @implementation DZCRereshControl
 //加入头部刷新控件,添加刷新控件动画
--(void)addRefreshControlheader:(UITableView *)tableview vcblock:(void(^)(void))viewblock{
+-(void)addRefreshControlheader:(UITableView*)tableview vcblock:(void(^)(void))viewblock{
+   
     
-
     MJRefreshGifHeader *header=[MJRefreshGifHeader headerWithRefreshingBlock:^{
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
+          
             viewblock();
+           
             [tableview.mj_header endRefreshing];
-
         });
 
     }];
+    //设置头部动态图片
+    [self setHeadertimeAndimage:header];
+  
     
+    
+    tableview.mj_header = header;
+  
+    
+}
+//添加脚步刷新控件
+-(void)addfooterRefresh:(UITableView *)tableview vcblock:(void(^)(void))viewblock{
+    
+    MJRefreshAutoGifFooter *footer=[MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            viewblock();
+            [tableview.mj_footer endRefreshing];
+            
+        });
+    }];
+    //添加脚部刷新控件
+    [self setFootterimageAndstring:footer];
+    
+    tableview.mj_footer=footer;
+    
+    
+}
+//添加collectionview刷新头部
+-(void)setupCollectionviewrefreshcontroll:(UICollectionView*)collectionview refreshblock:(void(^)(void))viewblock{
+    
+    MJRefreshGifHeader *header=[MJRefreshGifHeader headerWithRefreshingBlock:^{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            viewblock();
+            
+            [collectionview.mj_header endRefreshing];
+        });
+        
+    }];
+    //设置头部动态图片
+    [self setHeadertimeAndimage:header];
+    
+    collectionview.mj_header=header;
+}
+//添加collectionview刷新尾部
+-(void)setupCollectionviewfootter:(UICollectionView*)collectionview refreshblock:(void(^)(void))viewblock{
+    
+    MJRefreshAutoGifFooter *footer=[MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            viewblock();
+            [collectionview.mj_footer endRefreshing];
+            
+        });
+    }];
+    //添加脚部刷新控件
+    [self setFootterimageAndstring:footer];
+    
+    collectionview.mj_footer=footer;
+}
+
+
+//头部刷新控件图片,时间设定
+-(void)setHeadertimeAndimage:(MJRefreshGifHeader *)header{
     
     [header setTitle:@"正在载入数据" forState:MJRefreshStateRefreshing];
     [header setTitle:@"数据载入中" forState:MJRefreshStateIdle];
-     [header setTitle:@"放手就刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"放手就刷新" forState:MJRefreshStatePulling];
     NSMutableArray *imagesarray=NSMutableArray.array;
     for (int i=0; i<16; i++) {
         NSString *imagestr=[NSString localizedStringWithFormat:@"dropdown_loading_0%d",i];
@@ -50,20 +112,9 @@
     };
     
     
-    tableview.mj_header = header;
-    
-    
 }
-//添加脚步刷新控件
--(void)addfooterRefresh:(UITableView *)tableview vcblock:(void(^)(void))viewblock{
-    
-    MJRefreshAutoGifFooter *footer=[MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            viewblock();
-            [tableview.mj_footer endRefreshing];
-            
-        });
-    }];
+
+-(void)setFootterimageAndstring:(MJRefreshAutoGifFooter*)footer{
     
     NSMutableArray *sendloadarray=NSMutableArray.array;
     for (int i=0; i<8; i++) {
@@ -78,9 +129,8 @@
     [footer setTitle:@"正在载入数据" forState:MJRefreshStateRefreshing];
     [footer setTitle:@"数据载入中" forState:MJRefreshStateIdle];
     
-    tableview.mj_footer=footer;
-    
-    
 }
+
+
 
 @end
