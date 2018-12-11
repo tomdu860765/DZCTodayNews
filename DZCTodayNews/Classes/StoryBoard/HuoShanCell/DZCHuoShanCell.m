@@ -7,8 +7,8 @@
 //
 
 #import "DZCHuoShanCell.h"
-
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "DZCPlayerController.h"
 @interface DZCHuoShanCell()
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundview;//背景图
 @property (strong, nonatomic) IBOutlet UILabel *titlelabel;//视频标题
@@ -23,6 +23,20 @@
     _huoshanmodel=huoshanmodel;
     
     [self loadmodelWithHuoshanVideo];
+}
+
+//显示播放器
+- (IBAction)showplayercontroller:(UIButton *)sender {
+   
+    
+    UIStoryboard *videostoryboard=[UIStoryboard storyboardWithName:@"DZCPlayerController" bundle:nil];
+    
+    DZCPlayerController *palycontroller=[videostoryboard instantiateViewControllerWithIdentifier:@"videoplayersb"];
+   
+    [self.huoshanviewcontroller presentViewController:palycontroller animated:YES completion:^{
+       
+      //处理视频链接请求
+    }];
 }
 
 

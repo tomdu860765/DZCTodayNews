@@ -417,7 +417,6 @@
 				22F4239321B653A700EDD747 /* MineViewController */,
 				227A1D642198888A009808A0 /* ScrollView */,
 				228656F72195111B001F8E60 /* RefreshControl */,
-				22A018B1219320C200BE73D5 /* HuoShanCollectionView */,
 				22A018B021931E4600BE73D5 /* HomeView */,
 				22A018AF21931E3500BE73D5 /* XiGuaVideo */,
 				22193F20219148D700FC150A /* HuoShanVideo */,
@@ -478,6 +477,7 @@
 		22193F20219148D700FC150A /* HuoShanVideo */ = {
 			isa = PBXGroup;
 			children = (
+				22A018B1219320C200BE73D5 /* HuoShanCollectionView */,
 				22193F21219161D500FC150A /* DZCHuoShanVC.h */,
 				22193F22219161D500FC150A /* DZCHuoShanVC.m */,
 			);

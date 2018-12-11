@@ -28,6 +28,9 @@
                             <constraint firstAttribute="width" constant="25" id="G55-dT-WJO"/>
                         </constraints>
                         <state key="normal" image="ugc_video_list_play_32x32_"/>
+                        <connections>
+                            <action selector="showplayercontroller:" destination="S9D-8z-d9x" eventType="touchUpInside" id="Tw9-3V-dTk"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jd-bk-H5l">
                         <rect key="frame" x="0.0" y="239" width="34.5" height="15"/>

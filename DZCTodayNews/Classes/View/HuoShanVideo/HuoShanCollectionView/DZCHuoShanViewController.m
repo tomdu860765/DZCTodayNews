@@ -95,6 +95,7 @@ static NSString * const reuseIdentifier = @"huoshancell";
     DZCHuoShanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.huoshanmodel=model;
+    cell.huoshanviewcontroller=self;
     
     return cell;
 }

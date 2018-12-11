@@ -7,11 +7,13 @@
 //
 
 #import <AVKit/AVKit.h>
-
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DZCPlayerController : AVPlayerViewController
-
+@interface DZCPlayerController : UIViewController
+//播放链接
+@property(nonatomic,strong)NSURL *urlstring;
+//播放视频控制器的大小
 @end
 
 NS_ASSUME_NONNULL_END

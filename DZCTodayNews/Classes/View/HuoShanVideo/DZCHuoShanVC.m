@@ -11,6 +11,7 @@
 #import "DZCRecommendHuoShanController.h"
 #import "DZCNetsTools.h"
 #import "Masonry.h"
+
 @interface DZCHuoShanVC ()<UIScrollViewDelegate>
 @property(nonatomic,strong)DZCHuoShanViewController *huoshanviewcontroller;
 @property(nonatomic,strong)UIScrollView *huoshanMainscroolview;

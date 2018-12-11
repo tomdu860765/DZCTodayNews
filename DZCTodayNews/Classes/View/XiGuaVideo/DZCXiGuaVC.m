@@ -145,7 +145,7 @@
             self.mainVideoScrollview.delegate=tablevc;
             [self.mainVideoScrollview addSubview:tablevc.view];
             [tablevc.view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.titleScrollview.mas_top).offset(0);
+                make.top.equalTo(self.titleScrollview.mas_bottom).offset(0);
                 make.left.mas_equalTo(SCREENWIDTH*idx);
                 make.bottom.mas_offset(SCREENHEIGHT-TABBARHEIGHT*2);
                 make.width.mas_equalTo(SCREENWIDTH);
