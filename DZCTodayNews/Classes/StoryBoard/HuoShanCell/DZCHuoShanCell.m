@@ -33,10 +33,9 @@
     
     DZCPlayerController *palycontroller=[videostoryboard instantiateViewControllerWithIdentifier:@"videoplayersb"];
    
-    [self.huoshanviewcontroller presentViewController:palycontroller animated:YES completion:^{
+    [self.huoshanviewcontroller presentViewController:palycontroller animated:YES completion:nil];
        
-      //处理视频链接请求
-    }];
+     
 }
 
 
