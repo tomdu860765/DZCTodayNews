@@ -22,7 +22,6 @@
 @property(assign,nonatomic,getter=isPlayingstyle)BOOL Playingstyle;//播放状态
 @property(assign,nonatomic,getter=isFullscreen)BOOL Fullscreenstyle;//全屏状态
 @property(assign,nonatomic,getter=isSliderDraging)BOOL SliderDraging;//进度条滑动状态
-@property(assign,nonatomic,getter=isTouchiing)BOOL Touching;//触摸状态
 @property(strong,nonatomic)AVPlayerItem *DZCplayeritem;//播放器状态监测
 @property(strong,nonatomic)AVPlayerLayer *DZCplayerlayer;//视频播放layer
 @property(weak,nonatomic)id timeobserver;//记录时间观察者kvo
@@ -52,10 +51,9 @@
 //加载视频信息item
 -(AVPlayerItem*)DZCplayeritem{
     if (_DZCplayeritem==nil) {
-        NSString *urlstring=@"http://baobab.kaiyanapp.com/api/v1/playUrl?vid=141830&resourceType=video&editionType=default&source=aliyun";
-        NSURL *url=[NSURL URLWithString:urlstring];
+
         
-        _DZCplayeritem=[[AVPlayerItem alloc]initWithURL:url];
+        _DZCplayeritem=[[AVPlayerItem alloc]initWithURL:self.urlstring];
     }
     
     return _DZCplayeritem;
@@ -63,7 +61,9 @@
 
 //退出视频
 - (IBAction)stopitem:(UIBarButtonItem *)sender {
-    self.Touching=YES;
+    
+    [self.DZCplayer pause];
+    
     [self.view removeFromSuperview];
     //销毁通知和播放item
     [self.DZCplayer.currentItem cancelPendingSeeks];
@@ -80,7 +80,7 @@
 
 
 - (IBAction)palyandprusebtn:(UIButton *)sender {
-    self.Touching=YES;
+    
     
     //根据状态暂停或者播放
     self.Playingstyle ? [self.DZCplayer pause]:[self.DZCplayer play];
@@ -97,7 +97,7 @@
 }
 //进度条跳转视频
 - (IBAction)videoslider:(UISlider *)sender {
-    self.Touching=YES;
+    
     //移除时间监控kvo,停止视频,设置bool标记
     [self.DZCplayer removeTimeObserver:self.timeobserver];
     self.SliderDraging=YES;
@@ -131,7 +131,7 @@
 }
 
 - (IBAction)fullscreenbtn:(UIButton *)sender {
-    self.Touching=YES;
+    
     //全屏状态
     
     self.Fullscreenstyle ?[self DZCplayerMiniscreenwithportrait]:[self DZCplayerFullscreenandlandscape];
@@ -151,24 +151,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupPlayerAndPlay:nil];
+    
+    
+    [self setupPlayerAndPlay];
     
     //对播放对象添加观察者
     [self.DZCplayeritem addObserver:self forKeyPath:@"status"
                             options:NSKeyValueObservingOptionNew context:nil];
     [self.DZCplayeritem addObserver:self forKeyPath:@"loadedTimeRanges"
                             options:NSKeyValueObservingOptionNew context:nil];
-    
+  
 }
 
 
 ///设置播放器并播放
--(void)setupPlayerAndPlay:(NSURL*)neturlstring{
+-(void)setupPlayerAndPlay{
     
+
     
     self.DZCplayer=[self.DZCplayer initWithPlayerItem:self.DZCplayeritem];
     self.DZCplayerlayer=[AVPlayerLayer playerLayerWithPlayer:self.DZCplayer];
-    self.DZCplayerlayer.frame=self.view.frame;
+    
+    CGRect rect=CGRectNull;
+    //如有外部有播放大小需求,按照其大小设置播放器
+    if (!self.videoviewframe) {
+        rect=self.view.frame;
+
+    }else{
+        rect=self.videoviewframe.frame;
+        NSLog(@"%@",self.view.subviews);
+        
+    }
+    self.DZCplayerlayer.frame=rect;
+    self.view.frame=self.videoviewframe.frame;
     
     [self.view.layer addSublayer:self.DZCplayerlayer];
     
@@ -180,8 +195,7 @@
     self.Fullscreenstyle=NO;
     //进度条状态
     self.SliderDraging=NO;
-    //触摸状体
-    self.Touching=NO;
+   
 }
 ///全屏状态处理
 -(void)DZCplayerFullscreenandlandscape{
@@ -299,9 +313,9 @@
 }
 //播放媒体状态观察者方法
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    
+  
+   
     self.DZCplayeritem=object;
-    
     if ([keyPath isEqualToString:@"status"]) {
         //播放状态
         AVPlayerStatus status=[[change valueForKey:@"new"]integerValue];
@@ -331,45 +345,52 @@
         
         //获取总时长并更新进度条
         [self.timeslider setMaximumValue:CMTimeGetSeconds(self.DZCplayeritem.asset.duration)];
-        [self.timeslider setMaximumTrackTintColor:[UIColor orangeColor]];
-        
+        [self.timeslider setMaximumTrackTintColor:[UIColor whiteColor]];
     }
+        
+    
+
+   
     
 }
+
 ///工具视图隐藏方法
 -(void)SetnavibarAndToolbarhidden{
-    if (self.isTouchiing==NO) {
+ 
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.naviview setHidden:YES];
+        [self.viewtoolbar setHidden:YES];
+    }];
+
     
-    [self.naviview setHidden:YES];
-    [self.viewtoolbar setHidden:YES];
-    }
 }
 ///工具视图显示方法
 -(void)SetnavibarAndToolbarshow{
-    if (self.isTouchiing==YES) {
-
+  
+    [UIView animateWithDuration:0.25 animations:^{
         [self.naviview setHidden:NO];
         [self.viewtoolbar setHidden:NO];
         
-    }
-    
+    }];
+
 }
 
 //点击屏幕显示上下操作栏
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    self.Touching=YES;
+  
     
     [self SetnavibarAndToolbarshow];
     
-    NSLog(@"开始出没");
+    NSLog(@"触摸");
 }
 
 
+
+
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+   
   
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        self.Touching=NO;
         
         [self SetnavibarAndToolbarhidden];
         

@@ -180,8 +180,8 @@
 ///获取video网络请求方法
 ///
 /// 拼接字符串请务必一致否则会没有返回数据
-///*参数一 返回为视频真实链接字符串
-
+///*参数一 传入videoid
+///*参数二 返回为视频真实链接字符串
 +(void)NetworVideo:(NSString*)Videoidstring finishBlock:(void(^)(NSString*))callback{
 
     int r=arc4random();

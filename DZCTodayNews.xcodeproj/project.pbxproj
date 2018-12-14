@@ -66,6 +66,8 @@
 		228995DA21B2ADC500351DBB /* DZCWeitoutiaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228995D921B2ADC500351DBB /* DZCWeitoutiaoView.m */; };
 		228C16AA21B414A500C9927D /* Repostweitoutiao.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228C16A921B414A500C9927D /* Repostweitoutiao.xib */; };
 		228C16AD21B4210200C9927D /* DZCRepostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 228C16AC21B4210200C9927D /* DZCRepostModel.m */; };
+		228F053221C3533E009D4869 /* 首页控制器.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053121C3533E009D4869 /* 首页控制器.gif */; };
+		228F053421C35343009D4869 /* 首页视频.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053321C35343009D4869 /* 首页视频.gif */; };
 		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
 		22A35D5D219E66C80024F350 /* DZCSinglePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D53219E66C80024F350 /* DZCSinglePicCell.m */; };
@@ -229,6 +231,8 @@
 		228C16A921B414A500C9927D /* Repostweitoutiao.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Repostweitoutiao.xib; sourceTree = "<group>"; };
 		228C16AB21B4210200C9927D /* DZCRepostModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCRepostModel.h; sourceTree = "<group>"; };
 		228C16AC21B4210200C9927D /* DZCRepostModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCRepostModel.m; sourceTree = "<group>"; };
+		228F053121C3533E009D4869 /* 首页控制器.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "首页控制器.gif"; sourceTree = "<group>"; };
+		228F053321C35343009D4869 /* 首页视频.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "首页视频.gif"; sourceTree = "<group>"; };
 		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
 		229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_TimeToString.h"; sourceTree = "<group>"; };
 		229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_TimeToString.m"; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 		22193EE1219119F300FC150A = {
 			isa = PBXGroup;
 			children = (
+				228F053021C3531D009D4869 /* GIfs */,
 				22193EEC219119F300FC150A /* DZCTodayNews */,
 				22193EEB219119F300FC150A /* Products */,
 				7EC0AC4FC1A8C17D1EB5AA5E /* Pods */,
@@ -952,6 +957,15 @@
 			path = RefreshControl;
 			sourceTree = "<group>";
 		};
+		228F053021C3531D009D4869 /* GIfs */ = {
+			isa = PBXGroup;
+			children = (
+				228F053121C3533E009D4869 /* 首页控制器.gif */,
+				228F053321C35343009D4869 /* 首页视频.gif */,
+			);
+			path = GIfs;
+			sourceTree = "<group>";
+		};
 		22A018AB21931DA500BE73D5 /* Extesion */ = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1250,7 @@
 				225136892193DECB00ED382D /* NewsTableview.xib in Resources */,
 				22E51BAF21A3DBB9006BDD00 /* CellDeataleController.storyboard in Resources */,
 				22B34BA321B4E2830089A38F /* emojis.plist in Resources */,
+				228F053221C3533E009D4869 /* 首页控制器.gif in Resources */,
 				228C16AA21B414A500C9927D /* Repostweitoutiao.xib in Resources */,
 				22193EF7219119F500FC150A /* Assets.xcassets in Resources */,
 				22B630EF21BC1AF50031D5F0 /* DZCPlayerController.storyboard in Resources */,
@@ -1248,6 +1263,7 @@
 				22193EF5219119F300FC150A /* Main.storyboard in Resources */,
 				2237C07C21B8195D003FCD3C /* HuoShanCell.xib in Resources */,
 				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,
+				228F053421C35343009D4869 /* 首页视频.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,7 +1280,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/CLPlayer/CLPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -1278,7 +1293,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CLPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",

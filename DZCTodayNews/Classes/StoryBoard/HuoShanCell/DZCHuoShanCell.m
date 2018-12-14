@@ -27,15 +27,10 @@
 
 //显示播放器
 - (IBAction)showplayercontroller:(UIButton *)sender {
-   
     
-    UIStoryboard *videostoryboard=[UIStoryboard storyboardWithName:@"DZCPlayerController" bundle:nil];
+    [self collectionViewnetworkforVideo];
     
-    DZCPlayerController *palycontroller=[videostoryboard instantiateViewControllerWithIdentifier:@"videoplayersb"];
-   
-    [self.huoshanviewcontroller presentViewController:palycontroller animated:YES completion:nil];
-       
-     
+    
 }
 
 
@@ -47,8 +42,8 @@
 
 -(void)loadmodelWithHuoshanVideo{
     //取出模型的链接
-   NSString *string=[self.huoshanmodel.large_image_list.firstObject valueForKey:@"url"];
-   
+    NSString *string=[self.huoshanmodel.large_image_list.firstObject valueForKey:@"url"];
+    
     NSURL *url=[NSURL URLWithString:string];
     
     [self.backgroundview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
@@ -63,6 +58,22 @@
     
     
 }
-
+//视频链接网络请求
+-(void)collectionViewnetworkforVideo{
+    
+    [DZCNetsTools NetworVideo:[self.huoshanmodel.video_detail_info valueForKey:@"video_id"]
+                  finishBlock:^(NSString * netvideostring) {
+                      //创建播放控制器
+                      UIStoryboard *videostoryboard=[UIStoryboard storyboardWithName:@"DZCPlayerController" bundle:nil];
+                      
+                      DZCPlayerController *palycontroller=[videostoryboard instantiateViewControllerWithIdentifier:@"videoplayersb"];
+                      palycontroller.urlstring=[NSURL URLWithString:netvideostring];
+                      [self.huoshanviewcontroller presentViewController:palycontroller animated:YES completion:nil];
+     
+                  }];
+    
+    
+    
+}
 
 @end

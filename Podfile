@@ -11,7 +11,6 @@ target 'DZCTodayNews' do
    pod 'FMDB'
    pod 'SVProgressHUD'
    pod 'pop'
-   pod 'CLPlayer'
    pod 'Masonry'
    pod 'MJRefresh'
    

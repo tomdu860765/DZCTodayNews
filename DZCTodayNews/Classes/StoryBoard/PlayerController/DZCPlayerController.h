@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 //播放链接
 @property(nonatomic,strong)NSURL *urlstring;
 //播放视频控制器的大小
+@property(nonatomic,strong)UIView *videoviewframe;
+
 @end
 
 NS_ASSUME_NONNULL_END
