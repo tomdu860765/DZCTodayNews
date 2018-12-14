@@ -11,7 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSString+RegularUrl.h"
 #import "DZCNetsTools.h"
-
+#import "DZCPlayerController.h"
 @interface DZCVideoCell()
 @property (weak, nonatomic) IBOutlet UIButton *playbtn;
 @property (weak, nonatomic) IBOutlet UILabel *namelabel;
@@ -27,10 +27,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *wechatconstraint;
 @property(nonatomic,strong)AVPlayerViewController *AVPlayerViewController;
 @property (weak, nonatomic) IBOutlet UIButton *videotimebtn;
-
 @end
 
 @implementation DZCVideoCell
+
 
 -(AVPlayerViewController*)AVPlayerViewController{
 
@@ -86,14 +86,14 @@
     [self.pyqbtn setHidden:YES];
     [self.sharebtn setHidden:YES];
     [self.wechatbtn setHidden:YES];
+    
     //移除播放器
     
     [self.playbtn setHidden:NO];
     [self.pyqleftconstraint setConstant:8];
     [self.wechatconstraint setConstant:8];
-    [self.AVPlayerViewController.player pause];
+
     [self.AVPlayerViewController.view removeFromSuperview];
-    
 }
 
 -(void)setModel:(DZCMainNewsModel *)model{
@@ -111,12 +111,14 @@
  
     self.selectionStyle=UITableViewCellSelectionStyleNone;
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-  
+-(void)prepareForReuse{
+    
+    [super prepareForReuse];
+    
+    [self.AVPlayerViewController.view removeFromSuperview];
     
 }
+
 
 -(void)loadModelwithnews{
     
@@ -188,14 +190,11 @@
 
 ///添加视频播放器方法
 -(void)addVideocontrollerFortableviewcell:(NSURL*)url{
-    
-    
-
     //创建播放控制器,创建播放器player.
     self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:url];
     //获取背景图大小
     
-   self.AVPlayerViewController.view.frame=self.imageview.frame;
+    self.AVPlayerViewController.view.frame=self.imageview.frame;
     
     //添加视频layer
     AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];
@@ -205,9 +204,8 @@
     [self.AVPlayerViewController.view.layer addSublayer:playerlayer];
     [self.contentView addSubview:self.AVPlayerViewController.view];
     [self.AVPlayerViewController.player play];
-    
-   
-    
+
+
     //发送通知播放视频
     [[NSNotificationCenter defaultCenter]postNotificationName:@"homevideoplayer" object:self];
 }

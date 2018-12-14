@@ -9,6 +9,7 @@
 #import "DZCPlayerController.h"
 #import "Masonry.h"
 @interface DZCPlayerController ()
+@property (strong, nonatomic) IBOutlet UIButton *getbackbtn;
 @property (strong, nonatomic) IBOutlet UISlider *timeslider;
 @property(nonatomic,strong)AVPlayer *DZCplayer;
 @property (strong, nonatomic) IBOutlet UIView *naviview;//播放导航图
@@ -51,7 +52,7 @@
 //加载视频信息item
 -(AVPlayerItem*)DZCplayeritem{
     if (_DZCplayeritem==nil) {
-
+        
         
         _DZCplayeritem=[[AVPlayerItem alloc]initWithURL:self.urlstring];
     }
@@ -68,11 +69,10 @@
     //销毁通知和播放item
     [self.DZCplayer.currentItem cancelPendingSeeks];
     [self.DZCplayer.currentItem.asset cancelLoading];
+
     [self.DZCplayer removeTimeObserver:self.timeobserver];
-    
     [self.DZCplayeritem removeObserver:self forKeyPath:@"status"];
     [self.DZCplayeritem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
@@ -99,7 +99,7 @@
 - (IBAction)videoslider:(UISlider *)sender {
     
     //移除时间监控kvo,停止视频,设置bool标记
-    [self.DZCplayer removeTimeObserver:self.timeobserver];
+    //[self.DZCplayer removeTimeObserver:self.timeobserver];
     self.SliderDraging=YES;
     [self.DZCplayer pause];
     
@@ -118,16 +118,16 @@
     int32_t preferredTimeScale = 1 *NSEC_PER_SEC;
     
     CMTime seektime=CMTimeMakeWithSeconds(seconds,preferredTimeScale);
-   
+    
     [self.DZCplayer seekToTime:seektime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
         //拖动结束之后重新设置kvo,播放视频,bool标记
         if (finished) {
-                self.SliderDraging=NO;
-                [self  settimeSliderWithprogerss];
-                [self.DZCplayer play];
+            self.SliderDraging=NO;
+            [self  settimeSliderWithprogerss];
+            [self.DZCplayer play];
         }
     }];
-
+    
 }
 
 - (IBAction)fullscreenbtn:(UIButton *)sender {
@@ -152,7 +152,6 @@
     [super viewDidLoad];
     
     
-    
     [self setupPlayerAndPlay];
     
     //对播放对象添加观察者
@@ -160,30 +159,29 @@
                             options:NSKeyValueObservingOptionNew context:nil];
     [self.DZCplayeritem addObserver:self forKeyPath:@"loadedTimeRanges"
                             options:NSKeyValueObservingOptionNew context:nil];
-  
+    
 }
 
 
 ///设置播放器并播放
 -(void)setupPlayerAndPlay{
     
-
+    
     
     self.DZCplayer=[self.DZCplayer initWithPlayerItem:self.DZCplayeritem];
     self.DZCplayerlayer=[AVPlayerLayer playerLayerWithPlayer:self.DZCplayer];
+    self.DZCplayerlayer.videoGravity =AVLayerVideoGravityResizeAspect;
     
     CGRect rect=CGRectNull;
     //如有外部有播放大小需求,按照其大小设置播放器
     if (!self.videoviewframe) {
         rect=self.view.frame;
-
+        
     }else{
         rect=self.videoviewframe.frame;
-        NSLog(@"%@",self.view.subviews);
-        
     }
     self.DZCplayerlayer.frame=rect;
-    self.view.frame=self.videoviewframe.frame;
+    self.view.frame=rect;
     
     [self.view.layer addSublayer:self.DZCplayerlayer];
     
@@ -195,7 +193,7 @@
     self.Fullscreenstyle=NO;
     //进度条状态
     self.SliderDraging=NO;
-   
+    
 }
 ///全屏状态处理
 -(void)DZCplayerFullscreenandlandscape{
@@ -308,13 +306,13 @@
     
     self.timeobserver=currenttimeobserver;
     
-   
+    
     
 }
 //播放媒体状态观察者方法
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-  
-   
+    
+    
     self.DZCplayeritem=object;
     if ([keyPath isEqualToString:@"status"]) {
         //播放状态
@@ -325,7 +323,7 @@
                 //设置计算播放时间
                 [self settimeSliderWithprogerss];
                 //3秒后隐藏工具视图和导航视图
-               
+                
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     
                     [self SetnavibarAndToolbarhidden];
@@ -347,37 +345,37 @@
         [self.timeslider setMaximumValue:CMTimeGetSeconds(self.DZCplayeritem.asset.duration)];
         [self.timeslider setMaximumTrackTintColor:[UIColor whiteColor]];
     }
-        
     
-
-   
+    
+    
+    
     
 }
 
 ///工具视图隐藏方法
 -(void)SetnavibarAndToolbarhidden{
- 
+    
     [UIView animateWithDuration:0.25 animations:^{
         [self.naviview setHidden:YES];
         [self.viewtoolbar setHidden:YES];
     }];
-
+    
     
 }
 ///工具视图显示方法
 -(void)SetnavibarAndToolbarshow{
-  
+    
     [UIView animateWithDuration:0.25 animations:^{
         [self.naviview setHidden:NO];
         [self.viewtoolbar setHidden:NO];
         
     }];
-
+    
 }
 
 //点击屏幕显示上下操作栏
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-  
+    
     
     [self SetnavibarAndToolbarshow];
     
@@ -388,21 +386,23 @@
 
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-   
-  
+    
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [self SetnavibarAndToolbarhidden];
         
     });
-
+    
     
 }
 
 //控制器销毁
 -(void)dealloc{
-  
+    
     NSLog(@"销毁播放控制器");
+   
+    
 }
 
 

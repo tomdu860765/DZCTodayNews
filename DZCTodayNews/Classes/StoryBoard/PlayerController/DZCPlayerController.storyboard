@@ -125,6 +125,7 @@
                         <viewLayoutGuide key="safeArea" id="oMV-qa-Gqp"/>
                     </view>
                     <connections>
+                        <outlet property="getbackbtn" destination="cFF-oH-pmS" id="72x-lz-POS"/>
                         <outlet property="naviview" destination="Baw-xc-RwA" id="5j6-Xf-mkZ"/>
                         <outlet property="runtimelabel" destination="6jG-WB-Dbr" id="a7d-dh-Qac"/>
                         <outlet property="timebtn" destination="4Kv-D7-Qhx" id="DXi-JE-R9A"/>
