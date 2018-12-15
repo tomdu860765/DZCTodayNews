@@ -26,3 +26,7 @@
 3 集合视图控制器<br>
 4 微头条视图控制器<br>
 5 个人视图控制器(正在完善中)<br>
+以下是演示图片<br>
+----------------
+首页新闻视图控制器<br>
+![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/%E9%A6%96%E9%A1%B5%E6%8E%A7%E5%88%B6%E5%99%A8.gif) ![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.gif)
