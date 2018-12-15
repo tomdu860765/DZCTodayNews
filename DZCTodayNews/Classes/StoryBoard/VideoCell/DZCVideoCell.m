@@ -92,6 +92,8 @@
     [self.playbtn setHidden:NO];
     [self.pyqleftconstraint setConstant:8];
     [self.wechatconstraint setConstant:8];
+    //停止播放并移除播放视图
+    [self.AVPlayerViewController.player pause];
 
     [self.AVPlayerViewController.view removeFromSuperview];
 }
@@ -114,6 +116,8 @@
 -(void)prepareForReuse{
     
     [super prepareForReuse];
+    
+    
     
     [self.AVPlayerViewController.view removeFromSuperview];
     
@@ -156,8 +160,11 @@
     NSString *timestr=[[NSString alloc]initWithFormat:@"%ld:%0.2ld",self.model.video_duration/60,self.model.video_duration%60];
     NSAttributedString *attristring=[[NSAttributedString alloc]initWithString:timestr];
     [self.videotimebtn setAttributedTitle:attristring forState:UIControlStateDisabled];
-   
-    
+   //设置点赞按钮
+    NSString *diggcount=[[NSString alloc]initWithFormat:@"%ld",self.model.digg_count];
+    [self.likebtn setTitle:diggcount forState:UIControlStateNormal];
+    [self.likebtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.likebtn sizeToFit];
     
 }
 
@@ -194,7 +201,10 @@
     self.AVPlayerViewController.player=[[AVPlayer alloc]initWithURL:url];
     //获取背景图大小
     
+    self.AVPlayerViewController.showsPlaybackControls=YES;
+    
     self.AVPlayerViewController.view.frame=self.imageview.frame;
+    
     
     //添加视频layer
     AVPlayerLayer *playerlayer=[AVPlayerLayer playerLayerWithPlayer:self.AVPlayerViewController.player];

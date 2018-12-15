@@ -69,7 +69,9 @@
             }];
             ComplitionBlock(marry.copy,nil);
         }else{
-            ComplitionBlock(nil,error);
+             //发生错误返回空数组,并报错
+            ComplitionBlock(@[],error);
+            NSLog(@"%@",error);
         }
         
     }];
@@ -102,11 +104,13 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
+            
             NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
             
             NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
         }
-        
+        //发生错误返回空数组,并报错
+        callback(@[]);
     }
      ];}
 ///主新闻界面滚动视图请求方法
@@ -130,10 +134,13 @@
     }
       failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
      if (error) {
+        
        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
                                                   
        NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
        }
+          //发生错误返回空数组
+          finishblock(@[],@[]);
          }
      ];
     
@@ -166,11 +173,13 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
+            
             NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
             
             NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
         }
-        
+        //发生错误返回空数组,并报错
+        callback(@[]);
     }
      ];
     
@@ -225,6 +234,8 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
+             //发生错误返回空字符串,并报错
+            callback(@"");
             NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
             
             NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
@@ -249,6 +260,9 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
+            
+             //发生错误返回空数组,并报错
+            finishBlock(@[]);
             NSHTTPURLResponse *response=(NSHTTPURLResponse*)task.response;
         
           NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
@@ -290,7 +304,8 @@
                     
                     NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
                 }
-                Completionblock(error);
+                //发生错误返回空数组,并报错
+                Completionblock(@[]);
             }];
             *stop=YES;
             return;
@@ -340,7 +355,7 @@
             
             NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
         }
-        
+        callback(@[]);
     }
      ];
             *stop=YES;
@@ -368,6 +383,8 @@
             
             NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
         }
+        //发生错误返回空数组,并报错
+        Complition(@[]);
     }];
     
 }
@@ -399,6 +416,7 @@
             
             NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
         }
+        Complition(@[]);
     }];
  
 }
