@@ -53,7 +53,6 @@
 		224121B021B7945000728908 /* DZCGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121AF21B7945000728908 /* DZCGroupModel.m */; };
 		224121B321B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */; };
 		224121B521B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */; };
-		225136892193DECB00ED382D /* NewsTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225136882193DECB00ED382D /* NewsTableview.xib */; };
 		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
 		22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */; };
 		2280DA5F21BD6A7700C9F927 /* DZCRecommendHuoShanController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2280DA5E21BD6A7700C9F927 /* DZCRecommendHuoShanController.m */; };
@@ -70,6 +69,8 @@
 		228F053421C35343009D4869 /* 首页视频.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053321C35343009D4869 /* 首页视频.gif */; };
 		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
+		22A0EA0321C4B110002E202E /* DZCMineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A0EA0221C4B110002E202E /* DZCMineViewController.storyboard */; };
+		22A0EA0521C4B26E002E202E /* videovc.gif in Resources */ = {isa = PBXBuildFile; fileRef = 22A0EA0421C4B26E002E202E /* videovc.gif */; };
 		22A35D5D219E66C80024F350 /* DZCSinglePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D53219E66C80024F350 /* DZCSinglePicCell.m */; };
 		22A35D5E219E66C80024F350 /* SinglePicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A35D54219E66C80024F350 /* SinglePicCell.xib */; };
 		22A35D5F219E66C80024F350 /* DZCTopNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A35D57219E66C80024F350 /* DZCTopNewsCell.m */; };
@@ -208,7 +209,6 @@
 		224121B121B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeitoutiaoVideoandArticleCell.h; sourceTree = "<group>"; };
 		224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoVideoandArticleCell.m; sourceTree = "<group>"; };
 		224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCWeitoutiaoVideoandArticleCell.xib; sourceTree = "<group>"; };
-		225136882193DECB00ED382D /* NewsTableview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableview.xib; sourceTree = "<group>"; };
 		22779B6421971CB600E2186F /* DZCTitleScrollViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollViewModel.h; sourceTree = "<group>"; };
 		22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCTitleScrollViewModel.m; sourceTree = "<group>"; };
 		22779B672197200F00E2186F /* DZCNewsNetWorkTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCNewsNetWorkTools.h; sourceTree = "<group>"; };
@@ -236,6 +236,8 @@
 		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
 		229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_TimeToString.h"; sourceTree = "<group>"; };
 		229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_TimeToString.m"; sourceTree = "<group>"; };
+		22A0EA0221C4B110002E202E /* DZCMineViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCMineViewController.storyboard; sourceTree = "<group>"; };
+		22A0EA0421C4B26E002E202E /* videovc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = videovc.gif; sourceTree = "<group>"; };
 		22A35D52219E66C80024F350 /* DZCSinglePicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCSinglePicCell.h; sourceTree = "<group>"; };
 		22A35D53219E66C80024F350 /* DZCSinglePicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCSinglePicCell.m; sourceTree = "<group>"; };
 		22A35D54219E66C80024F350 /* SinglePicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinglePicCell.xib; sourceTree = "<group>"; };
@@ -961,6 +963,7 @@
 			isa = PBXGroup;
 			children = (
 				228F053121C3533E009D4869 /* 首页控制器.gif */,
+				22A0EA0421C4B26E002E202E /* videovc.gif */,
 				228F053321C35343009D4869 /* 首页视频.gif */,
 			);
 			path = GIfs;
@@ -1073,7 +1076,6 @@
 				22A35D59219E66C80024F350 /* HotNewsCell */,
 				22A35D51219E66C80024F350 /* SinglePicCell */,
 				22A35D55219E66C80024F350 /* TopNewsCell */,
-				225136882193DECB00ED382D /* NewsTableview.xib */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -1159,6 +1161,7 @@
 			children = (
 				22F4239721B6550800EDD747 /* DZCMineViewController.h */,
 				22F4239821B6550800EDD747 /* DZCMineViewController.m */,
+				22A0EA0221C4B110002E202E /* DZCMineViewController.storyboard */,
 			);
 			path = MineViewController;
 			sourceTree = "<group>";
@@ -1247,10 +1250,10 @@
 				22A35D62219E66C80024F350 /* DZCHotNewsTableViewCell.xib in Resources */,
 				22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */,
 				22A35D5E219E66C80024F350 /* SinglePicCell.xib in Resources */,
-				225136892193DECB00ED382D /* NewsTableview.xib in Resources */,
 				22E51BAF21A3DBB9006BDD00 /* CellDeataleController.storyboard in Resources */,
 				22B34BA321B4E2830089A38F /* emojis.plist in Resources */,
 				228F053221C3533E009D4869 /* 首页控制器.gif in Resources */,
+				22A0EA0321C4B110002E202E /* DZCMineViewController.storyboard in Resources */,
 				228C16AA21B414A500C9927D /* Repostweitoutiao.xib in Resources */,
 				22193EF7219119F500FC150A /* Assets.xcassets in Resources */,
 				22B630EF21BC1AF50031D5F0 /* DZCPlayerController.storyboard in Resources */,
@@ -1264,6 +1267,7 @@
 				2237C07C21B8195D003FCD3C /* HuoShanCell.xib in Resources */,
 				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,
 				228F053421C35343009D4869 /* 首页视频.gif in Resources */,
+				22A0EA0521C4B26E002E202E /* videovc.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

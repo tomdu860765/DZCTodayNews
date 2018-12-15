@@ -50,6 +50,7 @@
 -(WKWebView*)webview{
     if (!_webview) {
         _webview=WKWebView.new;
+        //以下代码适配大小
     }
     
     return _webview; 
