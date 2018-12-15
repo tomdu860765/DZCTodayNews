@@ -29,4 +29,11 @@
 以下是演示图片<br>
 ----------------
 首页新闻视图控制器<br>
+
+
 ![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/%E9%A6%96%E9%A1%B5%E6%8E%A7%E5%88%B6%E5%99%A8.gif) ![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.gif)
+----------------
+小视频视图控制器<br>
+
+
+![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/videovc.gif)
