@@ -420,7 +420,35 @@
     }];
  
 }
+///获取accessoken微博登录网络授权请求
++(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id))Finishcallback{
+    
+    //获取请求链接
+   NSString *weibostring= @"https://api.weibo.com/oauth2/access_token";
+    //Post请求体拼写
 
+    NSDictionary *parameters=@{@"client_id":clientid,@"client_secret":AppSecret,
+                               @"grant_type":@"authorization_code",@"code":codestring,@"redirect_uri":redirect_uri};
+    
+  
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt]POST:weibostring parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+            NSLog(@"%@", responseObject);
+            //成功回调json
+            Finishcallback(responseObject);
+        }
+       
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+            
+            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+          
+        }
+    }];
+    
+    
+}
 
 
 @end

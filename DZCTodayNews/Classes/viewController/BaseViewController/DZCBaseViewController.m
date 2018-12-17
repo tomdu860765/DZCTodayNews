@@ -43,7 +43,8 @@
                                                     NSFontAttributeName:[UIFont systemFontOfSize:(16)]} forState:UIControlStateSelected];
             [controllers addObject:vc];
   
-        };
+        
+    };
         
         self.viewControllers = controllers;
   

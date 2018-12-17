@@ -32,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)netWrokWithWeitoutiao:(void(^)(NSArray*))Complition;
 //火山小视频请求链接
 +(void)netWorkWithHuoShanVideo:(NSString*)viewcontrollerString Complitionblock:(void(^)(NSArray*))Complition;
-
+///获取accessoken微博登录网络授权请求
++(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id))Finishcallback;
 @end
 
 NS_ASSUME_NONNULL_END
