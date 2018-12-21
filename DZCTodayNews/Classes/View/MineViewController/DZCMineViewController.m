@@ -8,6 +8,7 @@
 
 #import "DZCMineViewController.h"
 #import "DZCMineTableViewController.h"
+
 @interface DZCMineViewController ()
 @property(nonatomic,strong)DZCMineTableViewController *minetableviewvc;
 @end
@@ -40,6 +41,7 @@
     [self addChildViewController:self.minetableviewvc];
 
     [self.view addSubview:self.minetableviewvc.view];
+
     
 }
 

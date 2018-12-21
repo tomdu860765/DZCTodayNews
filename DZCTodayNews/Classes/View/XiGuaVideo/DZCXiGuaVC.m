@@ -113,6 +113,8 @@
     CGFloat margin=15;
     CGFloat btnwidth=40;
     [btnarray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    
+        
         DZCXiGuaVideoModel *model=(DZCXiGuaVideoModel *)obj;
         UIButton *titlebtn=[[UIButton alloc]initWithFrame:CGRectMake(margin+(btnwidth+margin)*idx, 0, btnwidth, btnwidth)];
         [titlebtn  setTitle:model.name forState:UIControlStateNormal];
@@ -122,6 +124,9 @@
         if (idx==0) {
             [titlebtn setSelected:YES];
             self.btnmark=titlebtn;
+        }
+        if ([model.name isEqualToString:@"集锦"]) {
+            [titlebtn setEnabled:NO];
         }
         [self.titleScrollview addSubview:titlebtn];
         [titlebtn addTarget:self action:@selector(moveMainScrollview:) forControlEvents:UIControlEventTouchDown];

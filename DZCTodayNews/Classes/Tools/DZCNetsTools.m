@@ -263,12 +263,12 @@
         if (error) {
             
              //发生错误返回空数组,并报错
-            finishBlock(@[]);
+            
             NSHTTPURLResponse *response=(NSHTTPURLResponse*)task.response;
         
           NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
         }
- 
+     finishBlock(@[]);
     }];
 
 }
@@ -297,7 +297,7 @@
                         
                     }];
                     Completionblock(modelmarray.copy);
-                    
+                   
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (error) {
@@ -307,6 +307,7 @@
                 }
                 //发生错误返回空数组,并报错
                 Completionblock(@[]);
+                
             }];
             *stop=YES;
             return;

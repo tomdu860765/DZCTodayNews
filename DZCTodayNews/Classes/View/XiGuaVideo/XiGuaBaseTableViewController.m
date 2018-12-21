@@ -108,6 +108,7 @@
     [DZCNetsTools netWorkForXiGuaVideoWithModel:^(id model) {
         if (model) {
             [model enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+               
                 [self.VideoArray insertObject:obj atIndex:0];
                 
             }];
@@ -123,6 +124,7 @@
     [DZCNetsTools netWorkForXiGuaVideoWithModel:^(id model) {
         if (model) {
             [model enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+               
                 [self.VideoArray addObject:obj];
                 
             }];

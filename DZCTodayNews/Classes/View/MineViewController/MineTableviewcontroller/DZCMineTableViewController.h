@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCMineTableViewController : UITableViewController
-@property(nonatomic,assign,getter=isSuccesssignin)BOOL Successsignin;
+///载入网络登录请求页面
+-(void)loadLoginviewController;
 @end
 
 NS_ASSUME_NONNULL_END

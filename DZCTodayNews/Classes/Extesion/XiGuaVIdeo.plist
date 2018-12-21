@@ -18,7 +18,7 @@
 		<key>Viewcontroller</key>
 		<string>DailyVideoController</string>
 		<key>id</key>
-		<string>6</string>
+		<string>4</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
@@ -72,7 +72,7 @@
 		<key>Viewcontroller</key>
 		<string>MusicVIdeoController</string>
 		<key>id</key>
-		<string>20</string>
+		<string>8</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
@@ -96,7 +96,7 @@
 		<key>Viewcontroller</key>
 		<string>TripVideoController</string>
 		<key>id</key>
-		<string>6</string>
+		<string>16</string>
 	</dict>
 	<dict>
 		<key>Viewcontroller</key>
@@ -126,7 +126,7 @@
 		<key>Viewcontroller</key>
 		<string>FashionVideoController</string>
 		<key>id</key>
-		<string>24</string>
+		<string>30</string>
 	</dict>
 </array>
 </plist>

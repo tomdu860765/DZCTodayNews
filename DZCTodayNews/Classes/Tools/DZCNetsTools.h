@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)netWorkWithHuoShanVideo:(NSString*)viewcontrollerString Complitionblock:(void(^)(NSArray*))Complition;
 ///获取accessoken微博登录网络授权请求
 +(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id,id))Finishcallback;
+///获取登录个人信息
++(void)WeiboUserinfo:(NSString*)tokenstring uidstring:(NSString*)uid FinishBlock:(void(^)(id))userinfoblock;
+
 @end
 
 NS_ASSUME_NONNULL_END

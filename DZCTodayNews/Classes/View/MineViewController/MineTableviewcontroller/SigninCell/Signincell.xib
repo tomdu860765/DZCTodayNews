@@ -38,7 +38,7 @@
                             <constraint firstAttribute="height" constant="44" id="x3a-fz-7l1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <state key="normal" title="微博用户已登录">
+                        <state key="normal" title="退出登录">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <userDefinedRuntimeAttributes>

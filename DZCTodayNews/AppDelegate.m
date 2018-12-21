@@ -41,11 +41,10 @@
     }
     //文件转字典
    NSDictionary *dictjson=[NSJSONSerialization JSONObjectWithData:jsondata options:NSJSONReadingAllowFragments error:nil];
-    if (dictjson) {
+    if ([dictjson valueForKey:@"access_token"]) {
         NSLog(@"%@",dictjson[@"access_token"]);
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"usersign"];
     }
-
 }
 
 
