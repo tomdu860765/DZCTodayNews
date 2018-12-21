@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weibo Login Controller-->
+        <scene sceneID="9UV-gO-8gS">
+            <objects>
+                <viewController storyboardIdentifier="LoginController" id="7sv-7M-BYV" customClass="DZCWeiboLoginController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9n8-Ex-eQ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9q-iQ-vrT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Pbh-09-wGo"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="1EP-M8-ncT">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="dLo-dC-Q9L">
+                                            <connections>
+                                                <action selector="getbackvc:" destination="7sv-7M-BYV" id="bKR-pc-PX7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0e7-gt-Cdh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v9q-iQ-vrT" firstAttribute="top" secondItem="ZtK-Vn-kKc" secondAttribute="top" id="JvL-WN-83H"/>
+                            <constraint firstItem="v9q-iQ-vrT" firstAttribute="trailing" secondItem="ZtK-Vn-kKc" secondAttribute="trailing" id="KnA-OK-XOJ"/>
+                            <constraint firstItem="v9q-iQ-vrT" firstAttribute="leading" secondItem="ZtK-Vn-kKc" secondAttribute="leading" id="PAb-nc-dGM"/>
+                            <constraint firstItem="0e7-gt-Cdh" firstAttribute="bottom" secondItem="ZtK-Vn-kKc" secondAttribute="bottom" id="T8t-uy-7ek"/>
+                            <constraint firstItem="0e7-gt-Cdh" firstAttribute="top" secondItem="v9q-iQ-vrT" secondAttribute="bottom" id="cEG-Z2-dhZ"/>
+                            <constraint firstItem="0e7-gt-Cdh" firstAttribute="trailing" secondItem="ZtK-Vn-kKc" secondAttribute="trailing" id="sQN-kV-H7V"/>
+                            <constraint firstItem="0e7-gt-Cdh" firstAttribute="leading" secondItem="ZtK-Vn-kKc" secondAttribute="leading" id="wMm-YA-4qk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZtK-Vn-kKc"/>
+                    </view>
+                    <connections>
+                        <outlet property="wkweibologinview" destination="0e7-gt-Cdh" id="cpU-GC-s9p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iO5-8W-JiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="177"/>
+        </scene>
+    </scenes>
+</document>

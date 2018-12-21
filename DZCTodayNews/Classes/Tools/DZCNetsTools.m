@@ -15,6 +15,7 @@
 #import "DZCXiGuaVideoModel.h"
 #import "XiGuaModel.h"
 #import "DZCWeitoutiaoModel.h"
+#import "DZCWeiboUsermodel.h"
 @implementation DZCNetsTools
 ///滚动标题视图模型网络请求
 ///
@@ -390,7 +391,10 @@
 }
 
 
-//火山小视频请求链接
+///火山小视频请求链接
+///
+///*参数一 火山视图控制器
+///*参数二 返回json数组
 +(void)netWorkWithHuoShanVideo:(NSString*)viewcontrollerString Complitionblock:(void(^)(NSArray*))Complition{
     NSMutableString *murlstring=NSMutableString.string;
     //判断视图控制器加载数据
@@ -421,7 +425,10 @@
  
 }
 ///获取accessoken微博登录网络授权请求
-+(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id))Finishcallback{
+///
+///*参数一 获取code字符串
+///*参数二 返回json数组
++(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id,id))Finishcallback{
     
     //获取请求链接
    NSString *weibostring= @"https://api.weibo.com/oauth2/access_token";
@@ -433,9 +440,13 @@
   
     [[DZCNewsNetWorkTools NewsNetWorkDefualt]POST:weibostring parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
-            NSLog(@"%@", responseObject);
-            //成功回调json
-            Finishcallback(responseObject);
+            //成功回调json,获取token
+            NSString *token=[responseObject valueForKey:@"access_token"];
+            NSString *uid=[responseObject valueForKey:@"uid"];
+            //执行用户信息网络请求
+            [DZCNetsTools WeiboUserinfo:token uidstring:uid  FinishBlock:^(id userinfo) {
+                Finishcallback(responseObject,userinfo);
+            }];
         }
        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -449,6 +460,35 @@
     
     
 }
+
++(void)WeiboUserinfo:(NSString*)tokenstring uidstring:(NSString*)uid FinishBlock:(void(^)(id))userinfoblock{
+    
+    NSString *urlstring=@"https://api.weibo.com/2/users/show.json";
+    //access_token    true    string    采用OAuth授权方式为必填参数，OAuth授权后获得。
+    NSDictionary *dictpara=@{@"access_token":tokenstring,@"uid":uid};
+    
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt]GET:urlstring parameters:dictpara progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+        //json转模型
+        DZCWeiboUsermodel *usermodel=[DZCWeiboUsermodel yy_modelWithJSON:responseObject];
+         //执行回调
+        userinfoblock(usermodel);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (error) {
+            NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response ;
+            
+            NSLog(@"网络请求失败,错误为%@,错误码%ld",error,(long)response.statusCode);
+            
+        }
+        
+    }];
+    
+}
+
+
+
 
 
 @end

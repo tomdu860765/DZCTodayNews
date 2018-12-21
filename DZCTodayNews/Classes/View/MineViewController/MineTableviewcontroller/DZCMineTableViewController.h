@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DZCMineTableViewController : UITableViewController
-
+@property(nonatomic,assign,getter=isSuccesssignin)BOOL Successsignin;
 @end
 
 NS_ASSUME_NONNULL_END

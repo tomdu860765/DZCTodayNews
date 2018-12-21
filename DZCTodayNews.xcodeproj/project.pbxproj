@@ -51,6 +51,7 @@
 		224121B021B7945000728908 /* DZCGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121AF21B7945000728908 /* DZCGroupModel.m */; };
 		224121B321B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */; };
 		224121B521B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */; };
+		2264FC2921C9D9960085351D /* DZCWeiboLoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2264FC2821C9D9960085351D /* DZCWeiboLoginController.storyboard */; };
 		22739B6C21C7ABCB000F0273 /* DZCWeiboLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22739B6B21C7ABCB000F0273 /* DZCWeiboLoginController.m */; };
 		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
 		22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */; };
@@ -70,6 +71,8 @@
 		228F053221C3533E009D4869 /* 首页控制器.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053121C3533E009D4869 /* 首页控制器.gif */; };
 		228F053421C35343009D4869 /* 首页视频.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053321C35343009D4869 /* 首页视频.gif */; };
 		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
+		229692A321C9E8DC00B84F9E /* Signincell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229692A221C9E8DC00B84F9E /* Signincell.xib */; };
+		229692A721C9E9A000B84F9E /* DZCSigninCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229692A621C9E9A000B84F9E /* DZCSigninCell.m */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
 		22A0EA0321C4B110002E202E /* DZCMineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A0EA0221C4B110002E202E /* DZCMineViewController.storyboard */; };
 		22A0EA0521C4B26E002E202E /* videovc.gif in Resources */ = {isa = PBXBuildFile; fileRef = 22A0EA0421C4B26E002E202E /* videovc.gif */; };
@@ -119,6 +122,7 @@
 		22E51BB421A449DF006BDD00 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E51BB321A449DF006BDD00 /* WebKit.framework */; };
 		22F4239221B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4239121B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m */; };
 		22F4239921B6550800EDD747 /* DZCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4239821B6550800EDD747 /* DZCMineViewController.m */; };
+		22F526D721CA1A3E002C814C /* DZCWeiboUsermodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F526D621CA1A3E002C814C /* DZCWeiboUsermodel.m */; };
 		22FC95CF21B94F20006B13FF /* DZCHuoShanlayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC95CE21B94F20006B13FF /* DZCHuoShanlayout.m */; };
 		FEF09B2647EDE0F57D7D84D3 /* Pods_DZCTodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45772113A7FC415A632FB7B /* Pods_DZCTodayNews.framework */; };
 /* End PBXBuildFile section */
@@ -208,6 +212,7 @@
 		224121B121B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeitoutiaoVideoandArticleCell.h; sourceTree = "<group>"; };
 		224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoVideoandArticleCell.m; sourceTree = "<group>"; };
 		224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCWeitoutiaoVideoandArticleCell.xib; sourceTree = "<group>"; };
+		2264FC2821C9D9960085351D /* DZCWeiboLoginController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCWeiboLoginController.storyboard; sourceTree = "<group>"; };
 		22739B6A21C7ABCB000F0273 /* DZCWeiboLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeiboLoginController.h; sourceTree = "<group>"; };
 		22739B6B21C7ABCB000F0273 /* DZCWeiboLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeiboLoginController.m; sourceTree = "<group>"; };
 		22779B6421971CB600E2186F /* DZCTitleScrollViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollViewModel.h; sourceTree = "<group>"; };
@@ -240,6 +245,9 @@
 		228F053121C3533E009D4869 /* 首页控制器.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "首页控制器.gif"; sourceTree = "<group>"; };
 		228F053321C35343009D4869 /* 首页视频.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "首页视频.gif"; sourceTree = "<group>"; };
 		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
+		229692A221C9E8DC00B84F9E /* Signincell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Signincell.xib; sourceTree = "<group>"; };
+		229692A521C9E9A000B84F9E /* DZCSigninCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCSigninCell.h; sourceTree = "<group>"; };
+		229692A621C9E9A000B84F9E /* DZCSigninCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCSigninCell.m; sourceTree = "<group>"; };
 		229B21C0219A77CE00620EB3 /* NSString+NSString_TimeToString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_TimeToString.h"; sourceTree = "<group>"; };
 		229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_TimeToString.m"; sourceTree = "<group>"; };
 		22A0EA0221C4B110002E202E /* DZCMineViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCMineViewController.storyboard; sourceTree = "<group>"; };
@@ -325,6 +333,8 @@
 		22F4239121B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DZCEmojiAttributedstring.m"; sourceTree = "<group>"; };
 		22F4239721B6550800EDD747 /* DZCMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMineViewController.h; sourceTree = "<group>"; };
 		22F4239821B6550800EDD747 /* DZCMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMineViewController.m; sourceTree = "<group>"; };
+		22F526D521CA1A3E002C814C /* DZCWeiboUsermodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeiboUsermodel.h; sourceTree = "<group>"; };
+		22F526D621CA1A3E002C814C /* DZCWeiboUsermodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeiboUsermodel.m; sourceTree = "<group>"; };
 		22FC95CD21B94F20006B13FF /* DZCHuoShanlayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCHuoShanlayout.h; sourceTree = "<group>"; };
 		22FC95CE21B94F20006B13FF /* DZCHuoShanlayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCHuoShanlayout.m; sourceTree = "<group>"; };
 		34CF92B85BC519476252A34C /* Pods-DZCTodayNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZCTodayNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZCTodayNews/Pods-DZCTodayNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -924,6 +934,7 @@
 			children = (
 				22739B6A21C7ABCB000F0273 /* DZCWeiboLoginController.h */,
 				22739B6B21C7ABCB000F0273 /* DZCWeiboLoginController.m */,
+				2264FC2821C9D9960085351D /* DZCWeiboLoginController.storyboard */,
 			);
 			path = DZCWeiboLoginController;
 			sourceTree = "<group>";
@@ -977,6 +988,7 @@
 		228E78D921C548EB00140F68 /* MineTableviewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				229692A421C9E97900B84F9E /* SigninCell */,
 				228E78D621C548AD00140F68 /* DZCMineTableViewController.h */,
 				228E78D721C548AD00140F68 /* DZCMineTableViewController.m */,
 				22A0EA0221C4B110002E202E /* DZCMineViewController.storyboard */,
@@ -992,6 +1004,16 @@
 				228F053321C35343009D4869 /* 首页视频.gif */,
 			);
 			path = GIfs;
+			sourceTree = "<group>";
+		};
+		229692A421C9E97900B84F9E /* SigninCell */ = {
+			isa = PBXGroup;
+			children = (
+				229692A221C9E8DC00B84F9E /* Signincell.xib */,
+				229692A521C9E9A000B84F9E /* DZCSigninCell.h */,
+				229692A621C9E9A000B84F9E /* DZCSigninCell.m */,
+			);
+			path = SigninCell;
 			sourceTree = "<group>";
 		};
 		22A018AB21931DA500BE73D5 /* Extesion */ = {
@@ -1033,6 +1055,7 @@
 		22A018AD21931DB800BE73D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				22F526D421CA1A20002C814C /* WeiboUserModel */,
 				22134E8521B01E4600F66F9E /* WeitoutiaoModel */,
 				22D531BA219ECE3900910315 /* VideoModel */,
 				2225A0B721995F260030CE5E /* ScrollviewModel */,
@@ -1192,6 +1215,15 @@
 			path = MineViewController;
 			sourceTree = "<group>";
 		};
+		22F526D421CA1A20002C814C /* WeiboUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				22F526D521CA1A3E002C814C /* DZCWeiboUsermodel.h */,
+				22F526D621CA1A3E002C814C /* DZCWeiboUsermodel.m */,
+			);
+			path = WeiboUserModel;
+			sourceTree = "<group>";
+		};
 		45364338B3AC0AF2E4620218 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,6 +1306,7 @@
 				228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */,
 				221D603E21A2646800FAC269 /* ThreePiccell.xib in Resources */,
 				228E78D421C53C2600140F68 /* Main.storyboard in Resources */,
+				2264FC2921C9D9960085351D /* DZCWeiboLoginController.storyboard in Resources */,
 				22A35D62219E66C80024F350 /* DZCHotNewsTableViewCell.xib in Resources */,
 				22BE19FE21926B310041E47D /* TabBarItem.plist in Resources */,
 				22A35D5E219E66C80024F350 /* SinglePicCell.xib in Resources */,
@@ -1290,6 +1323,7 @@
 				224121B521B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib in Resources */,
 				22A35D60219E66C80024F350 /* NewsTableViewCell.xib in Resources */,
 				22134E8121B00A5C00F66F9E /* WeitoutiaoCell.xib in Resources */,
+				229692A321C9E8DC00B84F9E /* Signincell.xib in Resources */,
 				2237C07C21B8195D003FCD3C /* HuoShanCell.xib in Resources */,
 				22B9489F21A85C7600336E4A /* XiGuaVIdeo.plist in Resources */,
 				228F053421C35343009D4869 /* 首页视频.gif in Resources */,
@@ -1440,6 +1474,7 @@
 				2225A0B621993AC60030CE5E /* DZCNetsTools.m in Sources */,
 				22B9487921A841AB00336E4A /* DZCCreativieVideoController.m in Sources */,
 				22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */,
+				229692A721C9E9A000B84F9E /* DZCSigninCell.m in Sources */,
 				22193F292191626C00FC150A /* DZCHeadNewsVC.m in Sources */,
 				22193EEF219119F300FC150A /* AppDelegate.m in Sources */,
 				228656FA2195115B001F8E60 /* DZCRereshControl.m in Sources */,
@@ -1449,6 +1484,7 @@
 				22A35D5F219E66C80024F350 /* DZCTopNewsCell.m in Sources */,
 				224121B321B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m in Sources */,
 				22F4239921B6550800EDD747 /* DZCMineViewController.m in Sources */,
+				22F526D721CA1A3E002C814C /* DZCWeiboUsermodel.m in Sources */,
 				22B9487321A8416C00336E4A /* DZCAnimationVideoController.m in Sources */,
 				22849AAD21AA343A00890B21 /* XiGuaModel.m in Sources */,
 				22C65B2B21B16D3E0022B71C /* UIImage+DZCImageround.m in Sources */,

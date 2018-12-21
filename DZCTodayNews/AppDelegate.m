@@ -22,9 +22,30 @@
 
     self.window.bounds=SCREENBOUNDS;
     self.window.rootViewController = naviVC;
+    [self Signinviewcontroller];
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+//判断是否登录
+-(void)Signinviewcontroller{
+    //获取文件路径
+    NSString *filenamestr=[DocumentpathString stringByAppendingPathComponent:@"weibojson"];
+    //文件转二进制
+    NSData *jsondata=[NSData dataWithContentsOfFile:filenamestr];
+    
+    if (!jsondata) {
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"usersign"];
+        NSLog(@"并没有登录文件");
+        return;
+    }
+    //文件转字典
+   NSDictionary *dictjson=[NSJSONSerialization JSONObjectWithData:jsondata options:NSJSONReadingAllowFragments error:nil];
+    if (dictjson) {
+        NSLog(@"%@",dictjson[@"access_token"]);
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"usersign"];
+    }
+
 }
 
 

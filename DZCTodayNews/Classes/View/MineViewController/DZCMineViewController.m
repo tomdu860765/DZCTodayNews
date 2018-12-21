@@ -15,11 +15,13 @@
 @implementation DZCMineViewController
 -(DZCMineTableViewController*)minetableviewvc{
     if (_minetableviewvc==nil) {
-        
-       UIStoryboard *minesb=[UIStoryboard storyboardWithName:@"DZCMineViewController" bundle:nil];
-       
-        //_minetableviewvc=DZCMineTableViewController.new;
-       _minetableviewvc =[minesb instantiateViewControllerWithIdentifier:@"minestoryborad"];
+        UIStoryboard *minesb=[UIStoryboard storyboardWithName:@"DZCMineViewController" bundle:nil];
+        //判断是否登录载入不同页面控制器
+        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"usersign"]) {
+            _minetableviewvc =[minesb instantiateViewControllerWithIdentifier:@"SinginViewcontroller"];
+        }else{
+            
+            _minetableviewvc =[minesb instantiateViewControllerWithIdentifier:@"minestoryborad"];}
     }
     
     return _minetableviewvc;
@@ -31,6 +33,7 @@
     
     //未登录
     [self setupMinetableview];
+    
 }
 //添加登录表视图控制器
 -(void)setupMinetableview{

@@ -30,10 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)basetableviewNetworHotNews:(void(^)(NSArray*))callback wihtViewControllerString:(NSString*)String;
 ///微头条网络请求
 +(void)netWrokWithWeitoutiao:(void(^)(NSArray*))Complition;
-//火山小视频请求链接
+///火山小视频请求链接
 +(void)netWorkWithHuoShanVideo:(NSString*)viewcontrollerString Complitionblock:(void(^)(NSArray*))Complition;
 ///获取accessoken微博登录网络授权请求
-+(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id))Finishcallback;
++(void)WeibologinNetwork:(NSString*)codestring ComplitionBlock:(void(^)(id,id))Finishcallback;
 @end
 
 NS_ASSUME_NONNULL_END
