@@ -52,6 +52,7 @@
 		224121B321B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */; };
 		224121B521B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */; };
 		2264FC2921C9D9960085351D /* DZCWeiboLoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2264FC2821C9D9960085351D /* DZCWeiboLoginController.storyboard */; };
+		226F9DD921CD4C2600194999 /* weitoutiao.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226F9DD821CD4C2600194999 /* weitoutiao.gif */; };
 		22739B6C21C7ABCB000F0273 /* DZCWeiboLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22739B6B21C7ABCB000F0273 /* DZCWeiboLoginController.m */; };
 		22779B6621971CB600E2186F /* DZCTitleScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B6521971CB600E2186F /* DZCTitleScrollViewModel.m */; };
 		22779B692197200F00E2186F /* DZCNewsNetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 22779B682197200F00E2186F /* DZCNewsNetWorkTools.m */; };
@@ -213,6 +214,7 @@
 		224121B221B7969A00728908 /* DZCWeitoutiaoVideoandArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeitoutiaoVideoandArticleCell.m; sourceTree = "<group>"; };
 		224121B421B796B300728908 /* DZCWeitoutiaoVideoandArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DZCWeitoutiaoVideoandArticleCell.xib; sourceTree = "<group>"; };
 		2264FC2821C9D9960085351D /* DZCWeiboLoginController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCWeiboLoginController.storyboard; sourceTree = "<group>"; };
+		226F9DD821CD4C2600194999 /* weitoutiao.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = weitoutiao.gif; sourceTree = "<group>"; };
 		22739B6A21C7ABCB000F0273 /* DZCWeiboLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCWeiboLoginController.h; sourceTree = "<group>"; };
 		22739B6B21C7ABCB000F0273 /* DZCWeiboLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCWeiboLoginController.m; sourceTree = "<group>"; };
 		22779B6421971CB600E2186F /* DZCTitleScrollViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCTitleScrollViewModel.h; sourceTree = "<group>"; };
@@ -999,6 +1001,7 @@
 		228F053021C3531D009D4869 /* GIfs */ = {
 			isa = PBXGroup;
 			children = (
+				226F9DD821CD4C2600194999 /* weitoutiao.gif */,
 				228F053121C3533E009D4869 /* 首页控制器.gif */,
 				22A0EA0421C4B26E002E202E /* videovc.gif */,
 				228F053321C35343009D4869 /* 首页视频.gif */,
@@ -1312,6 +1315,7 @@
 				22A35D5E219E66C80024F350 /* SinglePicCell.xib in Resources */,
 				22E51BAF21A3DBB9006BDD00 /* CellDeataleController.storyboard in Resources */,
 				22B34BA321B4E2830089A38F /* emojis.plist in Resources */,
+				226F9DD921CD4C2600194999 /* weitoutiao.gif in Resources */,
 				228F053221C3533E009D4869 /* 首页控制器.gif in Resources */,
 				22A0EA0321C4B110002E202E /* DZCMineViewController.storyboard in Resources */,
 				228C16AA21B414A500C9927D /* Repostweitoutiao.xib in Resources */,
