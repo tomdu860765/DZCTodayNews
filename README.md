@@ -2,7 +2,7 @@
 仿写头条新闻项目
 ==============
 * 项目简介<br>
-该项目只是作者用来练习和仅限于学习交流切勿用作商业用途,APP当中会有网上公开的api链接如有侵权请练习作者删除.该项目在不断完善当中,有部分功能限制于api链接或者涉及到个人信息故没有公开.
+该项目只是作者用来练习和仅限于学习交流切勿用作商业用途,APP当中会有网上公开的api链接如有侵权请联系作者删除.该项目在不断完善当中,有部分功能限制于api链接或者涉及到个人信息故没有公开.
 
 
 1.依赖库 
@@ -29,4 +29,11 @@
 以下是演示图片<br>
 ----------------
 首页新闻视图控制器<br>
+
+
 ![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/%E9%A6%96%E9%A1%B5%E6%8E%A7%E5%88%B6%E5%99%A8.gif) ![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.gif)
+----------------
+小视频视图控制器<br>
+
+
+![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/videovc.gif)
