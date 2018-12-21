@@ -37,6 +37,4 @@
 
 
 ![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/videovc.gif)
-----------------
-微头条视图控制器<br>
-![](https://github.com/tomdu860765/DZCTodayNews/blob/master/DZCTodayNews/GIfs/weitoutiao.gif)
+
