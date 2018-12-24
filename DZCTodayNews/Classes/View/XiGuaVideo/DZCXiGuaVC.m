@@ -61,6 +61,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(markcellplayer:)
                                                 name:@"videocellplayer" object:nil];
+    
 }
 -(void)markcellplayer:(NSNotification*)notification{
     
@@ -152,7 +153,7 @@
             [tablevc.view mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.titleScrollview.mas_bottom).offset(0);
                 make.left.mas_equalTo(SCREENWIDTH*idx);
-                make.bottom.mas_offset(SCREENHEIGHT-TABBARHEIGHT*2);
+                make.bottom.mas_offset(SCREENHEIGHT-TABBARHEIGHT);
                 make.width.mas_equalTo(SCREENWIDTH);
             }];
         }

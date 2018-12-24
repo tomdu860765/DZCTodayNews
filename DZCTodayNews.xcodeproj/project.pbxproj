@@ -71,7 +71,6 @@
 		228E78D821C548AD00140F68 /* DZCMineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228E78D721C548AD00140F68 /* DZCMineTableViewController.m */; };
 		228F053221C3533E009D4869 /* 首页控制器.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053121C3533E009D4869 /* 首页控制器.gif */; };
 		228F053421C35343009D4869 /* 首页视频.gif in Resources */ = {isa = PBXBuildFile; fileRef = 228F053321C35343009D4869 /* 首页视频.gif */; };
-		228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */; };
 		229692A321C9E8DC00B84F9E /* Signincell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229692A221C9E8DC00B84F9E /* Signincell.xib */; };
 		229692A721C9E9A000B84F9E /* DZCSigninCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229692A621C9E9A000B84F9E /* DZCSigninCell.m */; };
 		229B21C2219A77CE00620EB3 /* NSString+NSString_TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B21C1219A77CE00620EB3 /* NSString+NSString_TimeToString.m */; };
@@ -246,7 +245,6 @@
 		228E78D721C548AD00140F68 /* DZCMineTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCMineTableViewController.m; sourceTree = "<group>"; };
 		228F053121C3533E009D4869 /* 首页控制器.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "首页控制器.gif"; sourceTree = "<group>"; };
 		228F053321C35343009D4869 /* 首页视频.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "首页视频.gif"; sourceTree = "<group>"; };
-		228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DZCXiGuaVC.storyboard; sourceTree = "<group>"; };
 		229692A221C9E8DC00B84F9E /* Signincell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Signincell.xib; sourceTree = "<group>"; };
 		229692A521C9E9A000B84F9E /* DZCSigninCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCSigninCell.h; sourceTree = "<group>"; };
 		229692A621C9E9A000B84F9E /* DZCSigninCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCSigninCell.m; sourceTree = "<group>"; };
@@ -1082,7 +1080,6 @@
 				2221553821A705CC0042409A /* XiGuaChildViewController */,
 				22193F2D2191629500FC150A /* DZCXiGuaVC.h */,
 				22193F2E2191629500FC150A /* DZCXiGuaVC.m */,
-				228FC86421A6460800637C1C /* DZCXiGuaVC.storyboard */,
 				22B9486221A8100D00336E4A /* XiGuaBaseTableViewController.h */,
 				22B9486321A8100D00336E4A /* XiGuaBaseTableViewController.m */,
 			);
@@ -1306,7 +1303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				22193EFA219119F500FC150A /* LaunchScreen.storyboard in Resources */,
-				228FC86521A6460800637C1C /* DZCXiGuaVC.storyboard in Resources */,
 				221D603E21A2646800FAC269 /* ThreePiccell.xib in Resources */,
 				228E78D421C53C2600140F68 /* Main.storyboard in Resources */,
 				2264FC2921C9D9960085351D /* DZCWeiboLoginController.storyboard in Resources */,

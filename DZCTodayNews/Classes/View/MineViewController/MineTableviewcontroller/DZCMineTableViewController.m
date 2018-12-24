@@ -22,35 +22,28 @@
 @property (strong, nonatomic) IBOutlet UITableViewRowAction *onecell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellnumone;//未登录的cell
 @property (strong, nonatomic) IBOutlet UITableViewCell *issignincell;//已经登录的cell
-@property(strong,nonatomic)UITableViewController *tableviewcontroller;
+
 
 @end
 
 @implementation DZCMineTableViewController
--(UITableViewController*)tableviewcontroller
-{
-    if (_tableviewcontroller==nil) {
-        UIStoryboard *minesb=[UIStoryboard storyboardWithName:@"DZCMineViewController" bundle:nil];
-        _tableviewcontroller= [minesb instantiateViewControllerWithIdentifier:@"minestoryborad"];
-    }
-    
-    
-    return _tableviewcontroller;
-}
+
 
 
 - (IBAction)signoutaction:(UIButton *)sender {
 
-
     
     //载入新视图
-    [self.view addSubview:self.tableviewcontroller.view];
+    //[self.view addSubview:self.tableviewcontroller.view];
 
-   
+    [self delesigninfile];
+    
+    
+}
+//删除文件方法
+-(void)delesigninfile{
     //判断是否含有登录文件并删除登录文件
     NSString *filepath=[DocumentpathString stringByAppendingPathComponent:@"weibojson"];
-    
-    
     
     if ([[NSFileManager defaultManager]isDeletableFileAtPath:filepath]) {
         
@@ -58,8 +51,17 @@
         NSLog(@"登录文件已经删除");
         
     }
+    //滚到登录视图
     
+    if ([self.view.superview isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *sv=(UIScrollView*)self.view.superview;
+        
+        [sv setContentOffset:CGPointMake(0, 0) animated:NO];
+    }
+    
+ 
 }
+
 
 
 
@@ -68,10 +70,13 @@
     
     self.namelabel.text=cellusermodel.screen_name;
     
+    
     self.deataillabel.text=cellusermodel.userdescription;
     
     [self.signimageview ImageviewcutRound:self.signimageview withurl:cellusermodel.avatar_large];
     
+     //刷新视图
+    [self.tableView reloadData];
 }
 
 //微博登录
@@ -87,9 +92,8 @@
     UIStoryboard *loginvcsb=[UIStoryboard storyboardWithName:@"DZCWeiboLoginController" bundle:nil];
     
     DZCWeiboLoginController *loginvc=[loginvcsb instantiateViewControllerWithIdentifier:@"LoginController"];
-    
-    //改成根控制器来推出登录视图
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:loginvc animated:YES completion:nil];
+
+    [self.view.window.rootViewController presentViewController:loginvc animated:YES completion:nil];
     
     
     //回调block 重新加载页面
@@ -97,8 +101,14 @@
     loginvc.vcblock = ^(id model) {
         
         //注册并显示cell
-        [self registcellForsignin:model];
+        self.cellusermodel=model;
         
+        if ([self.view.superview isKindOfClass:[UIScrollView class]]) {
+            UIScrollView *sv=(UIScrollView*)self.view.superview;
+            
+            [sv setContentOffset:CGPointMake(SCREENWIDTH, 0) animated:NO];
+        }
+       
     };
 
 }
@@ -116,21 +126,6 @@
     
     
 }
-//注册一个登录cell
--(void)registcellForsignin:(DZCWeiboUsermodel*)model{
-    //移除旧有子视图
-    for (UIView *view in self.cellnumone.subviews) {
-        
-         [view removeFromSuperview];
-        
-        
-    }
-    DZCSigninCell *cell=[[NSBundle mainBundle]loadNibNamed:@"Signincell" owner:self options:nil].lastObject;
-    cell.usermodel=model;
-    
-    //添加新的子视图
-    [self.cellnumone addSubview:cell.contentView];
-}
 
 //执行网络方法加载个人信息
 -(void)networksetuser{
@@ -147,7 +142,6 @@
         
     }];
 }
-//登出删除登录文件方法
 
 
 @end
