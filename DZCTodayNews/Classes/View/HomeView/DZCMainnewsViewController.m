@@ -56,7 +56,7 @@
         [arraymodel enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj isEqualToString:@"关注"]) {
                 return ;
-            }else if ([obj isEqualToString:@"特卖"]){
+            }else if ([obj isEqualToString:@"值点"]){
                 return;
             }
             [wordsarray addObject:obj];

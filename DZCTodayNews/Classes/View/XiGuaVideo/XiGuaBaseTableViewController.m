@@ -31,8 +31,7 @@
     [self registervideoCell];
     if ([NSStringFromClass([self class]) isEqualToString:@"DZCDiscoverVideoController"]) {
         [self netWorkForXiGuaVideoController];}
-//    self.tableView.estimatedRowHeight = 300;
-//    self.tableView.rowHeight=UITableViewAutomaticDimension;
+
     self.tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
     
 }

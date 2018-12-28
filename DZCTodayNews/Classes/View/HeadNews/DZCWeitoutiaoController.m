@@ -11,6 +11,7 @@
 #import "DZCWeitoutiaoModel.h"
 #import "DZCNetsTools.h"
 #import "SVProgressHUD.h"
+#import "DZCRereshControl.h"
 @interface DZCWeitoutiaoController ()
 @property(nonatomic,strong)DZCWeitoutiaoModel *cellmodel;
 @property(nonatomic,strong)NSMutableArray *weitoutiaoarray;
@@ -36,6 +37,10 @@
         self.weitoutiaoarray=[NSMutableArray arrayWithArray:modelarray];
     }];
     [self registweitoutiaocell];
+    
+    //添加头部刷新控件
+    [self setUpheaderRefreashcontrol];
+    
 }
 //注册cell
 -(void)registweitoutiaocell{
@@ -86,7 +91,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [SVProgressHUD showWithStatus:@"载入中"];
    
-    //[self.tabBarController.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+   
     
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -95,11 +100,25 @@
     
 }
 
-
--(void)viewWillDisappear:(BOOL)animated{
+-(void)setUpheaderRefreashcontrol{
     
-    // [self.tabBarController.navigationController.navigationBar setBarTintColor:[UIColor redColor]];
+    DZCRereshControl *recontrol=DZCRereshControl.new;
     
+    [recontrol addfooterRefresh:self.tableView vcblock:^{
+       //执行网络请求
+     
+        NSLog(@"上拉执行网络方法");
+        
+    }];
+    
+    [recontrol addRefreshControlheader:self.tableView vcblock:^{
+       
+        NSLog(@"下拉执行网络方法");
+  
+       
+    }];
 }
+
+
 
 @end

@@ -68,7 +68,8 @@
     //添加滚动视图到主视图
     [self setHuoshanVideoMainscrollview];
     [self setchildViewcontroller];
-
+    //设置标题
+    [self Settitleview];
 }
 
 //加载视频滚动视图
@@ -130,15 +131,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     
    
-    //设置标题
-    [self Settitleview];
+    [self.tabBarController.navigationItem.titleView setHidden:NO];
    
 }
 //设置导航栏标题
 -(void)Settitleview{
   
-    
-    
     
  self.SegmentedControl.frame=CGRectMake(0, 0, SCREENWIDTH*0.5, NAVIBARHEIGHT*0.5);
     
@@ -176,7 +174,7 @@
     
    
     //移除标题
-    [self.tabBarController.navigationItem.titleView removeFromSuperview];
+    [self.tabBarController.navigationItem.titleView setHidden:YES];
 }
 
 @end

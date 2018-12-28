@@ -40,9 +40,9 @@
         
         CGFloat objwidth=[[obj valueForKey:@"width"] doubleValue];
         //坐标x
-        CGFloat picx=margin+(margin+imageWidth)*column;
+        CGFloat picx=(margin+imageWidth)*column;
         //坐标y
-        CGFloat picy=margin+(margin+imgaeHeight)*row;
+        CGFloat picy=(margin+imgaeHeight)*row;
         
         if (arraypic.count==1) {
             ninepicView.frame=CGRectMake(0, 0, objwidth/2, objwidth/2);
@@ -50,10 +50,21 @@
             
         }else if(arraypic==nil)
         {
-            
             resulH=0;
-        }else
-            
+        }else if(arraypic.count==4)
+        { //4图模型高度计算
+            NSInteger fourrow=idx/2;
+            NSInteger fourcolumn=idx%2;
+            CGFloat fourmargin=10;
+            CGFloat picWidth=(self.bounds.size.width-fourmargin)*0.5;
+            CGFloat picHeigth=picWidth;
+            CGFloat fourX=(fourmargin+picWidth)*fourcolumn;
+            CGFloat fourY=(fourmargin+picWidth)*fourrow;
+            ninepicView.frame=CGRectMake(fourX, fourY, picWidth, picHeigth);
+           
+            resulH=picWidth*2+fourmargin;
+        }
+            else
         {
             ninepicView.frame=CGRectMake(picx, picy, imageWidth, imgaeHeight);
             resulH=imageWidth*(row+1)+margin*(column+2);
