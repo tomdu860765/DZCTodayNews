@@ -120,8 +120,8 @@
 ///*参数二 返回category数组
 +(void)ScrollviewSttitle:(void(^)(NSArray*,NSArray*))finishblock{
     NSString *string=@"article/category/get_subscribed/v9/?";
-    
-    [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:string parameters:@[] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSDictionary *para=@{@"device_id":@"8800803362"};
+    [[DZCNewsNetWorkTools NewsNetWorkDefualt] GET:string parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
      NSMutableArray *marry=NSMutableArray.array;
      NSMutableArray *marraycategory=NSMutableArray.array;
             dataModel *model=[dataModel yy_modelWithDictionary:responseObject[@"data"] ];

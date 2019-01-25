@@ -142,7 +142,6 @@
 		22193EF9219119F500FC150A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22193EFB219119F500FC150A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22193EFC219119F500FC150A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		22193F0321911A4400FC150A /* TodayNewsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayNewsHeader.h; sourceTree = "<group>"; };
 		22193F102191365500FC150A /* DZCBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCBaseViewController.h; sourceTree = "<group>"; };
 		22193F112191365500FC150A /* DZCBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCBaseViewController.m; sourceTree = "<group>"; };
 		22193F132191369D00FC150A /* DZCNaviViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCNaviViewController.h; sourceTree = "<group>"; };
@@ -329,6 +328,7 @@
 		22E51BB021A3DBE0006BDD00 /* DZCCellDeataleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCCellDeataleViewController.h; sourceTree = "<group>"; };
 		22E51BB121A3DBE0006BDD00 /* DZCCellDeataleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZCCellDeataleViewController.m; sourceTree = "<group>"; };
 		22E51BB321A449DF006BDD00 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		22EC457321FB33D30077DC0B /* TodayNewsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayNewsHeader.h; sourceTree = "<group>"; };
 		22F4239021B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+DZCEmojiAttributedstring.h"; sourceTree = "<group>"; };
 		22F4239121B6250600EDD747 /* NSAttributedString+DZCEmojiAttributedstring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+DZCEmojiAttributedstring.m"; sourceTree = "<group>"; };
 		22F4239721B6550800EDD747 /* DZCMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZCMineViewController.h; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 				22193EF8219119F500FC150A /* LaunchScreen.storyboard */,
 				22193EFB219119F500FC150A /* Info.plist */,
 				22193EFC219119F500FC150A /* main.m */,
-				22193F0321911A4400FC150A /* TodayNewsHeader.h */,
+				22EC457321FB33D30077DC0B /* TodayNewsHeader.h */,
 			);
 			path = DZCTodayNews;
 			sourceTree = "<group>";
